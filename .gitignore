@@ -1,0 +1,15 @@
+# IDE
+.vscode
+
+# Project dependencies
+.cache
+node_modules
+
+# Build directory
+/public
+
+# Local plugins used for development
+/plugins
+
+# Secrets
+.env
