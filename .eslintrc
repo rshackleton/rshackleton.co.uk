@@ -4,7 +4,7 @@
     "node": true,
     "es6": true
   },
-  "plugins": ["react"],
+  "plugins": ["react", "emotion"],
   "globals": {
     "graphql": false
   },
@@ -15,7 +15,11 @@
   ],
   "rules": {
     "linebreak-style": 0,
-    "semi": 2
+    "semi": 2,
+    "emotion/import-from-emotion": "error",
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/styled-import": "error"
   },
   "parserOptions": {
     "sourceType": "module",

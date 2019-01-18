@@ -34,6 +34,15 @@ module.exports = {
     //   resolve: `gatsby-plugin-sitemap`
     // },
     {
+      resolve: `gatsby-plugin-emotion`,
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
       resolve: `gatsby-source-kentico-cloud`,
       options: {
         deliveryClientConfig: {
