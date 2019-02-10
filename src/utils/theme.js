@@ -21,7 +21,7 @@ const theme = {
     body: '#d3d3d3',
     link: brand.primary,
     linkHover: brand.primary,
-    insetBackground: '#e5e5e5',
+    insetBackground: '#fefefe',
     siteBackground: '#0d0d0d',
   },
   container: {
