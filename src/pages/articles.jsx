@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '@components/layouts/Default';
+import SEO from '@components/shared/SEO';
 
 const Index = ({
   data: {
@@ -17,7 +17,9 @@ const Index = ({
         {edges.map(({ node }) => (
           <article key={node.id}>
             <h2>
-              <Link to={`articles/${node.elements.slug.value}`}>{node.elements.title.value}</Link>
+              <Link to={`articles/${node.elements.slug.value}`}>
+                {node.elements.title.value}
+              </Link>
             </h2>
             <p>{node.elements.summary.value}</p>
           </article>

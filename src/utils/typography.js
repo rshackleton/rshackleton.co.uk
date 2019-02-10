@@ -1,8 +1,9 @@
 import Typography from 'typography';
 
 const typography = new Typography({
-  baseFontSize: '16px',
-  baseLineHeight: 1.5,
+  baseFontSize: '18px',
+  baseLineHeight: 1.55,
+  headerLineHeight: 1.4,
   headerFontFamily: ['Droid Sans', 'sans-serif'],
   bodyFontFamily: ['Droid Serif', 'serif'],
   googleFonts: [
@@ -17,6 +18,13 @@ const typography = new Typography({
   ],
 });
 
+// Hot reload typography in development.
+if (process.env.NODE_ENV !== 'production') {
+  typography.injectStyles();
+}
+
+export const adjustFontSizeTo = typography.adjustFontSizeTo;
 export const rhythm = typography.rhythm;
+export const scale = typography.scale;
 
 export default typography;

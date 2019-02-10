@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Layout from '@components/layouts/Default';
+import SEO from '@components/shared/SEO';
 
 const Index = ({
   data: {
@@ -19,13 +19,11 @@ const Index = ({
         description={data.elements.metadata__page_description.value}
         keywords={data.elements.metadata__page_keywords.value}
       />
-      <div>
-        <ul>
-          <li>
-            <Link to="articles">Articles</Link>
-          </li>
-        </ul>
-      </div>
+      <ul>
+        <li>
+          <Link to="articles">Articles</Link>
+        </li>
+      </ul>
     </Layout>
   );
 };
