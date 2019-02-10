@@ -1,15 +1,19 @@
-# IDE
-.vscode
-
 # Project dependencies
-.cache
+\.cache
 node_modules
+
+# IDE settings
+\.vscode
 
 # Build directory
 /public
 
 # Local plugins used for development
-/plugins
+/plugins/*
 
 # Secrets
 .env
+
+# TEMP: Referencing "gatsby-source-kentico-cloud@3"
+!/plugins/gatsby-source-kentico-cloud/
+!/plugins/gatsby-source-kentico-cloud/*

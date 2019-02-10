@@ -22,29 +22,38 @@
     "gatsby-plugin-google-analytics": "^2.0.9",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-offline": "^2.0.21",
-    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-typography": "^2.2.5",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-kentico-cloud": "^2.2.1",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-emotion": "^10.0.7",
     "eslint": "^5.12.0",
     "eslint-config-google": "^0.11.0",
     "eslint-config-prettier": "^3.4.0",
     "eslint-plugin-emotion": "^10.0.6",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.3",
+    "eslint-plugin-react": "^7.12.4",
     "husky": "^1.3.1",
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3",
-    "pretty-quick": "^1.8.0"
+    "prettier": "^1.15.3"
   },
   "browserslist": [
     "defaults"
@@ -54,20 +63,21 @@
       "pre-commit": "lint-staged"
     }
   },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      ".cache/"
+    ]
+  },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
+      "prettier --write",
       "eslint --fix",
       "git add"
     ],
     "src/**/*.{json,css,md}": [
       "prettier --write",
       "git add"
-    ]
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      ".cache/"
     ]
   }
 }

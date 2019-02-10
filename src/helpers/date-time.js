@@ -1,5 +1,6 @@
-const formatDate = time => {
-  return new Date(time).toLocaleString('en-US', {
+/** Get formatted date string. */
+export default function formatDate(date) {
+  const formatter = new Intl.DateTimeFormat('en-GB', {
     year: 'numeric',
     month: 'numeric',
     day: 'numeric',
@@ -7,6 +8,6 @@ const formatDate = time => {
     minute: 'numeric',
     hour12: true,
   });
-};
 
-exports.formatDate = formatDate;
+  return formatter.format(date);
+}

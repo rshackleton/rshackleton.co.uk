@@ -4,23 +4,12 @@
     "node": true,
     "es6": true
   },
-  "plugins": ["react", "emotion"],
-  "globals": {
-    "graphql": false
-  },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
-  "rules": {
-    "linebreak-style": 0,
-    "semi": 2,
-    "emotion/import-from-emotion": "error",
-    "emotion/jsx-import": "error",
-    "emotion/no-vanilla": "error",
-    "emotion/styled-import": "error"
-  },
+  "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2018,
@@ -28,9 +17,19 @@
       "jsx": true
     }
   },
+  "plugins": ["react", "emotion"],
+  "rules": {
+    "linebreak-style": 0,
+    "no-unused-vars": 1,
+    "semi": 2,
+    "emotion/import-from-emotion": "error",
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/styled-import": "error"
+  },
   "settings": {
     "react": {
-      "version": "16.7.0"
+      "version": "16.8.0"
     }
   }
 }

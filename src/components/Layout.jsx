@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { css, jsx } from '@emotion/core';
 
 import { rhythm } from '../utils/typography';
-import Header from '../components/header';
+import Header from './header';
 
 const Layout = ({ children }) => (
   <StaticQuery

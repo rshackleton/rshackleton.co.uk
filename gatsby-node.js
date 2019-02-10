@@ -10,7 +10,7 @@ exports.createPages = async function createPages({ graphql, actions }) {
 async function createArticlePages({ graphql, actions }) {
   const { createPage } = actions;
 
-  const articleTemplate = path.resolve(`src/templates/article-page.js`);
+  const articleTemplate = path.resolve(`src/templates/article-page.jsx`);
 
   const { data, errors } = await graphql(`
     {
