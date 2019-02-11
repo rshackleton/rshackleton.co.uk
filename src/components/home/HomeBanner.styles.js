@@ -33,7 +33,7 @@ export const Content = styled.div`
   padding: 0 ${rhythm(1)};
 
   ${mq.sm} {
-    padding-top: ${rhythm(10)};
+    margin-top: ${rhythm(10)};
   }
 `;
 
