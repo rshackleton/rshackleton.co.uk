@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 import PictureBase from '@components/shared/Picture';
 import SiteWideBase from '@components/shared/SiteWide';
+import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
 
 export const Banner = styled.div`
@@ -13,16 +14,28 @@ export const Banner = styled.div`
 
 export const Container = styled.div`
   position: relative;
+  display: flex;
   height: ${({ theme }) =>
     `calc(100vh - ${rhythm(
       theme.dimensions.header + theme.dimensions.footer,
     )})`};
+  align-items: center;
+
+  ${mq.sm} {
+    align-items: flex-start;
+  }
 `;
 
-export const Content = styled(SiteWideBase)`
+export const Content = styled.div`
   position: relative;
   display: block;
-  padding-top: ${rhythm(10)};
+  width: ${({ theme }) => theme.container.base};
+  margin: 0 auto;
+  padding: 0 ${rhythm(1)};
+
+  ${mq.sm} {
+    padding-top: ${rhythm(10)};
+  }
 `;
 
 export const Picture = styled(PictureBase)`
@@ -37,15 +50,24 @@ export const Picture = styled(PictureBase)`
 
 export const TagLine = styled.h2`
   display: inline-block;
-  background: ${({ theme }) => theme.colors.siteBackground};
+  margin-bottom: 0;
   ${adjustFontSizeTo(24)}
   font-weight: normal;
+
+  > span {
+    display: inline;
+    background: ${({ theme }) => theme.colors.siteBackground};
+  }
 `;
 
 export const Title = styled.h1`
   display: inline-block;
   margin-bottom: ${rhythm(0.5)};
-  background: ${({ theme }) => theme.colors.siteBackground};
   ${adjustFontSizeTo(42)}
   font-weight: normal;
+
+  > span {
+    display: inline;
+    background: ${({ theme }) => theme.colors.siteBackground};
+  }
 `;

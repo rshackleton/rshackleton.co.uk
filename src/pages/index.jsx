@@ -57,9 +57,13 @@ const Index = ({
           />
         </Banner>
         <Content>
-          <Title>Richard Shackleton</Title>
+          <Title>
+            <span>Richard Shackleton</span>
+          </Title>
           <br />
-          <TagLine>Web developer</TagLine>
+          <TagLine>
+            <span>Web developer</span>
+          </TagLine>
         </Content>
       </Container>
     </Layout>
