@@ -46,6 +46,14 @@ module.exports = {
       resolve: `gatsby-plugin-emotion`,
     },
     {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        google: {
+          families: ['Raleway:400,700', 'Roboto Slab:400,400i,700'],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
