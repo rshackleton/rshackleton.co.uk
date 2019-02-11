@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 
 import PictureBase from '@components/shared/Picture';
-import SiteWideBase from '@components/shared/SiteWide';
 import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
 
