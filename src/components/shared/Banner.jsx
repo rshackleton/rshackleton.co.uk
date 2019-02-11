@@ -6,7 +6,7 @@ import { rules } from '@utils/mq';
 
 import { Container, Picture } from './Banner.styles';
 
-const Banner = ({ image, imageDescription }) => {
+const Banner = ({ image, imageDescription, ...otherProps }) => {
   const srcs = {
     xl: `${image}?w=1920&auto=format 1x, ${image}?w=3840&auto=format 2x`,
     lg: `${image}?w=1200&auto=format 1x, ${image}?w=2400&auto=format 2x`,
@@ -16,7 +16,7 @@ const Banner = ({ image, imageDescription }) => {
   };
 
   return (
-    <Container>
+    <Container {...otherProps}>
       <Picture
         alt={imageDescription}
         fallback={`${image}?w=320&auto=format 1x, ${image}?w=640&auto=format 2x`}

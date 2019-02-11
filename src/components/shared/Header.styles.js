@@ -10,7 +10,7 @@ export const Container = styled.header`
   display: block;
   height: ${({ theme }) => rhythm(theme.dimensions.header)};
   width: 100%;
-  text-shadow: rgba(0, 0, 0, 0.6) 1px 1px 1px;
+  background: ${({ theme }) => theme.colors.siteBackground};
   z-index: ${({ theme }) => theme.layers.overlay};
 `;
 
@@ -28,6 +28,6 @@ export const Title = styled.h1`
 `;
 
 export const TitleLink = styled(Link)`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.body};
   text-decoration: none;
 `;

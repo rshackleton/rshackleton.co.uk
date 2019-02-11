@@ -1,21 +1,21 @@
 import Typography from 'typography';
 
 const typography = new Typography({
+  bodyFontFamily: ['Roboto Slab', 'serif'],
   baseFontSize: '18px',
-  baseLineHeight: 1.55,
-  headerLineHeight: 1.4,
-  headerFontFamily: ['Droid Sans', 'sans-serif'],
-  bodyFontFamily: ['Droid Serif', 'serif'],
   googleFonts: [
     {
-      name: 'Droid Sans',
+      name: 'Raleway',
       styles: ['400', '700'],
     },
     {
-      name: 'Droid Serif',
+      name: 'Roboto Slab',
       styles: ['400', '400i', '700'],
     },
   ],
+  baseLineHeight: 1.55,
+  headerFontFamily: ['Raleway', 'sans-serif'],
+  headerLineHeight: 1.4,
 });
 
 // Hot reload typography in development.

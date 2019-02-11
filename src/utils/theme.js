@@ -1,11 +1,13 @@
+import { rgba } from 'polished';
+
 const brand = {
   primary: '#466841',
   secondary: '#9ef8ef',
 };
 
 const fonts = {
-  headerFontFamily: '"Droid Sans", sans-serif',
-  bodyFontFamily: '"Droid Serif", serif',
+  headerFontFamily: '"Raleway", sans-serif',
+  bodyFontFamily: '"Roboto Slab", serif',
 };
 
 const theme = {
@@ -18,18 +20,20 @@ const theme = {
     xl: 1200,
   },
   colors: {
-    body: '#d3d3d3',
+    body: rgba('#000000', 0.8),
     link: brand.primary,
     linkHover: brand.primary,
     insetBackground: '#fefefe',
-    siteBackground: '#0d0d0d',
+    siteBackground: '#fefefe',
   },
   container: {
-    base: '60rem',
+    base: '80rem',
     text: '50rem',
   },
   dimensions: {
+    banner: 18,
     header: 2,
+    footer: 2,
   },
   fonts,
   layers: {

@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Footer from '@components/shared/Footer';
 import Header from '@components/shared/Header';
 import ThemeWrapper from '@components/shared/ThemeWrapper';
 import globalStyles from '@utils/globalStyles';
@@ -25,6 +26,7 @@ const Layout = ({ children }) => (
         <Global styles={globalStyles} />
         <Header siteTitle={data.site.siteMetadata.title} />
         <ContentWrapper>{children}</ContentWrapper>
+        <Footer />
       </ThemeWrapper>
     )}
   />

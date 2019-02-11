@@ -3,13 +3,16 @@ import { StaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Banner from '@components/shared/Banner';
-import ContainerInset from '@components/shared/ContainerInset';
+import Footer from '@components/shared/Footer';
 import Header from '@components/shared/Header';
 import ThemeWrapper from '@components/shared/ThemeWrapper';
 import globalStyles from '@utils/globalStyles';
 
-import { ContentWrapper } from './Default.styles';
+import {
+  Banner,
+  ContainerInset,
+  ContentWrapper,
+} from './InsetWithBanner.styles';
 
 const Layout = ({ banner, bannerDescription, children }) => (
   <StaticQuery
@@ -30,6 +33,7 @@ const Layout = ({ banner, bannerDescription, children }) => (
           <Banner image={banner} imageDescription={bannerDescription} />
           <ContainerInset>{children}</ContainerInset>
         </ContentWrapper>
+        <Footer />
       </ThemeWrapper>
     )}
   />

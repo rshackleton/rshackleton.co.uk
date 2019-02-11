@@ -6,7 +6,7 @@ import { rhythm } from '@utils/typography';
 export const Container = styled.div`
   position: relative;
   display: block;
-  height: ${rhythm(18)};
+  height: ${({ theme }) => rhythm(theme.dimensions.banner)};
   z-index: ${({ theme }) => theme.layers.base};
 `;
 

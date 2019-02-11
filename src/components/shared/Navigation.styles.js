@@ -25,7 +25,7 @@ export const LinkItem = styled.li`
 
 export const Link = styled(LinkBase)`
   display: block;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.body};
   font-family: ${({ theme }) => theme.fonts.headerFontFamily};
   ${adjustFontSizeTo(18)};
   font-weight: normal;

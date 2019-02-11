@@ -12,8 +12,8 @@ export const Inner = styled.div`
   display: block;
   margin: ${rhythm(-4)} auto 0;
   min-height: ${rhythm(10)};
-  max-width: ${({ theme }) => theme.container.base};
-  padding: ${rhythm(1)};
+  max-width: ${({ theme }) => theme.container.text};
+  padding: ${rhythm(2)};
   background: ${({ theme }) => theme.colors.insetBackground};
   z-index: ${({ theme }) => theme.layers.content};
 `;
