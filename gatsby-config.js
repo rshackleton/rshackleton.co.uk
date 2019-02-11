@@ -70,5 +70,13 @@ module.exports = {
         languageCodenames: [`default`],
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/sw.js': ['Cache-Control: no-cache'],
+        },
+      },
+    },
   ],
 };
