@@ -17,7 +17,9 @@ const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
         keywords={data.elements.metadata__page_keywords.value}
       />
       <h1>{data.elements.title.value}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.elements.body.value }} />
+      <div
+        dangerouslySetInnerHTML={{ __html: data.elements.body.resolvedHtml }}
+      />
     </Layout>
   );
 };
@@ -33,7 +35,7 @@ export const query = graphql`
           value
         }
         body {
-          value
+          resolvedHtml
         }
         banner {
           value {
