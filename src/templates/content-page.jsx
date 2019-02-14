@@ -39,24 +39,7 @@ export const query = graphql`
         body {
           resolvedHtml
           linked_items {
-            ... on Node {
-              ... on KenticoCloudItemArticle {
-                system {
-                  codename
-                }
-                elements {
-                  title {
-                    value
-                  }
-                  slug {
-                    value
-                  }
-                  summary {
-                    value
-                  }
-                }
-              }
-            }
+            ...LinkedItemsFragment
           }
         }
         banner {

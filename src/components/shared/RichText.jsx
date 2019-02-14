@@ -7,10 +7,12 @@
 
 /* eslint-disable no-unused-vars */
 import { jsx } from '@emotion/core';
+import parseHTML from 'html-react-parser';
 import PropTypes from 'prop-types';
 import React from 'react';
-import parseHTML from 'html-react-parser';
 /* eslint-enable no-unused-vars */
+
+import LinkedItem from '@components/linked-items';
 
 const RichText = ({ content, linkedItems }) => {
   // Remove any line breaks from HTML.
@@ -42,11 +44,7 @@ function replaceNode(domNode, linkedItems) {
   const codename = getCodeName(domNode);
   const linkedItem = getLinkedItem(codename, linkedItems);
 
-  return (
-    <blockquote linkedItem={linkedItem}>
-      {linkedItem.elements.title.value}
-    </blockquote>
-  );
+  return <LinkedItem linkedItem={linkedItem} />;
 }
 
 /** Get code name for Kentico Cloud inline content item from DOM node. */
