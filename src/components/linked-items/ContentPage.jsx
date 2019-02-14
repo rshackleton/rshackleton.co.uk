@@ -34,6 +34,9 @@ export const KenticoCloudItemContentPageFragment = graphql`
       slug {
         value
       }
+      summary {
+        value
+      }
     }
   }
 `;

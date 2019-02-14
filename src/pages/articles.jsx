@@ -17,7 +17,7 @@ const Index = ({
         {edges.map(({ node }) => (
           <article key={node.id}>
             <h2>
-              <Link to={`articles/${node.elements.slug.value}`}>
+              <Link to={`/articles/${node.elements.slug.value}`}>
                 {node.elements.title.value}
               </Link>
             </h2>
