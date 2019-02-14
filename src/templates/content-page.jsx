@@ -20,6 +20,8 @@ const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
       <h1>{data.elements.title.value}</h1>
       <RichText
         content={data.elements.body.resolvedHtml}
+        images={data.elements.body.images}
+        links={data.elements.body.links}
         linkedItems={data.elements.body.linked_items}
       />
     </Layout>
@@ -38,6 +40,17 @@ export const query = graphql`
         }
         body {
           resolvedHtml
+          # images {
+          #   image_id
+          #   description
+          #   url
+          # }
+          # links {
+          #   codename
+          #   itemId
+          #   type
+          #   urlSlug
+          # }
           linked_items {
             ...LinkedItemsFragment
           }

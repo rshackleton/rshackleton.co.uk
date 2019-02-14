@@ -4,7 +4,7 @@ import React from 'react';
 import { Container, Summary, Title } from './ArticleSummary.styles';
 
 const ArticleSummary = ({ slug, summary, title }) => (
-  <Container to={`articles/${slug}`}>
+  <Container to={`/articles/${slug}`}>
     <Title>{title}</Title>
     <Summary>{summary}</Summary>
   </Container>

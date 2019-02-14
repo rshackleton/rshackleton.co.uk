@@ -26,9 +26,9 @@ const LinkedItem = ({ linkedItem }) => {
 LinkedItem.propTypes = {
   linkedItem: PropTypes.shape({
     system: PropTypes.shape({
-      type: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+      type: PropTypes.string,
+    }),
+  }),
 };
 
 export default LinkedItem;

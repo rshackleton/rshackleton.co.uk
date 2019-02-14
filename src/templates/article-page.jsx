@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '@components/layouts/InsetWithBanner';
+import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
 const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
@@ -17,8 +18,11 @@ const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
         keywords={data.elements.metadata__page_keywords.value}
       />
       <h1>{data.elements.title.value}</h1>
-      <div
-        dangerouslySetInnerHTML={{ __html: data.elements.body.resolvedHtml }}
+      <RichText
+        content={data.elements.body.resolvedHtml}
+        images={data.elements.body.images}
+        links={data.elements.body.links}
+        linkedItems={data.elements.body.linked_items}
       />
     </Layout>
   );
@@ -36,6 +40,20 @@ export const query = graphql`
         }
         body {
           resolvedHtml
+          images {
+            image_id
+            description
+            url
+          }
+          links {
+            codename
+            itemId
+            type
+            urlSlug
+          }
+          linked_items {
+            ...LinkedItemsFragment
+          }
         }
         banner {
           value {

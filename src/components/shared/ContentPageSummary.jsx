@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Container, Title } from './ContentPageSummary.styles';
+import { Container, Summary, Title } from './ContentPageSummary.styles';
 
-const ContentPageSummary = ({ slug, title }) => (
-  <Container to={`${slug}`}>
+const ContentPageSummary = ({ slug, summary, title }) => (
+  <Container to={`/${slug}`}>
     <Title>{title}</Title>
+    <Summary>{summary}</Summary>
   </Container>
 );
 
