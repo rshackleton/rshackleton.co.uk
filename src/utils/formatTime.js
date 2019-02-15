@@ -1,11 +1,10 @@
 /** Get formatted date string. */
-export default function formatDate(date) {
+export default function formatTime(date) {
   const formatter = new Intl.DateTimeFormat('en-GB', {
-    day: 'numeric',
-    month: 'long',
+    hour: 'numeric',
+    hour12: true,
+    minute: 'numeric',
     timeZone: 'Europe/London',
-    weekday: 'long',
-    year: 'numeric',
   });
 
   return formatter.format(date);

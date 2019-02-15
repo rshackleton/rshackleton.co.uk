@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
@@ -7,22 +8,29 @@ import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
 const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
+  const seo = {
+    title: get(data, 'elements.metadata__page_title.value'),
+    description: get(data, 'elements.metadata__page_description.value'),
+    keywords: get(data, 'elements.metadata__page_keywords.value'),
+  };
+
+  const banner = get(data, 'elements.banner.value[0].url');
+  const bannerDescription = get(data, 'elements.banner.value[0].description');
+  const content = get(data, 'elements.body.resolvedHtml');
+  const images = get(data, 'elements.body.images');
+  const links = get(data, 'elements.body.links');
+  const linkedItems = get(data, 'elements.body.linked_items');
+  const title = get(data, 'elements.title.value');
+
   return (
-    <Layout
-      banner={data.elements.banner.value[0].url}
-      bannerDescription={data.elements.banner.value[0].description}
-    >
-      <SEO
-        title={data.elements.metadata__page_title.value}
-        description={data.elements.metadata__page_description.value}
-        keywords={data.elements.metadata__page_keywords.value}
-      />
+    <Layout banner={banner} bannerDescription={bannerDescription}>
+      <SEO {...seo} />
       <h1>{data.elements.title.value}</h1>
       <RichText
-        content={data.elements.body.resolvedHtml}
-        images={data.elements.body.images}
-        links={data.elements.body.links}
-        linkedItems={data.elements.body.linked_items}
+        content={content}
+        images={images}
+        links={links}
+        linkedItems={linkedItems}
       />
     </Layout>
   );
