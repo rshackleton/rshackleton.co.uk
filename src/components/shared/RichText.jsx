@@ -18,6 +18,10 @@ import InlineLink from '@components/shared/InlineLink';
 import LinkedItem from '@components/linked-items';
 
 const RichText = ({ content, images, links, linkedItems }) => {
+  if (!content || !content.length) {
+    return null;
+  }
+
   // Remove any line breaks from HTML.
   const cleaned = content.replace(/(\n|\r)+/, '');
 

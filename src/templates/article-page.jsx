@@ -41,6 +41,10 @@ const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
   );
 };
 
+ArticlePage.propTypes = {
+  data: PropTypes.object,
+};
+
 export default ArticlePage;
 
 export const query = graphql`
@@ -96,7 +100,3 @@ export const query = graphql`
     }
   }
 `;
-
-ArticlePage.propTypes = {
-  data: PropTypes.object,
-};

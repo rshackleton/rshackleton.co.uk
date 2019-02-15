@@ -25,7 +25,7 @@ const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
   return (
     <Layout banner={banner} bannerDescription={bannerDescription}>
       <SEO {...seo} />
-      <h1>{data.elements.title.value}</h1>
+      <h1>{title}</h1>
       <RichText
         content={content}
         images={images}
@@ -34,6 +34,10 @@ const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
       />
     </Layout>
   );
+};
+
+ContentPage.propTypes = {
+  data: PropTypes.object,
 };
 
 export default ContentPage;
@@ -82,7 +86,3 @@ export const query = graphql`
     }
   }
 `;
-
-ContentPage.propTypes = {
-  data: PropTypes.object,
-};
