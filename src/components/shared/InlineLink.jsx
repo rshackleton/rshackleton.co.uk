@@ -11,13 +11,23 @@ const InlineLink = ({ content, itemId, type, urlSlug }) => {
       break;
     }
 
+    case 'article_listing': {
+      url = `/articles`;
+      break;
+    }
+
     case 'content_page': {
       url = `/${urlSlug}`;
       break;
     }
 
+    case 'home_page': {
+      url = `/`;
+      break;
+    }
+
     default: {
-      url = '/';
+      url = '/not-found';
     }
   }
 

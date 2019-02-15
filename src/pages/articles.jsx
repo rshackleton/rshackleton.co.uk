@@ -1,56 +1,58 @@
 import get from 'lodash/get';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
+import ArticleList from '@components/articles/ArticleList';
 import Layout from '@components/layouts/InsetWithBanner';
 import SEO from '@components/shared/SEO';
 
-const Index = ({
+const Articles = ({
   data: {
     allKenticoCloudItemArticleListing: {
       edges: [{ node: data }],
     },
-    allKenticoCloudItemArticle: { edges: items },
+    allKenticoCloudItemArticle: { edges: itemsData },
   },
 }) => {
+  const seo = {
+    title: get(data, 'elements.metadata__page_title.value'),
+    description: get(data, 'elements.metadata__page_description.value'),
+    keywords: get(data, 'elements.metadata__page_keywords.value'),
+  };
+
+  const banner = get(data, 'elements.banner.value[0].url');
+  const bannerDescription = get(data, 'elements.banner.value[0].description');
+  const title = get(data, 'elements.title.value');
+
+  const items = itemsData.map(({ node: item }) => ({
+    id: get(item, 'system.id'),
+    codename: get(item, 'system.codename'),
+    slug: get(item, 'elements.slug.value'),
+    summary: get(item, 'elements.summary.value'),
+    title: get(item, 'elements.title.value'),
+  }));
+
   return (
-    <Layout
-      banner={data.elements.banner.value[0].url}
-      bannerDescription={data.elements.banner.value[0].description}
-    >
-      <SEO
-        title={data.elements.metadata__page_title.value}
-        description={data.elements.metadata__page_description.value}
-        keywords={data.elements.metadata__page_keywords.value}
-      />
-      <h1>{data.elements.title.value}</h1>
-      <div>
-        {items
-          .filter(({ node }) => !isTestItem(node))
-          .map(({ node }) => (
-            <article key={node.id}>
-              <h2>
-                <Link to={`/articles/${node.elements.slug.value}`}>
-                  {node.elements.title.value}
-                </Link>
-              </h2>
-              <p>{node.elements.summary.value}</p>
-            </article>
-          ))}
-      </div>
+    <Layout banner={banner} bannerDescription={bannerDescription}>
+      <SEO {...seo} />
+      <h1>{title}</h1>
+      <ArticleList items={items} />
     </Layout>
   );
 };
 
-export default Index;
+Articles.propTypes = {
+  data: PropTypes.object,
+};
+
+export default Articles;
 
 export const query = graphql`
   {
     allKenticoCloudItemArticleListing(limit: 1) {
       edges {
         node {
-          id
           elements {
             title {
               value
@@ -79,6 +81,7 @@ export const query = graphql`
         node {
           system {
             codename
+            id
           }
           elements {
             title {
@@ -96,13 +99,3 @@ export const query = graphql`
     }
   }
 `;
-
-Index.propTypes = {
-  data: PropTypes.object,
-};
-
-/** Check if node is a test node and shouldn't be shown on the website. */
-function isTestItem(node) {
-  const codename = get(node, 'system.codename');
-  return codename && codename.indexOf('test_') === 0;
-}

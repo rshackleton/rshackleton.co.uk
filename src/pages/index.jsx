@@ -14,6 +14,12 @@ const Index = ({
     },
   },
 }) => {
+  const seo = {
+    title: get(data, 'elements.metadata__page_title.value'),
+    description: get(data, 'elements.metadata__page_description.value'),
+    keywords: get(data, 'elements.metadata__page_keywords.value'),
+  };
+
   const image = get(data, 'elements.background_image.value[0].url');
   const imageDescription = get(
     data,
@@ -22,14 +28,14 @@ const Index = ({
 
   return (
     <Layout>
-      <SEO
-        title={data.elements.metadata__page_title.value}
-        description={data.elements.metadata__page_description.value}
-        keywords={data.elements.metadata__page_keywords.value}
-      />
+      <SEO {...seo} />
       <HomeBanner image={image} imageDescription={imageDescription} />
     </Layout>
   );
+};
+
+Index.propTypes = {
+  data: PropTypes.object,
 };
 
 export default Index;
@@ -62,7 +68,3 @@ export const query = graphql`
     }
   }
 `;
-
-Index.propTypes = {
-  data: PropTypes.object,
-};
