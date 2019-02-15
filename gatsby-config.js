@@ -63,7 +63,7 @@ module.exports = {
       resolve: `gatsby-source-kentico-cloud`,
       options: {
         deliveryClientConfig: {
-          enablePreviewMode: process.env.NODE_ENV !== 'production',
+          enablePreviewMode: process.env.KC_USE_PREVIEW,
           previewApiKey: process.env.KC_PREVIEW_KEY,
           projectId: process.env.KC_PROJECT_ID,
         },

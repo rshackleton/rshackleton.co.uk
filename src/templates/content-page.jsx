@@ -40,17 +40,17 @@ export const query = graphql`
         }
         body {
           resolvedHtml
-          # images {
-          #   image_id
-          #   description
-          #   url
-          # }
-          # links {
-          #   codename
-          #   itemId
-          #   type
-          #   urlSlug
-          # }
+          images {
+            image_id
+            description
+            url
+          }
+          links {
+            codename
+            itemId
+            type
+            urlSlug
+          }
           linked_items {
             ...LinkedItemsFragment
           }

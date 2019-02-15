@@ -1,3 +1,4 @@
+var get = require('lodash/get');
 var path = require('path');
 
 exports.createPages = async function createPages({ graphql, actions }) {
@@ -18,7 +19,9 @@ async function createArticlePages({ graphql, actions }) {
       allKenticoCloudItemArticle {
         edges {
           node {
-            id
+            system {
+              codename
+            }
             elements {
               slug {
                 value
@@ -39,6 +42,11 @@ async function createArticlePages({ graphql, actions }) {
   } = data;
 
   edges.forEach(edge => {
+    if (isTestItem(edge.node)) {
+      console.log(`Skipped node ${edge.node.system.codename}`);
+      return;
+    }
+
     createPage({
       component: articleTemplate,
       path: `articles/${edge.node.elements.slug.value}`,
@@ -60,7 +68,9 @@ async function createContentPages({ graphql, actions }) {
       allKenticoCloudItemContentPage {
         edges {
           node {
-            id
+            system {
+              codename
+            }
             elements {
               slug {
                 value
@@ -81,10 +91,21 @@ async function createContentPages({ graphql, actions }) {
   } = data;
 
   edges.forEach(edge => {
+    if (isTestItem(edge.node)) {
+      console.log(`Skipped node ${edge.node.system.codename}`);
+      return;
+    }
+
     createPage({
       component: contentTemplate,
       path: `${edge.node.elements.slug.value}`,
       context: { slug: edge.node.elements.slug.value },
     });
   });
+}
+
+/** Check if node is a test node and shouldn't be shown on the website. */
+function isTestItem(node) {
+  const codename = get(node, 'system.codename');
+  return codename && codename.indexOf('test_') === 0;
 }
