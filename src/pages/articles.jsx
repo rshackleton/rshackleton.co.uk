@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql } from 'gatsby';
@@ -25,16 +26,18 @@ const Index = ({
       />
       <h1>{data.elements.title.value}</h1>
       <div>
-        {items.map(({ node }) => (
-          <article key={node.id}>
-            <h2>
-              <Link to={`/articles/${node.elements.slug.value}`}>
-                {node.elements.title.value}
-              </Link>
-            </h2>
-            <p>{node.elements.summary.value}</p>
-          </article>
-        ))}
+        {items
+          .filter(({ node }) => !isTestItem(node))
+          .map(({ node }) => (
+            <article key={node.id}>
+              <h2>
+                <Link to={`/articles/${node.elements.slug.value}`}>
+                  {node.elements.title.value}
+                </Link>
+              </h2>
+              <p>{node.elements.summary.value}</p>
+            </article>
+          ))}
       </div>
     </Layout>
   );
@@ -74,7 +77,9 @@ export const query = graphql`
     allKenticoCloudItemArticle(limit: 1000) {
       edges {
         node {
-          id
+          system {
+            codename
+          }
           elements {
             title {
               value
@@ -95,3 +100,9 @@ export const query = graphql`
 Index.propTypes = {
   data: PropTypes.object,
 };
+
+/** Check if node is a test node and shouldn't be shown on the website. */
+function isTestItem(node) {
+  const codename = get(node, 'system.codename');
+  return codename && codename.indexOf('test_') === 0;
+}
