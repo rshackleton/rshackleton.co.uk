@@ -28,9 +28,10 @@ module.exports = {
         short_name: `rshackleton.co.uk`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#333333`,
         display: `standalone`,
         icon: `src/assets/favicon.png`,
+        include_favicon: true,
       },
     },
     {
