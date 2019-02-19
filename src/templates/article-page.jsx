@@ -73,13 +73,13 @@ export const query = graphql`
         body {
           resolvedHtml
           images {
-            image_id
+            imageId
             description
             url
           }
           links {
             codename
-            itemId
+            linkId
             type
             urlSlug
           }
