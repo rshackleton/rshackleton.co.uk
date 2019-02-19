@@ -45,7 +45,7 @@ export default RichText;
 
 /** Get data for Kentico Cloud inline asset. */
 function getAsset(id, assets) {
-  return assets.find(asset => asset.image_id === id);
+  return assets.find(asset => asset.imageId === id);
 }
 
 /** Get ID for Kentico Cloud inline asset from DOM node. */
@@ -60,7 +60,7 @@ function getCodeName(domNode) {
 
 /** Get data for Kentico Cloud inline link. */
 function getLink(id, links) {
-  return links.find(link => link.itemId === id);
+  return links.find(link => link.linkId === id);
 }
 
 /** Get content for Kentico Cloud inline link from DOM node. */
@@ -113,7 +113,7 @@ function replaceNode(domNode, images, links, linkedItems) {
     return (
       <InlineAsset
         description={image.description}
-        id={image.image_id}
+        id={image.imageId}
         url={image.url}
       />
     );
@@ -128,7 +128,7 @@ function replaceNode(domNode, images, links, linkedItems) {
     return (
       <InlineLink
         content={content}
-        itemId={link.itemId}
+        linkId={link.linkId}
         type={link.type}
         urlSlug={link.urlSlug}
       />

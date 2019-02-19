@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const InlineLink = ({ content, itemId, type, urlSlug }) => {
+const InlineLink = ({ content, linkId, type, urlSlug }) => {
   let url;
 
   switch (type) {
@@ -32,7 +32,7 @@ const InlineLink = ({ content, itemId, type, urlSlug }) => {
   }
 
   return (
-    <Link key={itemId} to={url}>
+    <Link key={linkId} to={url}>
       {content}
     </Link>
   );
@@ -40,7 +40,7 @@ const InlineLink = ({ content, itemId, type, urlSlug }) => {
 
 InlineLink.propTypes = {
   content: PropTypes.string,
-  itemId: PropTypes.string,
+  linkId: PropTypes.string,
   type: PropTypes.string,
   urlSlug: PropTypes.string,
 };
