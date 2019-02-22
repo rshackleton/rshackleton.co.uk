@@ -1877,6 +1877,18 @@ babel-preset-gatsby@^0.1.7:
     "@babel/preset-react" "^7.0.0"
     babel-plugin-macros "^2.4.2"
 
+babel-preset-gatsby@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.1.8.tgz#3ada83d10901d28d827474e8067370929ad3be8c"
+  integrity sha512-JtsBZ6qB9Bf+6lO9j8mYKWatAbCsTo3ycWm+g13eIbxOlvYZ0VTLy9vkbV59Ax6DBIIANZhoGtOkVJHVR/59Ug==
+  dependencies:
+    "@babel/plugin-proposal-class-properties" "^7.0.0"
+    "@babel/plugin-syntax-dynamic-import" "^7.0.0"
+    "@babel/plugin-transform-runtime" "^7.0.0"
+    "@babel/preset-env" "^7.0.0"
+    "@babel/preset-react" "^7.0.0"
+    babel-plugin-macros "^2.4.2"
+
 babel-preset-jest@^24.1.0:
   version "24.1.0"
   resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-24.1.0.tgz#83bc564fdcd4903641af65ec63f2f5de6b04132e"
@@ -4985,10 +4997,10 @@ gatsby-link@^2.0.10:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
-gatsby-link@^2.0.11:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.11.tgz#e0a47d6ca717d2c6209752d441c49c428c970f18"
-  integrity sha512-t0KdvD9+3NN7LRBRNJOx17Y4a2AT+pbZt/ZIAneywxwYtyPLgioQjF3rBVMU2/T+FPCSEsy6WxmS0CtopUfK3A==
+gatsby-link@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.12.tgz#93e28845b56a2228c086b7c78043447762974068"
+  integrity sha512-hyDQquhr6RJLNx1WN7D+1b6a4DApsYABQzrMZxaaFTfTp0+UIdyKBEKbN6nVA96qjzD1iq5fiWX3mBhpuhYeBw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@reach/router" "^1.1.1"
@@ -5123,10 +5135,10 @@ gatsby-source-kentico-cloud@3.0.0:
     react-dom "^16.6.3"
     rxjs "^6.3.3"
 
-gatsby@2.1.14:
-  version "2.1.14"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.14.tgz#21ed67330c5580b26c2e102f5701b727bcdba409"
-  integrity sha512-MJS+HCpH1wC9kLHXT3UqCpC5/4bw/+mmGWZb5qsUPJjCa9lTmMepNMkL0rlZkMKaTmnovy1rKJ8+LiQ6tL3/og==
+gatsby@2.1.15:
+  version "2.1.15"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.15.tgz#05d9484ea030d036df877d3225ab98ceda8b0354"
+  integrity sha512-zzvk3qHVxxR8rTPz/igchmffXyLJYBYbeltCYsxe5qcYDA9xH9LKBMJBWQtCVERSe7xlFx9s+ojlN/Le512Vvg==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -5144,7 +5156,7 @@ gatsby@2.1.14:
     babel-plugin-add-module-exports "^0.2.1"
     babel-plugin-dynamic-import-node "^1.2.0"
     babel-plugin-remove-graphql-queries "^2.6.0"
-    babel-preset-gatsby "^0.1.7"
+    babel-preset-gatsby "^0.1.8"
     better-opn "0.1.4"
     better-queue "^3.8.6"
     bluebird "^3.5.0"
@@ -5183,7 +5195,7 @@ gatsby@2.1.14:
     fs-exists-cached "1.0.0"
     fs-extra "^5.0.0"
     gatsby-cli "^2.4.11"
-    gatsby-link "^2.0.11"
+    gatsby-link "^2.0.12"
     gatsby-plugin-page-creator "^2.0.7"
     gatsby-react-router-scroll "^2.0.4"
     glob "^7.1.1"
