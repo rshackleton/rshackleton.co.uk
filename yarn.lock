@@ -1799,10 +1799,10 @@ babel-plugin-remove-graphql-queries@^2.5.5:
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.5.5.tgz#c6f49f7131076415b5fa206c8ad3a308c1e8d05a"
   integrity sha512-PY/OcEXg+TZ0zCE4kdYZ3qldnswCS67SgTzFYtCEwS9CAdkLDc1tso9wpBp9gzvS4aopgAx0oEdkoWVxj8ybSQ==
 
-babel-plugin-remove-graphql-queries@^2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.6.0.tgz#3a6809a3b37d5f6d4a699048797274b74ed21f14"
-  integrity sha512-3DgWDynWNRZ6Ehp++GbGLm/xzJo5KBaPwCeTjyprSUcNioYRMocti5gYHep0/DE/bBq99juM3OtaAxWVh0Wj/g==
+babel-plugin-remove-graphql-queries@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.6.1.tgz#dc31c52b903f627ec2dda89bae30b640839d868c"
+  integrity sha512-YbJgL7sP+QtJIUnvmVth1iwbSlea6nc0YftAlkSkMTDCPTfhleBXUdMTqrXoBwR787Q9m9PR8javDMUK/Qs6Lg==
 
 babel-plugin-syntax-dynamic-import@^6.18.0:
   version "6.18.0"
@@ -2490,6 +2490,25 @@ chokidar@^2.0.0, chokidar@^2.0.2:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.0.tgz#5fcb70d0b28ebe0867eb0f09d5f6a08f29a1efa0"
   integrity sha512-5t6G2SH8eO6lCvYOoUpaRnF5Qfd//gd7qJAkwRUw9qlGVkiQ13uwQngqbWWaurOsaAm9+kUGbITADxt6H0XFNQ==
+  dependencies:
+    anymatch "^2.0.0"
+    async-each "^1.0.1"
+    braces "^2.3.2"
+    glob-parent "^3.1.0"
+    inherits "^2.0.3"
+    is-binary-path "^1.0.0"
+    is-glob "^4.0.0"
+    normalize-path "^3.0.0"
+    path-is-absolute "^1.0.0"
+    readdirp "^2.2.1"
+    upath "^1.1.0"
+  optionalDependencies:
+    fsevents "^1.2.7"
+
+chokidar@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.1.2.tgz#9c23ea40b01638439e0513864d362aeacc5ad058"
+  integrity sha512-IwXUx0FXc5ibYmPC2XeEj5mpXoV66sR+t3jqu2NS2GYwCktt3KF1/Qqjws/NkegajBA4RbZ5+DDwlOiJsxDHEg==
   dependencies:
     anymatch "^2.0.0"
     async-each "^1.0.1"
@@ -5029,10 +5048,10 @@ gatsby-plugin-google-analytics@2.0.14:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-manifest@2.0.18:
-  version "2.0.18"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.18.tgz#da850ff6498079a14aa038ab8e23eadadf311b9f"
-  integrity sha512-GqHeUwbGavxcIC3hvO5mUNKStVQ3Qs+1FPGTHGAZ5wHg6I6tS5Tv6gFtKWkk1faL6tIaF8h3IT9FFkkqqbLoBA==
+gatsby-plugin-manifest@2.0.19:
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.19.tgz#5f8bd5e18dec1f91e5a552faeab0eb4a63e213d2"
+  integrity sha512-pUjjVgWdL2hhT2UnP5uUeweQsH2546dMcjjCLt/b6ho79u3K8lX14tYQoss1XEeEIpyEviZ16ur+g4EppP74cA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
@@ -5075,14 +5094,14 @@ gatsby-plugin-page-creator@^2.0.6:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-page-creator@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.0.7.tgz#3193d6ea2c2aeeaae2e15350fcafae1d2fffb4ce"
-  integrity sha512-BLeGzAYZ9ViksrN/m/gBvqGl+gZGv1MRveBKtFDyBMz5F65TaCuIouJdpvJS6am9dPQ4jnBGxY5IEi9enmt7pw==
+gatsby-plugin-page-creator@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.0.8.tgz#9dfe7df93bca06a898ce29d5701aedf85d1f23f2"
+  integrity sha512-F8OBN4R4TzYS5rOGPkoqZnZJef0wL7W1UBTacKgRQDB0C5wozWKTBMTYTWOFaGSt09rApKQzRdJdIYiStsDGyA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     bluebird "^3.5.0"
-    chokidar "^1.7.0"
+    chokidar "^2.1.2"
     fs-exists-cached "^1.0.0"
     glob "^7.1.1"
     lodash "^4.17.10"
@@ -5135,10 +5154,10 @@ gatsby-source-kentico-cloud@3.0.0:
     react-dom "^16.6.3"
     rxjs "^6.3.3"
 
-gatsby@2.1.15:
-  version "2.1.15"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.15.tgz#05d9484ea030d036df877d3225ab98ceda8b0354"
-  integrity sha512-zzvk3qHVxxR8rTPz/igchmffXyLJYBYbeltCYsxe5qcYDA9xH9LKBMJBWQtCVERSe7xlFx9s+ojlN/Le512Vvg==
+gatsby@2.1.17:
+  version "2.1.17"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.1.17.tgz#c33692fca683b891703c912f27ca88902077c400"
+  integrity sha512-bipZkhXyDstYqTDJ8Sym1s6DIx2ffaz2IFM6cYcI2tTl4dQswkQSqzteulqN1ApAWSfAkEZoP5eFt8cCqvv1dw==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -5155,7 +5174,7 @@ gatsby@2.1.15:
     babel-loader "^8.0.0"
     babel-plugin-add-module-exports "^0.2.1"
     babel-plugin-dynamic-import-node "^1.2.0"
-    babel-plugin-remove-graphql-queries "^2.6.0"
+    babel-plugin-remove-graphql-queries "^2.6.1"
     babel-preset-gatsby "^0.1.8"
     better-opn "0.1.4"
     better-queue "^3.8.6"
@@ -5196,7 +5215,7 @@ gatsby@2.1.15:
     fs-extra "^5.0.0"
     gatsby-cli "^2.4.11"
     gatsby-link "^2.0.12"
-    gatsby-plugin-page-creator "^2.0.7"
+    gatsby-plugin-page-creator "^2.0.8"
     gatsby-react-router-scroll "^2.0.4"
     glob "^7.1.1"
     graphql "^14.1.1"
