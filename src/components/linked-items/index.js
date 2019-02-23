@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Article from '@components/linked-items/Article';
+import CodeBlock from '@components/linked-items/CodeBlock';
 import ContentPage from '@components/linked-items/ContentPage';
 
 const LinkedItem = ({ linkedItem }) => {
@@ -12,6 +13,10 @@ const LinkedItem = ({ linkedItem }) => {
   switch (type) {
     case 'article': {
       return <Article linkedItem={linkedItem} />;
+    }
+
+    case 'code_block': {
+      return <CodeBlock linkedItem={linkedItem} />;
     }
 
     case 'content_page': {
@@ -37,6 +42,9 @@ export const LinkedItemsFragment = graphql`
   fragment LinkedItemsFragment on Node {
     ... on KenticoCloudItemArticle {
       ...KenticoCloudItemArticleFragment
+    }
+    ... on KenticoCloudItemCodeBlock {
+      ...KenticoCloudItemCodeBlockFragment
     }
     ... on KenticoCloudItemContentPage {
       ...KenticoCloudItemContentPageFragment

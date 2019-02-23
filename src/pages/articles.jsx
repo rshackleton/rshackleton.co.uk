@@ -76,7 +76,10 @@ export const query = graphql`
         }
       }
     }
-    allKenticoCloudItemArticle(limit: 1000) {
+    allKenticoCloudItemArticle(
+      limit: 1000
+      sort: { fields: elements___date___value, order: DESC }
+    ) {
       edges {
         node {
           system {
