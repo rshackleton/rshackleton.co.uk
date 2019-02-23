@@ -84,5 +84,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "resolutions": {
+    "gatsby": "2.1.17"
   }
 }

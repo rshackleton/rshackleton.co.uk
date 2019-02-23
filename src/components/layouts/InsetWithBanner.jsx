@@ -1,5 +1,5 @@
 import { Global } from '@emotion/core';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -14,9 +14,9 @@ import {
   ContentWrapper,
 } from './InsetWithBanner.styles';
 
-const Layout = ({ banner, bannerDescription, children }) => (
-  <StaticQuery
-    query={graphql`
+const Layout = ({ banner, bannerDescription, children }) => {
+  const data = useStaticQuery(
+    graphql`
       {
         site {
           siteMetadata {
@@ -24,20 +24,21 @@ const Layout = ({ banner, bannerDescription, children }) => (
           }
         }
       }
-    `}
-    render={data => (
-      <ThemeWrapper>
-        <Global styles={globalStyles} />
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <ContentWrapper>
-          <Banner image={banner} imageDescription={bannerDescription} />
-          <ContainerInset>{children}</ContainerInset>
-        </ContentWrapper>
-        <Footer />
-      </ThemeWrapper>
-    )}
-  />
-);
+    `,
+  );
+
+  return (
+    <ThemeWrapper>
+      <Global styles={globalStyles} />
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <ContentWrapper>
+        <Banner image={banner} imageDescription={bannerDescription} />
+        <ContainerInset>{children}</ContainerInset>
+      </ContentWrapper>
+      <Footer />
+    </ThemeWrapper>
+  );
+};
 
 Layout.propTypes = {
   banner: PropTypes.string.isRequired,

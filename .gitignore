@@ -13,7 +13,3 @@ node_modules
 
 # Secrets
 .env
-
-# TEMP: Referencing "gatsby-source-kentico-cloud@3"
-!/plugins/gatsby-source-kentico-cloud/
-!/plugins/gatsby-source-kentico-cloud/*

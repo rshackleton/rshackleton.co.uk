@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
 
-const SEO = ({ title, description, keywords }) => (
-  <StaticQuery
-    query={graphql`
+const SEO = ({ title, description, keywords }) => {
+  const data = useStaticQuery(
+    graphql`
       {
         site {
           siteMetadata {
@@ -13,20 +13,17 @@ const SEO = ({ title, description, keywords }) => (
           }
         }
       }
-    `}
-    render={({
-      site: {
-        siteMetadata: { title: siteTitle },
-      },
-    }) => (
-      <Helmet>
-        <title>{`${title} | ${siteTitle}`}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={keywords} />
-      </Helmet>
-    )}
-  />
-);
+    `,
+  );
+
+  return (
+    <Helmet>
+      <title>{`${title} | ${data.site.siteMetadata.title}`}</title>
+      <meta name="description" content={description} />
+      <meta name="keywords" content={keywords} />
+    </Helmet>
+  );
+};
 
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
