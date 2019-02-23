@@ -1,5 +1,5 @@
 import { Global } from '@emotion/core';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,9 +10,9 @@ import globalStyles from '@utils/globalStyles';
 
 import { ContentWrapper } from './Default.styles';
 
-const Layout = ({ children }) => (
-  <StaticQuery
-    query={graphql`
+const Layout = ({ children }) => {
+  const data = useStaticQuery(
+    graphql`
       {
         site {
           siteMetadata {
@@ -20,17 +20,18 @@ const Layout = ({ children }) => (
           }
         }
       }
-    `}
-    render={data => (
-      <ThemeWrapper>
-        <Global styles={globalStyles} />
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <ContentWrapper>{children}</ContentWrapper>
-        <Footer />
-      </ThemeWrapper>
-    )}
-  />
-);
+    `,
+  );
+
+  return (
+    <ThemeWrapper>
+      <Global styles={globalStyles} />
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <ContentWrapper>{children}</ContentWrapper>
+      <Footer />
+    </ThemeWrapper>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node,
