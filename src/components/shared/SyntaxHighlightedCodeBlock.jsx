@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dark as style } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+import { SyntaxHighlighter } from './SyntaxHighlightedCodeBlock.styles';
 
 const SyntaxHighlightedCodeBlock = ({ code, language }) => (
   <SyntaxHighlighter language={language} style={style}>
