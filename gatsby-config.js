@@ -2,8 +2,11 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: `rshackleton.co.uk`,
+    lang: `en`,
+    locale: `en_GB`,
     siteUrl: `https://rshackleton.co.uk`,
+    title: `rshackleton.co.uk`,
+    twitterUsername: `@shackleberry112`,
   },
   plugins: [
     {
