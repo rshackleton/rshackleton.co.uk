@@ -15,10 +15,15 @@ const Articles = ({
     allKenticoCloudItemArticle: { edges: itemsData },
   },
 }) => {
+  const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
+
   const seo = {
     title: get(data, 'elements.metadata__page_title.value'),
     description: get(data, 'elements.metadata__page_description.value'),
     keywords: get(data, 'elements.metadata__page_keywords.value'),
+    image: ogImage ? ogImage.url : null,
+    imageDescription: ogImage ? ogImage.description : null,
+    url: '/articles',
   };
 
   const banner = get(data, 'elements.banner.value[0].url');
@@ -71,6 +76,12 @@ export const query = graphql`
             }
             metadata__page_keywords {
               value
+            }
+            metadata__open_graph_image {
+              value {
+                description
+                url
+              }
             }
           }
         }
