@@ -35,6 +35,8 @@
     "gatsby-plugin-netlify": "2.0.11",
     "gatsby-plugin-offline": "2.0.24",
     "gatsby-plugin-react-helmet": "3.0.6",
+    "gatsby-plugin-robots-txt": "^1.4.0",
+    "gatsby-plugin-sitemap": "^2.0.6",
     "gatsby-plugin-typography": "2.2.7",
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-kentico-cloud": "3.0.0",
