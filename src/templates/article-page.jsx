@@ -10,10 +10,16 @@ import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
 const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
+  const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
+  const slug = get(data, 'elements.slug.value');
+
   const seo = {
     title: get(data, 'elements.metadata__page_title.value'),
     description: get(data, 'elements.metadata__page_description.value'),
     keywords: get(data, 'elements.metadata__page_keywords.value'),
+    image: ogImage ? ogImage.url : null,
+    imageDescription: ogImage ? ogImage.description : null,
+    url: `/articles/${slug}`,
   };
 
   const banner = get(data, 'elements.banner.value[0].url');
@@ -52,6 +58,9 @@ export const query = graphql`
     kenticoCloudItemArticle(elements: { slug: { value: { eq: $slug } } }) {
       elements {
         title {
+          value
+        }
+        slug {
           value
         }
         date {
@@ -95,6 +104,12 @@ export const query = graphql`
         }
         metadata__page_keywords {
           value
+        }
+        metadata__open_graph_image {
+          value {
+            description
+            url
+          }
         }
       }
     }

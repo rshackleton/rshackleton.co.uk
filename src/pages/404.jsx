@@ -8,10 +8,14 @@ import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
 const NotFoundPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
+  const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
+
   const seo = {
     title: get(data, 'elements.metadata__page_title.value'),
     description: get(data, 'elements.metadata__page_description.value'),
     keywords: get(data, 'elements.metadata__page_keywords.value'),
+    image: ogImage ? ogImage.url : null,
+    imageDescription: ogImage ? ogImage.description : null,
   };
 
   const banner = get(data, 'elements.banner.value[0].url');
@@ -83,6 +87,12 @@ export const query = graphql`
         }
         metadata__page_keywords {
           value
+        }
+        metadata__open_graph_image {
+          value {
+            description
+            url
+          }
         }
       }
     }
