@@ -12,13 +12,17 @@ const SEO = ({
   keywords,
   image,
   imageDescription,
+  prefix,
+  type,
   url,
+  extraTags,
 }) => {
   const data = useStaticQuery(
     graphql`
       {
         site {
           siteMetadata {
+            lang
             locale
             siteUrl
             title
@@ -29,6 +33,7 @@ const SEO = ({
     `,
   );
 
+  const lang = get(data, 'site.siteMetadata.lang');
   const locale = get(data, 'site.siteMetadata.locale');
   const siteTitle = get(data, 'site.siteMetadata.title');
   const siteUrl = get(data, 'site.siteMetadata.siteUrl');
@@ -36,9 +41,14 @@ const SEO = ({
 
   const imageUrl = `${image}?w=1080&h=1080&fit=crop&format=jpg`;
 
+  const htmlAttributes = {
+    lang,
+    prefix,
+  };
+
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={htmlAttributes}>
         <title>{`${title} | ${siteTitle}`}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
@@ -49,7 +59,7 @@ const SEO = ({
 
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content={type} />
         <meta property="og:url" content={`${siteUrl}${url}`} />
         <meta property="og:locale" content={locale} />
         <meta property="og:site_name" content={siteTitle} />
@@ -69,6 +79,7 @@ const SEO = ({
           <meta property="og:image:height" content={1080} />
         </Helmet>
       )}
+      {extraTags && extraTags.length ? <Helmet>{extraTags}</Helmet> : null}
     </>
   );
 };
@@ -76,15 +87,21 @@ const SEO = ({
 SEO.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  extraTags: PropTypes.arrayOf(PropTypes.node),
   keywords: PropTypes.string.isRequired,
   image: PropTypes.string,
   imageDescription: PropTypes.string,
+  prefix: PropTypes.string,
+  type: PropTypes.string,
   url: PropTypes.string.isRequired,
 };
 
 SEO.defaultProps = {
+  extraTags: [],
   image: '',
   imageDescription: '',
+  prefix: 'og: http://ogp.me/ns#',
+  type: 'website',
 };
 
 export default SEO;
