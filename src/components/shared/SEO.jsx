@@ -22,6 +22,7 @@ const SEO = ({
             locale
             siteUrl
             title
+            twitterUsername
           }
         }
       }
@@ -31,6 +32,7 @@ const SEO = ({
   const locale = get(data, 'site.siteMetadata.locale');
   const siteTitle = get(data, 'site.siteMetadata.title');
   const siteUrl = get(data, 'site.siteMetadata.siteUrl');
+  const twitterUsername = get(data, 'site.siteMetadata.twitterUsername');
 
   return (
     <>
@@ -38,6 +40,10 @@ const SEO = ({
         <title>{`${title} | ${siteTitle}`}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content={twitterUsername} />
+        <meta name="twitter:creator" content={twitterUsername} />
 
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
