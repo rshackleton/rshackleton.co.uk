@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+import mq from '@utils/mq';
 import { rhythm } from '@utils/typography';
 
 export const Outer = styled.div`
@@ -13,7 +14,11 @@ export const Inner = styled.div`
   margin: ${rhythm(-4)} auto 0;
   min-height: ${rhythm(10)};
   max-width: ${({ theme }) => theme.container.text};
-  padding: ${rhythm(2)};
+  padding: ${rhythm(1)};
   background: ${({ theme }) => theme.colors.insetBackground};
   z-index: ${({ theme }) => theme.layers.content};
+
+  ${mq.sm} {
+    padding: ${rhythm(2)};
+  }
 `;

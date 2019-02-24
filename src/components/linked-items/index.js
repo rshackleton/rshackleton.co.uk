@@ -6,6 +6,7 @@ import React from 'react';
 import Article from '@components/linked-items/Article';
 import CodeBlock from '@components/linked-items/CodeBlock';
 import ContentPage from '@components/linked-items/ContentPage';
+import Tweet from '@components/linked-items/Tweet';
 
 const LinkedItem = ({ linkedItem }) => {
   const type = get(linkedItem, 'system.type');
@@ -21,6 +22,10 @@ const LinkedItem = ({ linkedItem }) => {
 
     case 'content_page': {
       return <ContentPage linkedItem={linkedItem} />;
+    }
+
+    case 'tweet': {
+      return <Tweet linkedItem={linkedItem} />;
     }
 
     default:
@@ -48,6 +53,9 @@ export const LinkedItemsFragment = graphql`
     }
     ... on KenticoCloudItemContentPage {
       ...KenticoCloudItemContentPageFragment
+    }
+    ... on KenticoCloudItemTweet {
+      ...KenticoCloudItemTweetFragment
     }
   }
 `;
