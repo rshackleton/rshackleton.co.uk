@@ -5013,7 +5013,7 @@ gatsby-plugin-google-analytics@2.0.14:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-google-tagmanager@^2.0.9:
+gatsby-plugin-google-tagmanager@2.0.9:
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-2.0.9.tgz#5d1db05fde25ca65789411bb1df535ed0789b575"
   integrity sha512-+PeXpDn7fig0bzRKWhUxVz9cWZ7HqWoEsxHHBtIo2DKA1ZWy2wxWUqqWcTQEAAgYuGzZNj73yzbRJAf22d/xkA==
@@ -5073,7 +5073,7 @@ gatsby-plugin-react-helmet@3.0.6:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
-gatsby-plugin-robots-txt@^1.4.0:
+gatsby-plugin-robots-txt@1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-robots-txt/-/gatsby-plugin-robots-txt-1.4.0.tgz#2da3fb60a307f83b34a9fbdd85fdb4e6a53e431a"
   integrity sha512-9wFH7bl90jpBEUo2rkXeXHtQy3CqZD/85F9rW6JeyJhbtTFOdnjdx9/Up3zJkxeLblwR1I5+VxHAzp/3jEyb7g==
@@ -5081,7 +5081,7 @@ gatsby-plugin-robots-txt@^1.4.0:
     "@babel/runtime" "^7.3.1"
     generate-robotstxt "^6.0.0"
 
-gatsby-plugin-sitemap@^2.0.6:
+gatsby-plugin-sitemap@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-2.0.6.tgz#1d1b9e8418e410a70775251a2c1978b7abc8fc7b"
   integrity sha512-c0sjGWhDxsY/+tekO8tLnrU9SilhjS2Zqd5ZYEItHy5OUIuHCDXagr6y8cKn6d7gjfb+Ps+cM+4EOOlUJ3BXBQ==
