@@ -41,9 +41,12 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        trackingId: process.env.GA_TRACKING_ID,
+        id: process.env.GTM_ID,
+        includeInDevelopment: false,
+        gtmAuth: process.env.GTM_AUTH,
+        gtmPreview: process.env.GTM_PREVIEW,
       },
     },
     {
