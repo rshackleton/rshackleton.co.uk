@@ -34,6 +34,8 @@ const SEO = ({
   const siteUrl = get(data, 'site.siteMetadata.siteUrl');
   const twitterUsername = get(data, 'site.siteMetadata.twitterUsername');
 
+  const imageUrl = `${image}?w=1080&h=1080&fit=crop&format=jpg`;
+
   return (
     <>
       <Helmet>
@@ -54,13 +56,17 @@ const SEO = ({
       </Helmet>
       {image && image.length ? (
         <Helmet>
-          <meta property="og:image" content={`${image}?w=1000&auto=format`} />
+          <meta property="og:image" content={imageUrl} />
           <meta property="og:image:alt" content={imageDescription} />
+          <meta property="og:image:width" content={1080} />
+          <meta property="og:image:height" content={1080} />
         </Helmet>
       ) : (
         <Helmet>
           <meta property="og:image" content={ogDefaultImage} />
           <meta property="og:image:alt" content="" />
+          <meta property="og:image:width" content={1080} />
+          <meta property="og:image:height" content={1080} />
         </Helmet>
       )}
     </>
