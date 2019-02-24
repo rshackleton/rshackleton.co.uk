@@ -17,7 +17,7 @@ const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
     keywords: get(data, 'elements.metadata__page_keywords.value'),
     image: ogImage ? ogImage.url : null,
     imageDescription: ogImage ? ogImage.description : null,
-    url: `/${slug}`,
+    url: `/${slug}/`,
   };
 
   const banner = get(data, 'elements.banner.value[0].url');

@@ -38,7 +38,7 @@ const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
     imageDescription: ogImage ? ogImage.description : null,
     prefix: 'og: http://ogp.me/ns# article: http://ogp.me/ns/article#',
     type: 'article',
-    url: `/articles/${slug}`,
+    url: `/articles/${slug}/`,
     extraTags: [
       <meta
         key="article:published_time"
