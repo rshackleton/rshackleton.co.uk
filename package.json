@@ -42,7 +42,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-kentico-cloud": "3.0.0",
     "html-react-parser": "0.6.1",
-    "polished": "3.0.0",
+    "polished": "3.0.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-helmet": "5.2.0",
