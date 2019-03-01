@@ -9,6 +9,7 @@ const CodeBlock = ({ linkedItem }) => {
   const props = {
     code: get(linkedItem, 'elements.code.value'),
     language: get(linkedItem, 'elements.language.value'),
+    sourceUrl: get(linkedItem, 'elements.source_url.value'),
   };
 
   return <SyntaxHighlightedCodeBlock {...props} />;
@@ -31,6 +32,9 @@ export const KenticoCloudItemCodeBlockFragment = graphql`
         value
       }
       language {
+        value
+      }
+      source_url {
         value
       }
     }
