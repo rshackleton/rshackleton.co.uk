@@ -1,25 +1,24 @@
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { Prism as SyntaxHighlighterBase } from 'react-syntax-highlighter';
 
 import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-
-export const SyntaxHighlighter = styled(SyntaxHighlighterBase)`
-  margin: 0 !important;
-  ${({ hasCaption }) =>
-    hasCaption
-      ? css`
-          border-radius: 0.3em 0.3em 0 0 !important;
-        `
-      : null}
-`;
 
 export const Container = styled.figure`
   margin: 0 ${rhythm(-0.5)} ${rhythm(1)};
 
   ${mq.sm} {
     margin: 0 ${rhythm(-1)} ${rhythm(1)};
+  }
+
+  > pre {
+    margin: 0 !important;
+    ${({ hasCaption }) =>
+      hasCaption
+        ? css`
+            border-radius: 0.3em 0.3em 0 0 !important;
+          `
+        : null}
   }
 `;
 

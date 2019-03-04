@@ -42,6 +42,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-kentico-cloud": "3.0.0",
     "html-react-parser": "0.6.1",
+    "lazysizes": "^4.1.6",
     "polished": "3.0.3",
     "react": "16.8.3",
     "react-dom": "16.8.3",
