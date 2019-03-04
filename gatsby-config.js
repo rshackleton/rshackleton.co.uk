@@ -55,8 +55,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
-        google: {
-          families: ['Raleway:400,700', 'Roboto Slab:400,400i,700'],
+        custom: {
+          families: ['Raleway:n4,n7', 'Roboto Slab:n4,n7'],
+          urls: ['/raleway.css', '/roboto-slab.css'],
         },
       },
     },
