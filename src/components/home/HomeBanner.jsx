@@ -22,15 +22,20 @@ const HomeBanner = ({ image, imageDescription }) => {
     xs: `${image}?w=576&auto=format 1x, ${image}?w=1152&auto=format 2x`,
   };
 
+  const lowSrc = `${image}?w=576&auto=format`;
+
   return (
     <Container>
       <Banner>
         <Picture
           alt={imageDescription}
           fallback={`${image}?w=320&auto=format 1x, ${image}?w=640&auto=format 2x`}
+          lowSrc={lowSrc}
           sources={Object.entries(srcs).map(([key, src]) => {
             const rule = rules[key];
-            return <Source key={key} srcSet={src} media={rule} />;
+            return (
+              <Source key={key} lowSrc={lowSrc} media={rule} srcSet={src} />
+            );
           })}
         />
       </Banner>

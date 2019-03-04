@@ -15,14 +15,17 @@ const InlineAsset = ({ description, id, url }) => {
     xs: `${url}?w=576&auto=format 1x, ${url}?w=1152&auto=format 2x`,
   };
 
+  const lowSrc = `${url}?w=100&auto=format`;
+
   return (
     <Picture
       key={id}
       alt={description}
       fallback={`${url}?w=320&auto=format 1x, ${url}?w=640&auto=format 2x`}
+      lowSrc={lowSrc}
       sources={Object.entries(srcs).map(([key, src]) => {
         const rule = rules[key];
-        return <Source key={key} srcSet={src} media={rule} />;
+        return <Source key={key} lowSrc={lowSrc} media={rule} srcSet={src} />;
       })}
     />
   );
