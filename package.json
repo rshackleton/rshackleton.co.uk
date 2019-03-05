@@ -27,7 +27,7 @@
     "dotenv": "6.2.0",
     "emotion-reset": "2.0.1",
     "emotion-theming": "10.0.7",
-    "gatsby": "2.1.21",
+    "gatsby": "2.1.22",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-emotion": "4.0.4",
     "gatsby-plugin-google-analytics": "2.0.16",
@@ -38,7 +38,7 @@
     "gatsby-plugin-react-helmet": "3.0.7",
     "gatsby-plugin-robots-txt": "1.4.0",
     "gatsby-plugin-sitemap": "2.0.6",
-    "gatsby-plugin-typography": "2.2.7",
+    "gatsby-plugin-typography": "2.2.8",
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-kentico-cloud": "3.0.0",
     "html-react-parser": "0.6.1",
@@ -92,6 +92,6 @@
     ]
   },
   "resolutions": {
-    "gatsby": "2.1.21"
+    "gatsby": "2.1.22"
   }
 }
