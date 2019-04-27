@@ -56,8 +56,8 @@ module.exports = {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {
         custom: {
-          families: ['Raleway:n4,n7', 'Roboto Slab:n4,n7'],
-          urls: ['/raleway.css', '/roboto-slab.css'],
+          families: ['Raleway:n4,n7', 'Zilla Slab:n4,n7,i4,i7'],
+          urls: ['/raleway.css', '/zilla-slab.css'],
         },
       },
     },

@@ -1,7 +1,7 @@
 import Typography from 'typography';
 
 const typography = new Typography({
-  bodyFontFamily: ['Roboto Slab', 'serif'],
+  bodyFontFamily: ['Zilla Slab', 'serif'],
   baseFontSize: '18px',
   baseLineHeight: 1.55,
   headerFontFamily: ['Raleway', 'sans-serif'],

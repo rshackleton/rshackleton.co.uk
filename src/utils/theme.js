@@ -7,7 +7,7 @@ const brand = {
 
 const fonts = {
   headerFontFamily: '"Raleway", sans-serif',
-  bodyFontFamily: '"Roboto Slab", serif',
+  bodyFontFamily: '"Zilla Slab", serif',
 };
 
 const theme = {
