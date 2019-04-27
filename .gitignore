@@ -9,7 +9,7 @@ node_modules
 /public
 
 # Local plugins used for development
-/plugins/*
+# /plugins/*
 
 # Secrets
 .env
