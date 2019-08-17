@@ -6134,19 +6134,18 @@ gatsby-react-router-scroll@^2.1.3:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-source-kentico-cloud@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-kentico-cloud/-/gatsby-source-kentico-cloud-3.0.0.tgz#444f8785f3283bac1b0252703fb7c027a3a4d99c"
-  integrity sha512-FX/K4HJtMEgEx2trzj6Vf1tdCIWX51tWb1Tyq+v3cTxLUEUBXActYyQl3XFIxR2xuIHeBb3bxVJ+SfuHv05Svg==
+gatsby-source-kentico-cloud@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-kentico-cloud/-/gatsby-source-kentico-cloud-3.1.0.tgz#0a36203367d2588fc36286b3dfd436f39410462e"
+  integrity sha512-QEut4E8GGGOQoTbsF+Xv5/IQHyq3VE8yJQeuJ4FWeMVT6yqSfgYLR3NGENMRc6ITg/IUQ21lH8USzxdti69MXg==
   dependencies:
     change-case "^3.1.0"
     flatted "^2.0.0"
-    gatsby "^2.0.91"
-    kentico-cloud-delivery "^5.4.0"
+    kentico-cloud-delivery "^5.7.2"
     lodash "^4.17.11"
-    react "^16.6.3"
-    react-dom "^16.6.3"
-    rxjs "^6.3.3"
+    react "^16.8.3"
+    react-dom "^16.8.3"
+    rxjs "^6.4.0"
 
 gatsby-telemetry@^1.1.12:
   version "1.1.12"
@@ -6171,7 +6170,7 @@ gatsby-telemetry@^1.1.12:
     stack-utils "1.0.2"
     uuid "3.3.2"
 
-gatsby@2.13.67, gatsby@^2.0.91:
+gatsby@2.13.67:
   version "2.13.67"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.13.67.tgz#cf8ac3fbfcd0a2f75bbf73b1850d7547d81c3d13"
   integrity sha512-iExO2TdlWHDSiA5fK3MZjh74+5yTJwEY90+a23tmIAn+8e4kAXvgZAhV6u+0r7TFX++FjOW6RSp0XkYX/5mWxA==
@@ -8356,19 +8355,19 @@ kebab-hash@^0.1.2:
   dependencies:
     lodash.kebabcase "^4.1.1"
 
-kentico-cloud-core@1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/kentico-cloud-core/-/kentico-cloud-core-1.3.2.tgz#f11af5da1d65c32ef27020e73c9cdcca8fa9836e"
-  integrity sha512-tMsd2fdj4ZseDeOR63rYfYwlbvpjcdPMjwAZo56xYf0uglM1BXj7apqh4O/JgBHoTXkPsO1iLhIvxDWndqpTRA==
+kentico-cloud-core@1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/kentico-cloud-core/-/kentico-cloud-core-1.4.3.tgz#c40e39bbd8f1c2787e81d18e9eda1633d1357732"
+  integrity sha512-YJHpyCSSXX4fBAyy4126Y9IAsVM0N9AWQ8myOGe9b41ecm3WBMRfUH8D3a/HQB5owHAob5WPgiKlHGQ9kAwUJg==
   dependencies:
     axios "0.18.0"
 
-kentico-cloud-delivery@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/kentico-cloud-delivery/-/kentico-cloud-delivery-5.4.0.tgz#5a7afdb5ba0b8f0e827780c0487218adfc3b4984"
-  integrity sha512-huOD0Yq6sth5BelvhJl0zIjKB5zjx1vgNJ1G5r1vg1ro6pr0EQBwltXf7pdo7RnUwLZOKiBy8DkURHgUpQs6XA==
+kentico-cloud-delivery@^5.7.2:
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/kentico-cloud-delivery/-/kentico-cloud-delivery-5.7.2.tgz#716ca7d46f32e031e3a78480d8fc5cab5b338d0e"
+  integrity sha512-5iudO7Mc25PhgA7l+Js+VyJXYLb1FBb/ZwoAONXAGfhfhwtIAIX9BYGO/vMxKZ6TLsiIhn7ZBFkflckLTIXRCg==
   dependencies:
-    kentico-cloud-core "1.3.2"
+    kentico-cloud-core "1.4.3"
     parse5 "5.1.0"
     reflect-metadata "0.1.13"
 
@@ -10965,15 +10964,15 @@ react-dom@16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-dom@^16.6.3:
-  version "16.8.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.1.tgz#ec860f98853d09d39bafd3a6f1e12389d283dbb4"
-  integrity sha512-N74IZUrPt6UiDjXaO7UbDDFXeUXnVhZzeRLy/6iqqN1ipfjrhR60Bp5NuBK+rv3GMdqdIuwIl22u1SYwf330bg==
+react-dom@^16.8.3:
+  version "16.9.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
+  integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.1"
+    scheduler "^0.15.0"
 
 react-error-overlay@^3.0.0:
   version "3.0.0"
@@ -11104,17 +11103,7 @@ react@16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react@^16.6.3:
-  version "16.8.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.8.1.tgz#ae11831f6cb2a05d58603a976afc8a558e852c4a"
-  integrity sha512-wLw5CFGPdo7p/AgteFz7GblI2JPOos0+biSoxf1FPsGxWQZdN/pj6oToJs1crn61DL3Ln7mN86uZ4j74p31ELQ==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    scheduler "^0.13.1"
-
-react@^16.8.4:
+react@^16.8.3, react@^16.8.4:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
@@ -11681,14 +11670,6 @@ sax@^1.2.4, sax@~1.2.4:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scheduler@^0.13.1:
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.1.tgz#1a217df1bfaabaf4f1b92a9127d5d732d85a9591"
-  integrity sha512-VJKOkiKIN2/6NOoexuypwSrybx13MY7NSy9RNt8wPvZDMRT1CW6qlpF5jXRToXNHz3uWzbm2elNpZfXfGPqP9A==
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
 scheduler@^0.13.2, scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
@@ -11701,6 +11682,14 @@ scheduler@^0.13.3:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.3.tgz#bed3c5850f62ea9c716a4d781f9daeb9b2a58896"
   integrity sha512-UxN5QRYWtpR1egNWzJcVLk8jlegxAugswQc984lD3kU7NuobsO37/sRfbpTdBjtnD5TBNFA2Q2oLV5+UmPSmEQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
+  integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

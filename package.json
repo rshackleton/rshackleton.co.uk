@@ -40,7 +40,7 @@
     "gatsby-plugin-sitemap": "2.2.6",
     "gatsby-plugin-typography": "2.3.2",
     "gatsby-plugin-web-font-loader": "1.0.4",
-    "gatsby-source-kentico-cloud": "3.0.0",
+    "gatsby-source-kentico-cloud": "3.1.0",
     "html-react-parser": "0.6.2",
     "lazysizes": "4.1.6",
     "polished": "3.0.3",
