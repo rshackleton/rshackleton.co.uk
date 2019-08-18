@@ -43,7 +43,7 @@
     "gatsby-source-kentico-cloud": "3.1.0",
     "html-react-parser": "0.9.1",
     "lazysizes": "4.1.8",
-    "polished": "3.0.3",
+    "polished": "3.4.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.0",
