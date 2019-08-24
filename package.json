@@ -27,13 +27,13 @@
     "dotenv": "8.1.0",
     "emotion-reset": "2.0.2",
     "emotion-theming": "10.0.14",
-    "gatsby": "2.13.80",
+    "gatsby": "2.13.82",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-emotion": "4.1.4",
-    "gatsby-plugin-google-analytics": "2.1.10",
+    "gatsby-plugin-google-analytics": "2.1.11",
     "gatsby-plugin-google-tagmanager": "2.1.7",
     "gatsby-plugin-manifest": "2.2.9",
-    "gatsby-plugin-netlify": "2.1.9",
+    "gatsby-plugin-netlify": "2.1.10",
     "gatsby-plugin-offline": "2.2.10",
     "gatsby-plugin-react-helmet": "3.1.5",
     "gatsby-plugin-robots-txt": "1.5.0",
@@ -92,6 +92,6 @@
     ]
   },
   "resolutions": {
-    "gatsby": "2.13.80"
+    "gatsby": "2.13.82"
   }
 }
