@@ -27,7 +27,7 @@
     "dotenv": "8.1.0",
     "emotion-reset": "2.0.2",
     "emotion-theming": "10.0.14",
-    "gatsby": "2.13.82",
+    "gatsby": "2.13.83",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-emotion": "4.1.4",
     "gatsby-plugin-google-analytics": "2.1.11",
@@ -92,6 +92,6 @@
     ]
   },
   "resolutions": {
-    "gatsby": "2.13.82"
+    "gatsby": "2.13.83"
   }
 }
