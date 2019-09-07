@@ -55,7 +55,7 @@
   "devDependencies": {
     "babel-eslint": "10.0.3",
     "eslint": "6.3.0",
-    "eslint-config-google": "0.13.0",
+    "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "6.2.0",
     "eslint-plugin-emotion": "10.0.14",
     "eslint-plugin-node": "9.2.0",
