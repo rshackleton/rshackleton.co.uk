@@ -26,7 +26,7 @@
     "babel-plugin-emotion": "10.0.17",
     "dotenv": "8.1.0",
     "emotion-reset": "2.0.2",
-    "emotion-theming": "10.0.17",
+    "emotion-theming": "10.0.18",
     "gatsby": "2.15.9",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-emotion": "4.1.5",
