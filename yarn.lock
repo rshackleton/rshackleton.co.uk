@@ -11561,10 +11561,10 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.8.3"
     scheduler "^0.13.3"
 
-react-twitter-embed@2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/react-twitter-embed/-/react-twitter-embed-2.0.8.tgz#34f4c37ba844e66f8d19c5cd84c962c1c8fcc753"
-  integrity sha512-R1e/2N1UYiq79NDZOI69ZRbudx0MhHHxkdMM67hWNZ8kunEUrkOHQWSUDFJc5rD7jOEKjSGXhGt7A3Rnzf8v9A==
+react-twitter-embed@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-twitter-embed/-/react-twitter-embed-3.0.3.tgz#a534132d4bbec812a63e3899dc716de2bfc3cec2"
+  integrity sha512-kF1Srlb1TqnZUqKA0FC4I/E+m+RUBCMZeU20hDRzmYLAjR1EA/6tr/PMZ22s7rd6wjQpIBLXNZjt0rfUpY8Chw==
   dependencies:
     enzyme-adapter-react-16 "^1.11.0"
     exenv "^1.2.2"
