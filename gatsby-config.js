@@ -71,9 +71,12 @@ module.exports = {
       resolve: `@kentico/gatsby-source-kontent`,
       options: {
         deliveryClientConfig: {
-          enablePreviewMode: !!process.env.KC_PREVIEW_KEY,
-          previewApiKey: process.env.KC_PREVIEW_KEY,
           projectId: process.env.KC_PROJECT_ID,
+          typeResolvers: [],
+          previewApiKey: process.env.KC_PREVIEW_KEY,
+          globalQueryConfig: {
+            usePreviewMode: !!process.env.KC_PREVIEW_KEY,
+          },
         },
         languageCodenames: [`default`],
       },
