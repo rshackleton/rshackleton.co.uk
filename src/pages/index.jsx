@@ -9,7 +9,7 @@ import SEO from '@components/shared/SEO';
 
 const Index = ({
   data: {
-    allKenticoCloudItemHomePage: {
+    allKontentItemHomePage: {
       edges: [{ node: data }],
     },
   },
@@ -47,7 +47,7 @@ export default Index;
 
 export const query = graphql`
   {
-    allKenticoCloudItemHomePage {
+    allKontentItemHomePage {
       edges {
         node {
           id

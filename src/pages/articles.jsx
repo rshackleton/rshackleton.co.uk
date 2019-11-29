@@ -9,10 +9,10 @@ import SEO from '@components/shared/SEO';
 
 const Articles = ({
   data: {
-    allKenticoCloudItemArticleListing: {
+    allKontentItemArticleListing: {
       edges: [{ node: data }],
     },
-    allKenticoCloudItemArticle: { edges: itemsData },
+    allKontentItemArticle: { edges: itemsData },
   },
 }) => {
   const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
@@ -55,7 +55,7 @@ export default Articles;
 
 export const query = graphql`
   {
-    allKenticoCloudItemArticleListing(limit: 1) {
+    allKontentItemArticleListing(limit: 1) {
       edges {
         node {
           elements {
@@ -87,7 +87,7 @@ export const query = graphql`
         }
       }
     }
-    allKenticoCloudItemArticle(
+    allKontentItemArticle(
       limit: 1000
       sort: { fields: elements___date___value, order: DESC }
     ) {

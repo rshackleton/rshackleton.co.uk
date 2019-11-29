@@ -31,8 +31,8 @@ Tweet.propTypes = {
 
 export default Tweet;
 
-export const KenticoCloudItemTweetFragment = graphql`
-  fragment KenticoCloudItemTweetFragment on KenticoCloudItemTweet {
+export const KontentItemTweetFragment = graphql`
+  fragment KontentItemTweetFragment on KontentItemTweet {
     system {
       codename
       type

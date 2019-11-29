@@ -21,8 +21,8 @@ CodeBlock.propTypes = {
 
 export default CodeBlock;
 
-export const KenticoCloudItemCodeBlockFragment = graphql`
-  fragment KenticoCloudItemCodeBlockFragment on KenticoCloudItemCodeBlock {
+export const KontentItemCodeBlockFragment = graphql`
+  fragment KontentItemCodeBlockFragment on KontentItemCodeBlock {
     system {
       codename
       type

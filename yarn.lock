@@ -2333,6 +2333,36 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@kentico/gatsby-source-kontent@4.0.0-beta1":
+  version "4.0.0-beta1"
+  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.0.0-beta1.tgz#56be90a7816517ed7c62c45f64463a8cbf2ee686"
+  integrity sha512-7o55F72nL+I5FYYK0CX5a1lUfacIlS3xEaHfqFGTLQJm81YNQBtcVekI2BZ8otbbFx2uBz4an2LvRKit9UVlDA==
+  dependencies:
+    "@kentico/kontent-delivery" "^7.0.1"
+    change-case "^3.1.0"
+    flatted "^2.0.0"
+    json-stringify-safe "^5.0.1"
+    lodash "^4.17.11"
+    react "^16.8.3"
+    react-dom "^16.8.3"
+    rxjs "^6.4.0"
+
+"@kentico/kontent-core@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-3.1.0.tgz#8e8f3ac680282e10f5ccefc1cfd5dcdf5907d1ae"
+  integrity sha512-VL5VxJJ+7Abv0ONHXdstT5tFQ8ql55FzXJjx8W4xNazfIg2ezOw+o45xp3BZniYSc1KD56GrJd9Wh0vrFK0THw==
+  dependencies:
+    axios "0.19.0"
+
+"@kentico/kontent-delivery@^7.0.1":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-7.2.0.tgz#ecbd3f4ab9ab9788bc5146bf02f1bc9c5ea929b8"
+  integrity sha512-evUCedXH10vd6bjYhYdPHSCBXzWOLPT4MRyx1nRrTLsCXXbKreIbCQ4DdfjXMEt+Aj+wg/C6UPiHoYuew7M0eA==
+  dependencies:
+    "@kentico/kontent-core" "3.1.0"
+    parse5 "5.1.0"
+    reflect-metadata "0.1.13"
+
 "@mikaelkristiansson/domready@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.9.tgz#b2b85d8ac7bb2797e577050b61aeaf1b26fbd906"
@@ -3291,15 +3321,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
   integrity sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
 
-axios@0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
-  integrity sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
-  dependencies:
-    follow-redirects "^1.3.0"
-    is-buffer "^1.1.5"
-
-axios@^0.19.0:
+axios@0.19.0, axios@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
   integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
@@ -6770,7 +6792,7 @@ follow-redirects@1.5.10:
   dependencies:
     debug "=3.1.0"
 
-follow-redirects@^1.0.0, follow-redirects@^1.3.0:
+follow-redirects@^1.0.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.6.1.tgz#514973c44b5757368bad8bddfe52f81f015c94cb"
   integrity sha512-t2JCjbzxQpWvbhts3l6SH1DKzSrx8a+SsaVf4h6bG4kOXUuPYS/kg2Lr4gQSb7eemaHqJkOThF1BGyjlUkO1GQ==
@@ -7139,19 +7161,6 @@ gatsby-react-router-scroll@^2.1.16:
     "@babel/runtime" "^7.7.2"
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
-
-gatsby-source-kentico-cloud@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-kentico-cloud/-/gatsby-source-kentico-cloud-3.1.0.tgz#0a36203367d2588fc36286b3dfd436f39410462e"
-  integrity sha512-QEut4E8GGGOQoTbsF+Xv5/IQHyq3VE8yJQeuJ4FWeMVT6yqSfgYLR3NGENMRc6ITg/IUQ21lH8USzxdti69MXg==
-  dependencies:
-    change-case "^3.1.0"
-    flatted "^2.0.0"
-    kentico-cloud-delivery "^5.7.2"
-    lodash "^4.17.11"
-    react "^16.8.3"
-    react-dom "^16.8.3"
-    rxjs "^6.4.0"
 
 gatsby-telemetry@^1.1.39:
   version "1.1.39"
@@ -9479,22 +9488,6 @@ kebab-hash@^0.1.2:
   integrity sha512-BTZpq3xgISmQmAVzkISy4eUutsUA7s4IEFlCwOBJjvSFOwyR7I+fza+tBc/rzYWK/NrmFHjfU1IhO3lu29Ib/w==
   dependencies:
     lodash.kebabcase "^4.1.1"
-
-kentico-cloud-core@1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/kentico-cloud-core/-/kentico-cloud-core-1.4.3.tgz#c40e39bbd8f1c2787e81d18e9eda1633d1357732"
-  integrity sha512-YJHpyCSSXX4fBAyy4126Y9IAsVM0N9AWQ8myOGe9b41ecm3WBMRfUH8D3a/HQB5owHAob5WPgiKlHGQ9kAwUJg==
-  dependencies:
-    axios "0.18.0"
-
-kentico-cloud-delivery@^5.7.2:
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/kentico-cloud-delivery/-/kentico-cloud-delivery-5.7.2.tgz#716ca7d46f32e031e3a78480d8fc5cab5b338d0e"
-  integrity sha512-5iudO7Mc25PhgA7l+Js+VyJXYLb1FBb/ZwoAONXAGfhfhwtIAIX9BYGO/vMxKZ6TLsiIhn7ZBFkflckLTIXRCg==
-  dependencies:
-    kentico-cloud-core "1.4.3"
-    parse5 "5.1.0"
-    reflect-metadata "0.1.13"
 
 keyv@3.0.0:
   version "3.0.0"
