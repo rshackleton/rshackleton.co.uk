@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import * as Yup from 'yup';
 
 import {
@@ -13,6 +13,7 @@ import {
 
 const ContactForm = () => {
   const formRef = useRef();
+  const [confirmed, setConfirmed] = useState(false);
 
   const Schema = Yup.object().shape({
     name: Yup.string().required('Please enter your name.'),
@@ -39,8 +40,19 @@ const ContactForm = () => {
         method: 'POST',
         body: formData,
       });
+
+      setConfirmed(true);
     },
   });
+
+  if (confirmed) {
+    return (
+      <p>
+        Your submission has been recieved, I&apos;ll be in contact as soon as
+        possible.
+      </p>
+    );
+  }
 
   return (
     <form
