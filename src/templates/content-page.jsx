@@ -7,7 +7,7 @@ import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
-const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
+const ContentPage = ({ data: { kontentItemContentPage: data } }) => {
   const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
   const slug = get(data, 'elements.slug.value');
 
@@ -22,7 +22,7 @@ const ContentPage = ({ data: { kenticoCloudItemContentPage: data } }) => {
 
   const banner = get(data, 'elements.banner.value[0].url');
   const bannerDescription = get(data, 'elements.banner.value[0].description');
-  const content = get(data, 'elements.body.resolvedHtml');
+  const content = get(data, 'elements.body.resolvedData.html');
   const images = get(data, 'elements.body.images');
   const links = get(data, 'elements.body.links');
   const linkedItems = get(data, 'elements.body.linked_items');
@@ -50,7 +50,7 @@ export default ContentPage;
 
 export const query = graphql`
   query($slug: String!) {
-    kenticoCloudItemContentPage(elements: { slug: { value: { eq: $slug } } }) {
+    kontentItemContentPage(elements: { slug: { value: { eq: $slug } } }) {
       id
       elements {
         title {
@@ -60,7 +60,9 @@ export const query = graphql`
           value
         }
         body {
-          resolvedHtml
+          resolvedData {
+            html
+          }
           images {
             imageId
             description

@@ -16,7 +16,7 @@ async function createArticlePages({ graphql, actions }) {
 
   const { data, errors } = await graphql(`
     {
-      allKenticoCloudItemArticle {
+      allKontentItemArticle {
         edges {
           node {
             system {
@@ -38,7 +38,7 @@ async function createArticlePages({ graphql, actions }) {
   }
 
   const {
-    allKenticoCloudItemArticle: { edges },
+    allKontentItemArticle: { edges },
   } = data;
 
   edges.forEach(edge => {
@@ -65,7 +65,7 @@ async function createContentPages({ graphql, actions }) {
 
   const { data, errors } = await graphql(`
     {
-      allKenticoCloudItemContentPage {
+      allKontentItemContentPage {
         edges {
           node {
             system {
@@ -87,7 +87,7 @@ async function createContentPages({ graphql, actions }) {
   }
 
   const {
-    allKenticoCloudItemContentPage: { edges },
+    allKontentItemContentPage: { edges },
   } = data;
 
   edges.forEach(edge => {

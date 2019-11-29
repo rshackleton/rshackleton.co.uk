@@ -21,8 +21,8 @@ ContentPage.propTypes = {
 
 export default ContentPage;
 
-export const KenticoCloudItemContentPageFragment = graphql`
-  fragment KenticoCloudItemContentPageFragment on KenticoCloudItemContentPage {
+export const KontentItemContentPageFragment = graphql`
+  fragment KontentItemContentPageFragment on KontentItemContentPage {
     system {
       codename
       type

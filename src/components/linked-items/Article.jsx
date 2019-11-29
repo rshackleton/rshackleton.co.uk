@@ -21,8 +21,8 @@ Article.propTypes = {
 
 export default Article;
 
-export const KenticoCloudItemArticleFragment = graphql`
-  fragment KenticoCloudItemArticleFragment on KenticoCloudItemArticle {
+export const KontentItemArticleFragment = graphql`
+  fragment KontentItemArticleFragment on KontentItemArticle {
     system {
       codename
       type

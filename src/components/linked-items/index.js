@@ -45,17 +45,17 @@ export default LinkedItem;
 
 export const LinkedItemsFragment = graphql`
   fragment LinkedItemsFragment on Node {
-    ... on KenticoCloudItemArticle {
-      ...KenticoCloudItemArticleFragment
+    ... on KontentItemArticle {
+      ...KontentItemArticleFragment
     }
-    ... on KenticoCloudItemCodeBlock {
-      ...KenticoCloudItemCodeBlockFragment
+    ... on KontentItemCodeBlock {
+      ...KontentItemCodeBlockFragment
     }
-    ... on KenticoCloudItemContentPage {
-      ...KenticoCloudItemContentPageFragment
+    ... on KontentItemContentPage {
+      ...KontentItemContentPageFragment
     }
-    ... on KenticoCloudItemTweet {
-      ...KenticoCloudItemTweetFragment
+    ... on KontentItemTweet {
+      ...KontentItemTweetFragment
     }
   }
 `;

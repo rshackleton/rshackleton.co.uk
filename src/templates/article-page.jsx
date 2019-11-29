@@ -10,16 +10,16 @@ import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
-const ArticlePage = ({ data: { kenticoCloudItemArticle: data } }) => {
+const ArticlePage = ({ data: { kontentItemArticle: data } }) => {
   const banner = get(data, 'elements.banner.value[0].url');
   const bannerDescription = get(data, 'elements.banner.value[0].description');
-  const content = get(data, 'elements.body.resolvedHtml');
+  const content = get(data, 'elements.body.resolvedData.html');
   const date = new Date(get(data, 'elements.date.value'));
   const images = get(data, 'elements.body.images');
   const links = get(data, 'elements.body.links');
   const linkedItems = get(data, 'elements.body.linked_items');
   const slug = get(data, 'elements.slug.value');
-  const tags = get(data, 'elements.article_tags.taxonomyTerms');
+  const tags = get(data, 'elements.article_tags.value');
   const title = get(data, 'elements.title.value');
 
   const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
@@ -82,7 +82,7 @@ export default ArticlePage;
 
 export const query = graphql`
   query($slug: String!) {
-    kenticoCloudItemArticle(elements: { slug: { value: { eq: $slug } } }) {
+    kontentItemArticle(elements: { slug: { value: { eq: $slug } } }) {
       elements {
         title {
           value
@@ -91,11 +91,10 @@ export const query = graphql`
           value
         }
         date {
-          datetime
           value
         }
         article_tags {
-          taxonomyTerms {
+          value {
             codename
             name
           }
@@ -107,7 +106,9 @@ export const query = graphql`
           }
         }
         body {
-          resolvedHtml
+          resolvedData {
+            html
+          }
           images {
             imageId
             description
