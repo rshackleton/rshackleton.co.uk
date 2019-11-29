@@ -30,9 +30,14 @@ const ContactForm = () => {
     },
     validationSchema: Schema,
     onSubmit: values => {
+      const formData = new URLSearchParams({
+        'form-name': 'contact',
+        ...values,
+      });
+
       fetch(formRef.current.action, {
         method: 'POST',
-        body: new URLSearchParams(values),
+        body: formData,
       });
     },
   });
@@ -46,7 +51,6 @@ const ContactForm = () => {
       data-netlify-honeypot="bot-field"
       onSubmit={formik.handleSubmit}
     >
-      <input type="hidden" name="form-name" value="contact" />
       <Field>
         <Label htmlFor="name">First Name</Label>
         <TextBox
