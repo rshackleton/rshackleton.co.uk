@@ -28,6 +28,7 @@
     "dotenv": "8.2.0",
     "emotion-reset": "2.0.3",
     "emotion-theming": "10.0.19",
+    "formik": "^2.0.6",
     "gatsby": "2.18.2",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-disqus": "^1.1.4",
@@ -51,7 +52,8 @@
     "react-syntax-highlighter": "11.0.2",
     "react-twitter-embed": "3.0.3",
     "react-typography": "0.16.19",
-    "typography": "0.16.19"
+    "typography": "0.16.19",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "babel-eslint": "10.0.3",

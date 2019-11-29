@@ -3,6 +3,7 @@ import { rgba } from 'polished';
 const brand = {
   primary: '#466841',
   secondary: '#9ef8ef',
+  error: '#ed4337',
 };
 
 const fonts = {
@@ -21,6 +22,7 @@ const theme = {
   },
   colors: {
     body: rgba('#000000', 0.8),
+    error: brand.error,
     link: brand.primary,
     linkHover: brand.primary,
     insetBackground: '#fefefe',

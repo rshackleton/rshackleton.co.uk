@@ -1,15 +1,21 @@
-import get from 'lodash/get';
-import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import ContactForm from '../components/forms/ContactForm';
 
-const ContentPage = ({ data: { kontentItemContentPage: data } }) => {
+const Contact = ({
+  data: {
+    allKontentItemContactPage: {
+      edges: [{ node: data }],
+    },
+  },
+}) => {
   const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
-  const slug = get(data, 'elements.slug.value');
 
   const seo = {
     title: get(data, 'elements.metadata__page_title.value'),
@@ -17,7 +23,7 @@ const ContentPage = ({ data: { kontentItemContentPage: data } }) => {
     keywords: get(data, 'elements.metadata__page_keywords.value'),
     image: ogImage ? ogImage.url : null,
     imageDescription: ogImage ? ogImage.description : null,
-    url: `/${slug}`,
+    url: `/contact`,
   };
 
   const banner = get(data, 'elements.banner.value[0].url');
@@ -38,65 +44,67 @@ const ContentPage = ({ data: { kontentItemContentPage: data } }) => {
         links={links}
         linkedItems={linkedItems}
       />
+      <ContactForm />
     </Layout>
   );
 };
 
-ContentPage.propTypes = {
+Contact.propTypes = {
   data: PropTypes.object,
 };
 
-export default ContentPage;
+export default Contact;
 
 export const query = graphql`
-  query($slug: String!) {
-    kontentItemContentPage(elements: { slug: { value: { eq: $slug } } }) {
-      id
-      elements {
-        title {
-          value
-        }
-        slug {
-          value
-        }
-        body {
-          resolvedData {
-            html
-          }
-          images {
-            imageId
-            description
-            url
-          }
-          links {
-            codename
-            linkId
-            type
-            urlSlug
-          }
-          linked_items {
-            ...LinkedItemsFragment
-          }
-        }
-        banner {
-          value {
-            description
-            url
-          }
-        }
-        metadata__page_title {
-          value
-        }
-        metadata__page_description {
-          value
-        }
-        metadata__page_keywords {
-          value
-        }
-        metadata__open_graph_image {
-          value {
-            description
-            url
+  {
+    allKontentItemContactPage {
+      edges {
+        node {
+          id
+          elements {
+            title {
+              value
+            }
+            body {
+              resolvedData {
+                html
+              }
+              images {
+                imageId
+                description
+                url
+              }
+              links {
+                codename
+                linkId
+                type
+                urlSlug
+              }
+              linked_items {
+                ...LinkedItemsFragment
+              }
+            }
+            banner {
+              value {
+                description
+                url
+              }
+            }
+            metadata__page_title {
+              value
+            }
+            metadata__page_description {
+              value
+            }
+            metadata__page_keywords {
+              value
+            }
+            metadata__open_graph_image {
+              value {
+                description
+                url
+              }
+            }
           }
         }
       }

@@ -11,6 +11,9 @@ const Navigation = () => (
       <LinkItem>
         <Link to="/about">About</Link>
       </LinkItem>
+      <LinkItem>
+        <Link to="/contact">Contact</Link>
+      </LinkItem>
     </Links>
   </Container>
 );
