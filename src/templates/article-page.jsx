@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby';
+import { Disqus } from 'gatsby-plugin-disqus';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Helmet from 'react-helmet';
 
 import ArticleFooter from '@components/article-page/ArticleFooter';
 import ArticleHeader from '@components/article-page/ArticleHeader';
@@ -10,7 +10,15 @@ import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 
-const ArticlePage = ({ data: { kontentItemArticle: data } }) => {
+const ArticlePage = ({
+  data: {
+    kontentItemArticle: data,
+    site: {
+      siteMetadata: { siteUrl },
+    },
+  },
+}) => {
+  const id = get(data, 'system.id');
   const banner = get(data, 'elements.banner.value[0].url');
   const bannerDescription = get(data, 'elements.banner.value[0].description');
   const content = get(data, 'elements.body.resolvedData.html');
@@ -38,7 +46,7 @@ const ArticlePage = ({ data: { kontentItemArticle: data } }) => {
     imageDescription: ogImage ? ogImage.description : null,
     prefix: 'og: http://ogp.me/ns# article: http://ogp.me/ns/article#',
     type: 'article',
-    url: `/articles/${slug}/`,
+    url: `/articles/${slug}`,
     extraTags: [
       <meta
         key="article:published_time"
@@ -59,6 +67,12 @@ const ArticlePage = ({ data: { kontentItemArticle: data } }) => {
     ],
   };
 
+  let disqusConfig = {
+    url: `${siteUrl + seo.url}`,
+    identifier: id,
+    title,
+  };
+
   return (
     <Layout banner={banner} bannerDescription={bannerDescription}>
       <SEO {...seo} />
@@ -70,6 +84,7 @@ const ArticlePage = ({ data: { kontentItemArticle: data } }) => {
         linkedItems={linkedItems}
       />
       <ArticleFooter tags={tags} />
+      <Disqus config={disqusConfig} />
     </Layout>
   );
 };
@@ -82,7 +97,15 @@ export default ArticlePage;
 
 export const query = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     kontentItemArticle(elements: { slug: { value: { eq: $slug } } }) {
+      system {
+        id
+      }
       elements {
         title {
           value
