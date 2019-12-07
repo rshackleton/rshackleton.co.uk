@@ -26,7 +26,7 @@
     "@kentico/gatsby-source-kontent": "4.1.0-beta6",
     "babel-plugin-emotion": "10.0.23",
     "dotenv": "8.2.0",
-    "emotion-reset": "2.0.3",
+    "emotion-reset": "2.0.4",
     "emotion-theming": "10.0.19",
     "formik": "2.0.6",
     "gatsby": "2.18.5",
