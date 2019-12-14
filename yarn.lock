@@ -1352,10 +1352,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@kentico/gatsby-source-kontent@4.1.0-beta6":
-  version "4.1.0-beta6"
-  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.1.0-beta6.tgz#44ee2dc0035bdf8a4dbf8bf4eb392af36eb346cc"
-  integrity sha512-60oxyLXm7kS5fzOdvBcxio88BOVO67AHH2spLX8k813a70hLLjBS+1U+FgZl8J/87+8PHQaRHLCvgZrGj/raVg==
+"@kentico/gatsby-source-kontent@4.1.0-beta7":
+  version "4.1.0-beta7"
+  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.1.0-beta7.tgz#83ed4432cf94f4002a06467f28c66cc2f863d55b"
+  integrity sha512-HMOzth1WIS8/3dFMfbfabkzyAmhiJYt1GqVizn3+r1RgTv8DrmDXQ+1JsihaW1eUDD6XSSJXs380q2+L4caK8A==
   dependencies:
     "@kentico/kontent-delivery" "^8.0.0"
     change-case "^3.1.0"
