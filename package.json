@@ -29,7 +29,7 @@
     "emotion-reset": "2.0.4",
     "emotion-theming": "10.0.27",
     "formik": "2.0.8",
-    "gatsby": "2.18.16",
+    "gatsby": "2.18.17",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-disqus": "1.1.4",
     "gatsby-plugin-emotion": "4.1.18",
@@ -95,6 +95,6 @@
     ]
   },
   "resolutions": {
-    "gatsby": "2.18.16"
+    "gatsby": "2.18.17"
   }
 }
