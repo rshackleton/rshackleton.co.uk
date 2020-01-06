@@ -1,35 +1,30 @@
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import HomeBanner from '@components/home/HomeBanner';
 import Layout from '@components/layouts/Default';
 import SEO from '@components/shared/SEO';
 
-const Index = ({
+const Index: FC<Props> = ({
   data: {
     allKontentItemHomePage: {
       edges: [{ node: data }],
     },
   },
 }) => {
-  const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
+  const ogImage = data.elements.metadata__open_graph_image.value[0];
 
   const seo = {
-    title: get(data, 'elements.metadata__page_title.value'),
-    description: get(data, 'elements.metadata__page_description.value'),
-    keywords: get(data, 'elements.metadata__page_keywords.value'),
+    title: data.elements.metadata__page_title.value,
+    description: data.elements.metadata__page_description.value,
+    keywords: data.elements.metadata__page_keywords.value,
     image: ogImage ? ogImage.url : null,
     imageDescription: ogImage ? ogImage.description : null,
     url: '/',
   };
 
-  const image = get(data, 'elements.background_image.value[0].url');
-  const imageDescription = get(
-    data,
-    'elements.background_image.value[0].description',
-  );
+  const image = data.elements.background_image.value[0].url;
+  const imageDescription = data.elements.background_image.value[0].description;
 
   return (
     <Layout>
@@ -37,10 +32,6 @@ const Index = ({
       <HomeBanner image={image} imageDescription={imageDescription} />
     </Layout>
   );
-};
-
-Index.propTypes = {
-  data: PropTypes.object,
 };
 
 export default Index;
@@ -79,3 +70,38 @@ export const query = graphql`
     }
   }
 `;
+
+interface Props {
+  data: {
+    allKontentItemHomePage: {
+      edges: {
+        node: {
+          id: string;
+          elements: {
+            background_image: {
+              value: {
+                description: string;
+                url: string;
+              }[];
+            };
+            metadata__page_title: {
+              value: string;
+            };
+            metadata__page_description: {
+              value: string;
+            };
+            metadata__page_keywords: {
+              value: string;
+            };
+            metadata__open_graph_image: {
+              value: {
+                description: string;
+                url: string;
+              }[];
+            };
+          };
+        };
+      }[];
+    };
+  };
+}
