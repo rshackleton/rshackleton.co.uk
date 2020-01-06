@@ -5,7 +5,13 @@ import HomeBanner from '@components/home/HomeBanner';
 import Layout from '@components/layouts/Default';
 import SEO from '@components/shared/SEO';
 
-const Index: FC<Props> = ({
+interface IndexProps {
+  data: {
+    allKontentItemHomePage: Connection<HomePage>;
+  };
+}
+
+const Index: FC<IndexProps> = ({
   data: {
     allKontentItemHomePage: {
       edges: [{ node: data }],
@@ -70,38 +76,3 @@ export const query = graphql`
     }
   }
 `;
-
-interface Props {
-  data: {
-    allKontentItemHomePage: {
-      edges: {
-        node: {
-          id: string;
-          elements: {
-            background_image: {
-              value: {
-                description: string;
-                url: string;
-              }[];
-            };
-            metadata__page_title: {
-              value: string;
-            };
-            metadata__page_description: {
-              value: string;
-            };
-            metadata__page_keywords: {
-              value: string;
-            };
-            metadata__open_graph_image: {
-              value: {
-                description: string;
-                url: string;
-              }[];
-            };
-          };
-        };
-      }[];
-    };
-  };
-}
