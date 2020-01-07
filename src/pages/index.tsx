@@ -24,8 +24,8 @@ const Index: FC<IndexProps> = ({
     title: data.elements.metadata__page_title.value,
     description: data.elements.metadata__page_description.value,
     keywords: data.elements.metadata__page_keywords.value,
-    image: ogImage ? ogImage.url : null,
-    imageDescription: ogImage ? ogImage.description : null,
+    image: ogImage.url,
+    imageDescription: ogImage.description,
     url: '/',
   };
 

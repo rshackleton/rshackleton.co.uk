@@ -42,7 +42,7 @@ const Layout = ({ banner, bannerDescription, children }) => {
 
 Layout.propTypes = {
   banner: PropTypes.string.isRequired,
-  bannerDescription: PropTypes.string.isRequired,
+  bannerDescription: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 

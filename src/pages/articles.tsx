@@ -1,13 +1,18 @@
-import get from 'lodash/get';
-import React from 'react';
-import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import React, { FC } from 'react';
 
 import ArticleList from '@components/articles/ArticleList';
 import Layout from '@components/layouts/InsetWithBanner';
 import SEO from '@components/shared/SEO';
 
-const Articles = ({
+interface ArticlesProps {
+  data: {
+    allKontentItemArticle: Connection<Article>;
+    allKontentItemArticleListing: Connection<ArticleListing>;
+  };
+}
+
+const Articles: FC<ArticlesProps> = ({
   data: {
     allKontentItemArticleListing: {
       edges: [{ node: data }],
@@ -15,27 +20,28 @@ const Articles = ({
     allKontentItemArticle: { edges: itemsData },
   },
 }) => {
-  const ogImage = get(data, 'elements.metadata__open_graph_image.value[0]');
+  const ogImage = data.elements.metadata__open_graph_image.value[0];
 
   const seo = {
-    title: get(data, 'elements.metadata__page_title.value'),
-    description: get(data, 'elements.metadata__page_description.value'),
-    keywords: get(data, 'elements.metadata__page_keywords.value'),
+    title: data.elements.metadata__page_title.value,
+    description: data.elements.metadata__page_description.value,
+    keywords: data.elements.metadata__page_keywords.value,
     image: ogImage ? ogImage.url : null,
     imageDescription: ogImage ? ogImage.description : null,
-    url: '/articles',
+    url: `/articles`,
   };
 
-  const banner = get(data, 'elements.banner.value[0].url');
-  const bannerDescription = get(data, 'elements.banner.value[0].description');
-  const title = get(data, 'elements.title.value');
+  const banner = data.elements.banner.value[0].url;
+  const bannerDescription = data.elements.banner.value[0].description;
+
+  const title = data.elements.title.value;
 
   const items = itemsData.map(({ node: item }) => ({
-    id: get(item, 'system.id'),
-    codename: get(item, 'system.codename'),
-    slug: get(item, 'elements.slug.value'),
-    summary: get(item, 'elements.summary.value'),
-    title: get(item, 'elements.title.value'),
+    id: item.system.id,
+    codename: item.system.codename,
+    slug: item.elements.slug.value,
+    summary: item.elements.summary.value,
+    title: item.elements.title.value,
   }));
 
   return (
@@ -45,10 +51,6 @@ const Articles = ({
       <ArticleList items={items} />
     </Layout>
   );
-};
-
-Articles.propTypes = {
-  data: PropTypes.object,
 };
 
 export default Articles;
