@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Source } from '@components/shared/Picture';
 import { rules } from '@utils/mq';
@@ -13,7 +12,12 @@ import {
   Title,
 } from './HomeBanner.styles';
 
-const HomeBanner = ({ image, imageDescription }) => {
+interface HomeBannerProps {
+  image: string;
+  imageDescription?: string;
+}
+
+const HomeBanner: FC<HomeBannerProps> = ({ image, imageDescription }) => {
   const srcs = {
     xl: `${image}?w=1920&auto=format 1x, ${image}?w=3840&auto=format 2x`,
     lg: `${image}?w=1200&auto=format 1x, ${image}?w=2400&auto=format 2x`,
@@ -50,11 +54,6 @@ const HomeBanner = ({ image, imageDescription }) => {
       </Content>
     </Container>
   );
-};
-
-HomeBanner.propTypes = {
-  image: PropTypes.string.isRequired,
-  imageDescription: PropTypes.string,
 };
 
 export default HomeBanner;

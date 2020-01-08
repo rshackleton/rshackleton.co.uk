@@ -1,7 +1,6 @@
 import { Global } from '@emotion/core';
 import { graphql, useStaticQuery } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode, FC } from 'react';
 
 import Footer from '@components/shared/Footer';
 import Header from '@components/shared/Header';
@@ -14,7 +13,13 @@ import {
   ContentWrapper,
 } from './InsetWithBanner.styles';
 
-const Layout = ({ banner, bannerDescription, children }) => {
+interface LayoutProps {
+  banner: string;
+  bannerDescription?: string;
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ banner, bannerDescription, children }) => {
   const data = useStaticQuery(
     graphql`
       {
@@ -38,12 +43,6 @@ const Layout = ({ banner, bannerDescription, children }) => {
       <Footer />
     </ThemeWrapper>
   );
-};
-
-Layout.propTypes = {
-  banner: PropTypes.string.isRequired,
-  bannerDescription: PropTypes.string,
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

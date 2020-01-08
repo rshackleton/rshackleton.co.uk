@@ -1,17 +1,38 @@
 import { rgba } from 'polished';
 
-const brand = {
+export interface Brand {
+  primary: string;
+  secondary: string;
+  error: string;
+}
+
+export interface Fonts {
+  headerFontFamily: string;
+  bodyFontFamily: string;
+}
+
+export interface Theme {
+  brand: Brand;
+  breakpoints: Record<string, number>;
+  colors: Record<string, string>;
+  container: Record<string, string>;
+  dimensions: Record<string, number>;
+  fonts: Fonts;
+  layers: Record<string, number>;
+}
+
+const brand: Brand = {
   primary: '#466841',
   secondary: '#9ef8ef',
   error: '#ed4337',
 };
 
-const fonts = {
+const fonts: Fonts = {
   headerFontFamily: '"Raleway", sans-serif',
   bodyFontFamily: '"Zilla Slab", serif',
 };
 
-const theme = {
+const theme: Theme = {
   brand,
   breakpoints: {
     xs: 320,

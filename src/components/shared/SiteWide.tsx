@@ -1,17 +1,23 @@
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode, FC } from 'react';
 
 import { rhythm } from '@utils/typography';
+import { Theme } from '@utils/theme';
 
 const Container = styled.div`
   display: block;
-  max-width: ${({ theme }) => theme.container.base};
+  max-width: ${({ theme }: { theme: Partial<Theme> }) =>
+    theme && theme.container ? theme.container.base : ''};
   margin: 0 auto;
   padding: 0 ${rhythm(1)};
 `;
 
-const SiteWide = ({ children, ...otherProps }) => (
+interface SiteWideProps {
+  children: ReactNode;
+}
+
+const SiteWide: FC<SiteWideProps> = ({ children, ...otherProps }) => (
   <Container {...otherProps}>{children}</Container>
 );
 

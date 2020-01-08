@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx, Global } from '@emotion/core';
-import PropTypes from 'prop-types';
+import { FC, ReactNode } from 'react';
 
 if (typeof window !== `undefined`) {
   require('lazysizes/plugins/attrchange/ls.attrchange');
@@ -11,21 +11,32 @@ if (typeof window !== `undefined`) {
   require('lazysizes');
 }
 
-const Source = ({ lowSrc, media, srcSet }) => (
+interface SourceProps {
+  lowSrc?: string;
+  media: string;
+  srcSet: string;
+}
+
+const Source: FC<SourceProps> = ({ lowSrc = null, media, srcSet }) => (
   <source data-srcset={srcSet} data-lowsrc={lowSrc} media={media} />
 );
 
-Source.propTypes = {
-  lowSrc: PropTypes.string,
-  media: PropTypes.string.isRequired,
-  srcSet: PropTypes.string.isRequired,
-};
+interface PictureProps {
+  alt?: string;
+  className?: string;
+  fallback: string;
+  lowSrc?: string;
+  sources: ReactNode;
+}
 
-Source.defaultProps = {
-  lowSrc: null,
-};
-
-const Picture = ({ className, fallback, lowSrc, sources, ...otherProps }) => (
+const Picture: FC<PictureProps> = ({
+  alt = '',
+  className,
+  fallback,
+  lowSrc = null,
+  sources,
+  ...otherProps
+}) => (
   <div
     css={css`
       position: relative;
@@ -65,6 +76,7 @@ const Picture = ({ className, fallback, lowSrc, sources, ...otherProps }) => (
       {sources}
       <source data-srcset={fallback} data-lowsrc={lowSrc} />
       <img
+        alt={alt}
         css={css`
           font-family: 'blur-up: unobtrusive', 'object-fit: cover';
           opacity: 0;
@@ -82,17 +94,5 @@ const Picture = ({ className, fallback, lowSrc, sources, ...otherProps }) => (
     </picture>
   </div>
 );
-
-Picture.propTypes = {
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  fallback: PropTypes.string.isRequired,
-  lowSrc: PropTypes.string,
-  sources: PropTypes.arrayOf(PropTypes.node).isRequired,
-};
-
-Picture.defaultProps = {
-  lowSrc: null,
-};
 
 export { Picture as default, Source };

@@ -1,8 +1,19 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
-const InlineLink = ({ content, linkId, type, urlSlug }) => {
+interface InlineLinkProps {
+  content: string;
+  linkId: number;
+  type: string;
+  urlSlug: string;
+}
+
+const InlineLink: FC<InlineLinkProps> = ({
+  content,
+  linkId,
+  type,
+  urlSlug,
+}) => {
   let url;
 
   switch (type) {
@@ -36,13 +47,6 @@ const InlineLink = ({ content, linkId, type, urlSlug }) => {
       {content}
     </Link>
   );
-};
-
-InlineLink.propTypes = {
-  content: PropTypes.string,
-  linkId: PropTypes.string,
-  type: PropTypes.string,
-  urlSlug: PropTypes.string,
 };
 
 export default InlineLink;

@@ -1,12 +1,17 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Source } from '@components/shared/Picture';
 import { rules } from '@utils/mq';
 
 import { Picture } from './InlineAsset.styles';
 
-const InlineAsset = ({ description, id, url }) => {
+interface InlineAssetProps {
+  description?: string;
+  id: string;
+  url: string;
+}
+
+const InlineAsset: FC<InlineAssetProps> = ({ description, id, url }) => {
   const srcs = {
     xl: `${url}?w=900&auto=format 1x, ${url}?w=1800&auto=format 2x`,
     lg: `${url}?w=900&auto=format 1x, ${url}?w=1800&auto=format 2x`,
@@ -29,12 +34,6 @@ const InlineAsset = ({ description, id, url }) => {
       })}
     />
   );
-};
-
-InlineAsset.propTypes = {
-  description: PropTypes.string,
-  id: PropTypes.string,
-  url: PropTypes.string,
 };
 
 export default InlineAsset;

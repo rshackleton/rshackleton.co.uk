@@ -1,12 +1,20 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Source } from '@components/shared/Picture';
 import { rules } from '@utils/mq';
 
 import { Container, Picture } from './Banner.styles';
 
-const Banner = ({ image, imageDescription, ...otherProps }) => {
+interface BannerProps {
+  image: string;
+  imageDescription?: string;
+}
+
+const Banner: FC<BannerProps> = ({
+  image,
+  imageDescription,
+  ...otherProps
+}) => {
   const srcs = {
     xl: `${image}?w=1920&auto=format 1x, ${image}?w=3840&auto=format 2x`,
     lg: `${image}?w=1200&auto=format 1x, ${image}?w=2400&auto=format 2x`,
@@ -30,11 +38,6 @@ const Banner = ({ image, imageDescription, ...otherProps }) => {
       />
     </Container>
   );
-};
-
-Banner.propTypes = {
-  image: PropTypes.string.isRequired,
-  imageDescription: PropTypes.string.isRequired,
 };
 
 export default Banner;

@@ -1,22 +1,20 @@
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import ContentPageSummary from '@components/shared/ContentPageSummary';
 
-const ContentPage = ({ linkedItem }) => {
+interface ContentPageProps {
+  linkedItem: ContentPage;
+}
+
+const ContentPage: FC<ContentPageProps> = ({ linkedItem }) => {
   const props = {
-    slug: get(linkedItem, 'elements.slug.value'),
-    summary: get(linkedItem, 'elements.summary.value'),
-    title: get(linkedItem, 'elements.title.value'),
+    slug: linkedItem.elements.slug.value,
+    summary: linkedItem.elements.summary.value,
+    title: linkedItem.elements.title.value,
   };
 
   return <ContentPageSummary {...props} />;
-};
-
-ContentPage.propTypes = {
-  linkedItem: PropTypes.object.isRequired,
 };
 
 export default ContentPage;

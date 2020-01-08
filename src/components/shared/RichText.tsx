@@ -1,23 +1,26 @@
-/**
- * This file requires both `jsx` and `React` to be in scope, therefore both are imported.
- * `@babel/plugin-transform-react-jsx` needs to be configured to use `jsx` using the `@jsx` definition below.
- * */
-
 /* @jsx jsx */
-
-/* eslint-disable no-unused-vars */
 import { jsx } from '@emotion/core';
-import parseHTML from 'html-react-parser';
+import parseHTML, { DomElement } from 'html-react-parser';
 import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
-/* eslint-enable no-unused-vars */
+import { FC, Fragment } from 'react';
 
 import InlineAsset from '@components/shared/InlineAsset';
 import InlineLink from '@components/shared/InlineLink';
 import LinkedItem from '@components/linked-items';
 
-const RichText = ({ content, images, links, linkedItems }) => {
+interface RichTextProps {
+  content: string;
+  images: KontentRichTextImage[];
+  links: KontentRichTextLink[];
+  linkedItems: KontentItem[];
+}
+
+const RichText: FC<RichTextProps> = ({
+  content,
+  images,
+  links,
+  linkedItems,
+}) => {
   if (!content || !content.length) {
     return null;
   }
@@ -31,55 +34,48 @@ const RichText = ({ content, images, links, linkedItems }) => {
   });
 
   // Return all components inside a fragment.
-  return <>{children}</>;
-};
-
-RichText.propTypes = {
-  content: PropTypes.string.isRequired,
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
-  links: PropTypes.arrayOf(PropTypes.object).isRequired,
-  linkedItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+  return <Fragment>{children}</Fragment>;
 };
 
 export default RichText;
 
 /** Get data for Kentico Cloud inline asset. */
-function getAsset(id, assets) {
+function getAsset(id: string, assets: KontentRichTextImage[]) {
   return assets.find(asset => asset.imageId === id);
 }
 
 /** Get ID for Kentico Cloud inline asset from DOM node. */
-function getAssetId(domNode) {
+function getAssetId(domNode: DomElement) {
   return get(domNode, 'attribs["data-asset-id"]') || null;
 }
 
 /** Get code name for Kentico Cloud inline content item from DOM node. */
-function getCodeName(domNode) {
+function getCodeName(domNode: DomElement) {
   return get(domNode, 'attribs["data-codename"]') || null;
 }
 
 /** Get data for Kentico Cloud inline link. */
-function getLink(id, links) {
+function getLink(id: number, links: KontentRichTextLink[]) {
   return links.find(link => link.linkId === id);
 }
 
 /** Get content for Kentico Cloud inline link from DOM node. */
-function getLinkContent(domNode) {
+function getLinkContent(domNode: DomElement) {
   return get(domNode, 'children[0].data') || null;
 }
 
 /** Get data for Kentico Cloud inline content item. */
-function getLinkedItem(codename, linkedItems) {
+function getLinkedItem(codename: string, linkedItems: KontentItem[]) {
   return linkedItems.find(item => item.system.codename === codename);
 }
 
 /** Get ID for Kentico Cloud inline link from DOM node. */
-function getLinkId(domNode) {
+function getLinkId(domNode: DomElement) {
   return get(domNode, 'attribs["data-item-id"]') || null;
 }
 
 /** Check if DOM node is a Kentico Cloud inline asset. */
-function isAsset(domNode) {
+function isAsset(domNode: DomElement) {
   return (
     domNode.name === 'figure' &&
     domNode.attribs &&
@@ -88,14 +84,14 @@ function isAsset(domNode) {
 }
 
 /** Check if DOM node is a Kentico Cloud inline link. */
-function isLink(domNode) {
+function isLink(domNode: DomElement) {
   return (
     domNode.name === 'a' && domNode.attribs && domNode.attribs['data-item-id']
   );
 }
 
 /** Check if DOM node is a Kentico Cloud inline content item. */
-function isLinkedItem(domNode) {
+function isLinkedItem(domNode: DomElement) {
   return (
     domNode.name === 'p' &&
     domNode.attribs &&
@@ -104,11 +100,20 @@ function isLinkedItem(domNode) {
 }
 
 /** Replace HTML DOM node with React component. */
-function replaceNode(domNode, images, links, linkedItems) {
+function replaceNode(
+  domNode: DomElement,
+  images: KontentRichTextImage[],
+  links: KontentRichTextLink[],
+  linkedItems: KontentItem[],
+): React.ReactElement | object | undefined | false {
   // Replace inline assets.
   if (isAsset(domNode)) {
     const id = getAssetId(domNode);
     const image = getAsset(id, images);
+
+    if (!image) {
+      return false;
+    }
 
     return (
       <InlineAsset
@@ -125,6 +130,10 @@ function replaceNode(domNode, images, links, linkedItems) {
     const id = getLinkId(domNode);
     const link = getLink(id, links);
 
+    if (!link) {
+      return false;
+    }
+
     return (
       <InlineLink
         content={content}
@@ -139,6 +148,10 @@ function replaceNode(domNode, images, links, linkedItems) {
   if (isLinkedItem(domNode)) {
     const codename = getCodeName(domNode);
     const linkedItem = getLinkedItem(codename, linkedItems);
+
+    if (!linkedItem) {
+      return false;
+    }
 
     return <LinkedItem linkedItem={linkedItem} />;
   }

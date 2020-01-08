@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import Navigation from '@components/shared/Navigation';
 
 import { Container, SiteWide, Title, TitleLink } from './Header.styles';
 
-const Header = ({ siteTitle }) => (
+interface HeaderProps {
+  siteTitle: string;
+}
+
+const Header: FC<HeaderProps> = ({ siteTitle }) => (
   <Container>
     <SiteWide>
       <Title>
@@ -15,9 +18,5 @@ const Header = ({ siteTitle }) => (
     </SiteWide>
   </Container>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
 
 export default Header;

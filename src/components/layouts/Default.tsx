@@ -1,7 +1,6 @@
 import { Global } from '@emotion/core';
 import { graphql, useStaticQuery } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ReactNode, FC } from 'react';
 
 import Footer from '@components/shared/Footer';
 import Header from '@components/shared/Header';
@@ -10,7 +9,11 @@ import globalStyles from '@utils/globalStyles';
 
 import { ContentWrapper } from './Default.styles';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+const Layout: FC<LayoutProps> = ({ children }) => {
   const data = useStaticQuery(
     graphql`
       {
@@ -31,10 +34,6 @@ const Layout = ({ children }) => {
       <Footer />
     </ThemeWrapper>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node,
 };
 
 export default Layout;

@@ -1,14 +1,16 @@
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import TweetEmbed from '@components/shared/TweetEmbed';
 
 const URL_REGEX = /https:\/\/twitter\.com\/(\w+)\/status\/(\d+)\/?/;
 
-const Tweet = ({ linkedItem }) => {
-  const url = get(linkedItem, 'elements.tweet_url.value');
+interface TweetProps {
+  linkedItem: Tweet;
+}
+
+const Tweet: FC<TweetProps> = ({ linkedItem }) => {
+  const url = linkedItem.elements.tweet_url.value || '';
 
   const result = URL_REGEX.exec(url);
 
@@ -23,10 +25,6 @@ const Tweet = ({ linkedItem }) => {
   };
 
   return <TweetEmbed {...props} />;
-};
-
-Tweet.propTypes = {
-  linkedItem: PropTypes.object.isRequired,
 };
 
 export default Tweet;

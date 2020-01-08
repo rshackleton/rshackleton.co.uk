@@ -1,18 +1,15 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Container, SiteWide, Legal } from './Footer.styles';
 
-const Footer = () => (
+interface FooterProps {}
+
+const Footer: FC<FooterProps> = () => (
   <Container>
     <SiteWide>
       <Legal>&copy; Richard Shackleton {new Date().getFullYear()}</Legal>
     </SiteWide>
   </Container>
 );
-
-Footer.propTypes = {
-  siteTitle: PropTypes.string,
-};
 
 export default Footer;

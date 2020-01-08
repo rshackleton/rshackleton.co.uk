@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, FC, MutableRefObject } from 'react';
 import * as Yup from 'yup';
 
 import {
@@ -11,8 +11,8 @@ import {
   TextBox,
 } from './ContactForm.styles';
 
-const ContactForm = () => {
-  const formRef = useRef();
+const ContactForm: FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [confirmed, setConfirmed] = useState(false);
 
   const Schema = Yup.object().shape({
@@ -36,10 +36,12 @@ const ContactForm = () => {
         ...values,
       });
 
-      fetch(formRef.current.action, {
-        method: 'POST',
-        body: formData,
-      });
+      if (formRef.current) {
+        fetch(formRef.current.action, {
+          method: 'POST',
+          body: formData,
+        });
+      }
 
       setConfirmed(true);
     },
@@ -91,7 +93,6 @@ const ContactForm = () => {
           id="message"
           name="message"
           rows={4}
-          type="message"
           onChange={formik.handleChange}
           value={formik.values.message}
         ></TextArea>
@@ -101,7 +102,5 @@ const ContactForm = () => {
     </form>
   );
 };
-
-ContactForm.propTypes = {};
 
 export default ContactForm;

@@ -39,9 +39,9 @@ const Articles: FC<ArticlesProps> = ({
   const items = itemsData.map(({ node: item }) => ({
     id: item.system.id,
     codename: item.system.codename,
-    slug: item.elements.slug.value,
-    summary: item.elements.summary.value,
-    title: item.elements.title.value,
+    slug: item.elements.slug.value || '',
+    summary: item.elements.summary.value || '',
+    title: item.elements.title.value || '',
   }));
 
   return (

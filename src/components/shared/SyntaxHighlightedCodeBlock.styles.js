@@ -4,7 +4,11 @@ import styled from '@emotion/styled';
 import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
 
-export const Container = styled.figure`
+interface ContainerProps {
+  hasCaption: Boolean;
+}
+
+export const Container = styled.figure<ContainerProps>`
   margin: 0 ${rhythm(-0.5)} ${rhythm(1)};
 
   ${mq.sm} {

@@ -1,22 +1,20 @@
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import SyntaxHighlightedCodeBlock from '@components/shared/SyntaxHighlightedCodeBlock';
 
-const CodeBlock = ({ linkedItem }) => {
+interface CodeBlockProps {
+  linkedItem: CodeBlock;
+}
+
+const CodeBlock: FC<CodeBlockProps> = ({ linkedItem }) => {
   const props = {
-    code: get(linkedItem, 'elements.code.value'),
-    language: get(linkedItem, 'elements.language.value'),
-    sourceUrl: get(linkedItem, 'elements.source_url.value'),
+    code: linkedItem.elements.code.value,
+    language: linkedItem.elements.language.value,
+    sourceUrl: linkedItem.elements.source_url.value,
   };
 
   return <SyntaxHighlightedCodeBlock {...props} />;
-};
-
-CodeBlock.propTypes = {
-  linkedItem: PropTypes.object.isRequired,
 };
 
 export default CodeBlock;

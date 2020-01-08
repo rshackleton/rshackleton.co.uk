@@ -9,9 +9,9 @@ interface Connection<T extends Node> {
  * A GatsbyJS connection edge.
  */
 interface Edge<T extends Node> {
-  next: T?;
+  next?: T;
   node: T;
-  previous: T?;
+  previous?: T;
 }
 
 /**
@@ -27,18 +27,18 @@ interface Node {
  * The site config data.
  */
 interface Site {
-  siteMetadata: SiteMetadata
+  siteMetadata: SiteMetadata;
 }
 
 /**
  * The site metadata.
  */
 interface SiteMetadata {
-  lang: string?;
-  locale: string?;
-  siteUrl: string?;
-  title: string?;
-  twitterUsername: string?;
+  lang?: string;
+  locale?: string;
+  siteUrl?: string;
+  title?: string;
+  twitterUsername?: string;
 }
 
 /**
@@ -60,7 +60,7 @@ interface KontentItem extends Node {
  */
 interface KontentAsset {
   name: string;
-  description: string?;
+  description?: string;
   type: string;
   size: Number;
   url: string;
@@ -72,7 +72,7 @@ interface KontentAsset {
  * A Kentico Kontent rich text image.
  */
 interface KontentRichTextImage {
-  description: string?;
+  description?: string;
   height: number;
   imageId: string;
   url: string;
@@ -125,7 +125,7 @@ interface KontentDateElement extends KontentElement {
 interface KontentRichTextElement extends KontentElement {
   name: string;
   type: string;
-  value: string?;
+  value?: string;
   images: KontentRichTextImage[];
   links: KontentRichTextLink[];
   linked_items: KontentItem[];
@@ -134,7 +134,7 @@ interface KontentRichTextElement extends KontentElement {
     componentCodenames: string[];
     html: string;
     linkedItemCodenames: string[];
-  }
+  };
 }
 
 /**
@@ -149,7 +149,7 @@ interface KontentTaxonomyElement extends KontentElement {
  * A Kentico Kontent text element.
  */
 interface KontentTextElement extends KontentElement {
-  value: string?;
+  value?: string;
 }
 
 /**
@@ -168,7 +168,7 @@ interface Article extends KontentItem {
     metadata__page_description: KontentTextElement;
     metadata__page_keywords: KontentTextElement;
     metadata__open_graph_image: KontentAssetElement;
-  }
+  };
 }
 
 /**
@@ -182,7 +182,18 @@ interface ArticleListing extends KontentItem {
     metadata__page_description: KontentTextElement;
     metadata__page_keywords: KontentTextElement;
     metadata__open_graph_image: KontentAssetElement;
-  }
+  };
+}
+
+/**
+ * Code block.
+ */
+interface CodeBlock extends KontentItem {
+  elements: {
+    code: KontentTextElement;
+    language: KontentTextElement;
+    source_url: KontentTextElement;
+  };
 }
 
 /**
@@ -193,12 +204,13 @@ interface ContentPage extends KontentItem {
     banner: KontentAssetElement;
     body: KontentRichTextElement;
     slug: KontentTextElement;
+    summary: KontentTextElement;
     title: KontentTextElement;
     metadata__page_title: KontentTextElement;
     metadata__page_description: KontentTextElement;
     metadata__page_keywords: KontentTextElement;
     metadata__open_graph_image: KontentAssetElement;
-  }
+  };
 }
 
 /**
@@ -213,7 +225,7 @@ interface ContactPage extends KontentItem {
     metadata__page_description: KontentTextElement;
     metadata__page_keywords: KontentTextElement;
     metadata__open_graph_image: KontentAssetElement;
-  }
+  };
 }
 
 /**
@@ -226,5 +238,11 @@ interface HomePage extends KontentItem {
     metadata__page_description: KontentTextElement;
     metadata__page_keywords: KontentTextElement;
     metadata__page_title: KontentTextElement;
+  };
+}
+
+interface Tweet extends KontentItem {
+  elements: {
+    tweet_url: KontentTextElement;
   };
 }

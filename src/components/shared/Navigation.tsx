@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Container, Link, LinkItem, Links } from './Navigation.styles';
 
-const Navigation = () => (
+interface NavigationProps {}
+
+const Navigation: FC<NavigationProps> = () => (
   <Container>
     <Links>
       <LinkItem>

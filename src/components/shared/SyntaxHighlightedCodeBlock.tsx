@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -9,8 +8,18 @@ import {
   Container,
 } from './SyntaxHighlightedCodeBlock.styles';
 
-const SyntaxHighlightedCodeBlock = ({ code, language, sourceUrl }) => (
-  <Container hasCaption={sourceUrl && sourceUrl.length}>
+interface SyntaxHighlightedCodeBlockProps {
+  code: string;
+  language: string;
+  sourceUrl?: string;
+}
+
+const SyntaxHighlightedCodeBlock: FC<SyntaxHighlightedCodeBlockProps> = ({
+  code,
+  language,
+  sourceUrl,
+}) => (
+  <Container hasCaption={!!(sourceUrl && sourceUrl.length)}>
     <SyntaxHighlighter language={language} style={style}>
       {code}
     </SyntaxHighlighter>
@@ -27,11 +36,5 @@ const SyntaxHighlightedCodeBlock = ({ code, language, sourceUrl }) => (
     ) : null}
   </Container>
 );
-
-SyntaxHighlightedCodeBlock.propTypes = {
-  code: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired,
-  sourceUrl: PropTypes.string.isRequired,
-};
 
 export default SyntaxHighlightedCodeBlock;

@@ -1,22 +1,20 @@
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 
 import ArticleSummary from '@components/shared/ArticleSummary';
 
-const Article = ({ linkedItem }) => {
+interface ArticleProps {
+  linkedItem: Article;
+}
+
+const Article: FC<ArticleProps> = ({ linkedItem }) => {
   const props = {
-    slug: get(linkedItem, 'elements.slug.value'),
-    summary: get(linkedItem, 'elements.summary.value'),
-    title: get(linkedItem, 'elements.title.value'),
+    slug: linkedItem.elements.slug.value,
+    summary: linkedItem.elements.summary.value,
+    title: linkedItem.elements.title.value,
   };
 
   return <ArticleSummary {...props} />;
-};
-
-Article.propTypes = {
-  linkedItem: PropTypes.object.isRequired,
 };
 
 export default Article;

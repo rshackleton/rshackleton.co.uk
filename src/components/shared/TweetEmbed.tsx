@@ -1,17 +1,16 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { FC } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 
 import { Container } from './TweetEmbed.styles';
 
-const TweetEmbed = ({ id }) => (
+interface TweetEmbedProps {
+  id: string;
+}
+
+const TweetEmbed: FC<TweetEmbedProps> = ({ id }) => (
   <Container>
     <TwitterTweetEmbed tweetId={id} />
   </Container>
 );
-
-TweetEmbed.propTypes = {
-  id: PropTypes.string.isRequired,
-};
 
 export default TweetEmbed;
