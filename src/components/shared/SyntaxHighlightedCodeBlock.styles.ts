@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
+import { Theme } from '@utils/theme';
 
 interface ContainerProps {
   hasCaption: Boolean;
@@ -31,14 +32,14 @@ export const Caption = styled.figcaption`
   padding: 0 ${rhythm(0.5)};
   border-radius: 0 0 0.3em 0.3em;
   background: hsl(210, 6%, 82%);
-  ${adjustFontSizeTo(12)}
+  ${{ ...adjustFontSizeTo(12) }}
 
   ${mq.sm} {
     padding: 0 ${rhythm(1)};
   }
 `;
 
-export const CaptionLink = styled.a`
+export const CaptionLink = styled.a<{ theme: Theme }>`
   display: inline-block;
   color: ${({ theme }) => theme.colors.body};
   text-decoration: none;

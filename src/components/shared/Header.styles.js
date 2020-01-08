@@ -23,7 +23,7 @@ export const SiteWide = styled(SiteWideBase)`
 
 export const Title = styled.h1`
   margin: 0;
-  ${adjustFontSizeTo(18)};
+  ${{ ...adjustFontSizeTo(18) }};
   font-weight: normal;
 `;
 

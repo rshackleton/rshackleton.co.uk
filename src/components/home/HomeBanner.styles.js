@@ -50,7 +50,7 @@ export const Picture = styled(PictureBase)`
 export const TagLine = styled.h2`
   display: inline-block;
   margin-bottom: 0;
-  ${adjustFontSizeTo(24)}
+  ${{ ...adjustFontSizeTo(24) }}
   font-weight: normal;
 
   > span {
@@ -62,7 +62,7 @@ export const TagLine = styled.h2`
 export const Title = styled.h1`
   display: inline-block;
   margin-bottom: ${rhythm(0.5)};
-  ${adjustFontSizeTo(42)}
+  ${{ ...adjustFontSizeTo(42) }}
   font-weight: normal;
 
   > span {

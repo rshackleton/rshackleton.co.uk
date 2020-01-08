@@ -27,7 +27,7 @@ export const Link = styled(LinkBase)`
   display: block;
   color: ${({ theme }) => theme.colors.body};
   font-family: ${({ theme }) => theme.fonts.headerFontFamily};
-  ${adjustFontSizeTo(18)};
+  ${{ ...adjustFontSizeTo(18) }};
   font-weight: normal;
   text-decoration: none;
 `;

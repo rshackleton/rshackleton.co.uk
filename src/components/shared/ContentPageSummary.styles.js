@@ -16,11 +16,11 @@ export const Container = styled(Link)`
 export const Summary = styled.p`
   display: block;
   margin: 0;
-  ${adjustFontSizeTo(14)};
+  ${{ ...adjustFontSizeTo(14) }};
 `;
 
 export const Title = styled.h3`
   display: block;
   margin: 0 0 ${rhythm(0.5)};
-  ${adjustFontSizeTo(20)};
+  ${{ ...adjustFontSizeTo(20) }};
 `;

@@ -21,6 +21,6 @@ export const Legal = styled.span`
   margin: 0;
   color: ${({ theme }) => theme.colors.body};
   font-family: ${({ theme }) => theme.fonts.headerFontFamily};
-  ${adjustFontSizeTo(14)};
+  ${{ ...adjustFontSizeTo(14) }};
   font-weight: normal;
 `;
