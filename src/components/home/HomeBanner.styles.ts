@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import PictureBase from '@components/shared/Picture';
 import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
+import { Theme } from '@utils/theme';
 
 export const Banner = styled.div`
   position: absolute;
@@ -11,7 +12,7 @@ export const Banner = styled.div`
   height: 100%;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ theme: Theme }>`
   position: relative;
   display: flex;
   height: ${({ theme }) =>
@@ -25,7 +26,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ theme: Theme }>`
   position: relative;
   display: block;
   width: ${({ theme }) => theme.container.base};
@@ -47,7 +48,7 @@ export const Picture = styled(PictureBase)`
   }
 `;
 
-export const TagLine = styled.h2`
+export const TagLine = styled.h2<{ theme: Theme }>`
   display: inline-block;
   margin-bottom: 0;
   ${{ ...adjustFontSizeTo(24) }}
@@ -59,7 +60,7 @@ export const TagLine = styled.h2`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h1<{ theme: Theme }>`
   display: inline-block;
   margin-bottom: ${rhythm(0.5)};
   ${{ ...adjustFontSizeTo(42) }}

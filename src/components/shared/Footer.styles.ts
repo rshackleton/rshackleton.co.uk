@@ -1,17 +1,14 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 
 import SiteWideBase from '@components/shared/SiteWide';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
+import { Theme } from '@utils/theme';
 
-export const Container = styled.header`
-  position: fixed;
-  top: 0;
+export const Container = styled.footer<{ theme: Theme }>`
   display: block;
-  height: ${({ theme }) => rhythm(theme.dimensions.header)};
+  height: ${({ theme }) => rhythm(theme.dimensions.footer)};
   width: 100%;
   background: ${({ theme }) => theme.colors.siteBackground};
-  z-index: ${({ theme }) => theme.layers.overlay};
 `;
 
 export const SiteWide = styled(SiteWideBase)`
@@ -21,13 +18,10 @@ export const SiteWide = styled(SiteWideBase)`
   align-items: center;
 `;
 
-export const Title = styled.h1`
+export const Legal = styled.span<{ theme: Theme }>`
   margin: 0;
-  ${{ ...adjustFontSizeTo(18) }};
-  font-weight: normal;
-`;
-
-export const TitleLink = styled(Link)`
   color: ${({ theme }) => theme.colors.body};
-  text-decoration: none;
+  font-family: ${({ theme }) => theme.fonts.headerFontFamily};
+  ${{ ...adjustFontSizeTo(14) }};
+  font-weight: normal;
 `;
