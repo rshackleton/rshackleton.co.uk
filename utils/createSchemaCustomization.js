@@ -21,7 +21,7 @@ module.exports = ({ actions }) => {
     },
   });
 
-  // Create @from resolver for proxying other fields.
+  // Create @map resolver for proxying array values from other fields.
   createFieldExtension({
     name: 'map',
     args: {
@@ -44,7 +44,7 @@ module.exports = ({ actions }) => {
     },
   });
 
-  // Create @url resolver for auto-generating url fields.
+  // Create @unix resolver for generating unix timestamps from fields.
   createFieldExtension({
     name: 'unix',
     args: {
