@@ -127,11 +127,16 @@ module.exports = {
                 allSearchableItem {
                   edges {
                     node {
-                      content
                       objectID: id
+                      content
                       modified
+                      modified_unix
+                      published
+                      published_unix
                       title
+                      type
                       url
+                      _tags: tags
                     }
                   }
                 }
@@ -139,8 +144,8 @@ module.exports = {
             `,
             settings: {
               attributesToSnippet: [`content:20`],
-              customRanking: ['desc(modified)'],
-              searchableAttributes: ['title', 'content'],
+              customRanking: ['desc(published_unix)'],
+              searchableAttributes: ['title', 'content', '_tags', 'type'],
             },
             transformer: ({ data }) =>
               data.allSearchableItem.edges.map(({ node }) => node),
