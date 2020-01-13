@@ -6,13 +6,21 @@ exports.createPages = async function createPages({ graphql, actions }) {
   await createContentPages({ graphql, actions });
 };
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    },
+  });
+};
+
 /**
  * Create article pages.
  */
 async function createArticlePages({ graphql, actions }) {
   const { createPage } = actions;
 
-  const articleTemplate = path.resolve(`src/templates/article-page.jsx`);
+  const articleTemplate = path.resolve(`src/templates/article-page.tsx`);
 
   const { data, errors } = await graphql(`
     {
@@ -61,7 +69,7 @@ async function createArticlePages({ graphql, actions }) {
 async function createContentPages({ graphql, actions }) {
   const { createPage } = actions;
 
-  const contentTemplate = path.resolve(`src/templates/content-page.jsx`);
+  const contentTemplate = path.resolve(`src/templates/content-page.tsx`);
 
   const { data, errors } = await graphql(`
     {
