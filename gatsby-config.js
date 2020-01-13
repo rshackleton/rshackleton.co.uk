@@ -114,5 +114,39 @@ module.exports = {
         shortname: process.env.DISQUS_SHORTNAME,
       },
     },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries: [
+          {
+            query: `
+              {
+                allSearchableItem {
+                  edges {
+                    node {
+                      content
+                      objectID: id
+                      modified
+                      title
+                      url
+                    }
+                  }
+                }
+              }
+            `,
+            settings: {
+              attributesToSnippet: [`content:20`],
+              customRanking: ['desc(modified)'],
+              searchableAttributes: ['title', 'content'],
+            },
+            transformer: ({ data }) =>
+              data.allSearchableItem.edges.map(({ node }) => node),
+          },
+        ],
+      },
+    },
   ],
 };
