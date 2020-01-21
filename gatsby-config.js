@@ -176,6 +176,8 @@ module.exports = {
                 return Object.assign({}, edge.node, {
                   title: edge.node.elements.metadata__page_title.value,
                   description: edge.node.elements.metadata__page_description.value,
+                  date: edge.node.elements.date.value,
+                  pubDate: edge.node.elements.date.value,
                   url: site.siteMetadata.siteUrl + edge.node.url,
                   guid: site.siteMetadata.siteUrl + edge.node.url,
                   custom_elements: [
@@ -197,6 +199,9 @@ module.exports = {
                           resolvedData {
                             html
                           }
+                        }
+                        date {
+                          value
                         }
                         metadata__page_title {
                           value
