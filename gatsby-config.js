@@ -2,6 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
+    description: '',
     lang: `en`,
     locale: `en_GB`,
     siteUrl: `https://rshackleton.co.uk`,
@@ -149,6 +150,77 @@ module.exports = {
             },
             transformer: ({ data }) =>
               data.allSearchableItem.edges.map(({ node }) => node),
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allKontentItemArticle } }) => {
+              return allKontentItemArticle.edges.map(edge => {
+                return Object.assign({}, edge.node, {
+                  title: edge.node.elements.metadata__page_title.value,
+                  description: edge.node.elements.metadata__page_description.value,
+                  date: edge.node.elements.date.value,
+                  pubDate: edge.node.elements.date.value,
+                  url: site.siteMetadata.siteUrl + edge.node.url,
+                  guid: site.siteMetadata.siteUrl + edge.node.url,
+                  custom_elements: [
+                    {
+                      'content:encoded':
+                        edge.node.elements.body.resolvedData.html,
+                    },
+                  ],
+                });
+              });
+            },
+            query: `
+              {
+                allKontentItemArticle(sort: { fields: elements___date___value, order: DESC }) {
+                  edges {
+                    node {
+                      elements {
+                        body {
+                          resolvedData {
+                            html
+                          }
+                        }
+                        date {
+                          value
+                        }
+                        metadata__page_title {
+                          value
+                        }
+                        metadata__page_description {
+                          value
+                        }
+                        metadata__page_keywords {
+                          value
+                        }
+                      }
+                      url
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: 'Articles from Richard Shackleton',
           },
         ],
       },
