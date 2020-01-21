@@ -7471,6 +7471,17 @@ gatsby-plugin-emotion@4.1.21:
     "@babel/runtime" "^7.7.6"
     "@emotion/babel-preset-css-prop" "^10.0.23"
 
+gatsby-plugin-feed@^2.3.26:
+  version "2.3.26"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.3.26.tgz#00043a581b81b73c595b7620fe0f381d241ca8da"
+  integrity sha512-L2/LyCkZ+cPF2QAISszEwi2D2CuRk6ELp75d8tN7oCRDKkcSCJZND6gzIvBxNzGjEnbxtTk9OhL/1TnmJTALNQ==
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+    "@hapi/joi" "^15.1.1"
+    fs-extra "^8.1.0"
+    lodash.merge "^4.6.2"
+    rss "^1.2.2"
+
 gatsby-plugin-google-analytics@2.1.33:
   version "2.1.33"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.33.tgz#4fcc203dee67832af4b6c619117dbcf4d67ecbeb"
@@ -10345,6 +10356,11 @@ lodash.memoize@^4.1.2:
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
 
+lodash.merge@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
+  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -10713,10 +10729,22 @@ mime-db@1.40.0, "mime-db@>= 1.40.0 < 2":
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.40.0.tgz#a65057e998db090f732a68f6c276d387d4126c32"
   integrity sha512-jYdeOMPy9vnxEqFRRo6ZvTZ8d9oPb+k18PKoYNYUe2stVEBPPwsln/qWzdbmaIvnhZ9v2P+CuecK+fpUfsV2mA==
 
+mime-db@~1.25.0:
+  version "1.25.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.25.0.tgz#c18dbd7c73a5dbf6f44a024dc0d165a1e7b1c392"
+  integrity sha1-wY29fHOl2/b0SgJNwNFloeexw5I=
+
 mime-db@~1.37.0:
   version "1.37.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.37.0.tgz#0b6a0ce6fdbe9576e25f1f2d2fde8830dc0ad0d8"
   integrity sha512-R3C4db6bgQhlIhPU48fUtdVmKnflq+hRdad7IyKhtFj06VPNVdk2RhiYL3UjQIlso8L+YxAtFkobT0VK+S/ybg==
+
+mime-types@2.1.13:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.13.tgz#e07aaa9c6c6b9a7ca3012c69003ad25a39e92a88"
+  integrity sha1-4HqqnGxrmnyjASxpADrSWjnpKog=
+  dependencies:
+    mime-db "~1.25.0"
 
 mime-types@^2.1.12, mime-types@~2.1.17, mime-types@~2.1.18, mime-types@~2.1.19:
   version "2.1.21"
@@ -13597,6 +13625,14 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rss@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/rss/-/rss-1.2.2.tgz#50a1698876138133a74f9a05d2bdc8db8d27a921"
+  integrity sha1-UKFpiHYTgTOnT5oF0r3I240nqSE=
+  dependencies:
+    mime-types "2.1.13"
+    xml "1.0.1"
+
 rsvp@^3.3.3:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
@@ -16093,6 +16129,11 @@ xml-name-validator@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
   integrity sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
+
+xml@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/xml/-/xml-1.0.1.tgz#78ba72020029c5bc87b8a81a3cfcd74b4a2fc1e5"
+  integrity sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=
 
 xmlhttprequest-ssl@~1.5.4:
   version "1.5.5"
