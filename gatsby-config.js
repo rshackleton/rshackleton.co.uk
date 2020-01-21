@@ -174,8 +174,8 @@ module.exports = {
             serialize: ({ query: { site, allKontentItemArticle } }) => {
               return allKontentItemArticle.edges.map(edge => {
                 return Object.assign({}, edge.node, {
-                  title: edge.node.elements.metadata__page_title,
-                  description: edge.node.elements.metadata__page_description,
+                  title: edge.node.elements.metadata__page_title.value,
+                  description: edge.node.elements.metadata__page_description.value,
                   url: site.siteMetadata.siteUrl + edge.node.url,
                   guid: site.siteMetadata.siteUrl + edge.node.url,
                   custom_elements: [
