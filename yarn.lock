@@ -2739,10 +2739,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rshackleton/gatsby-transformer-kontent@0.1.0-alpha.9":
-  version "0.1.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-transformer-kontent/-/gatsby-transformer-kontent-0.1.0-alpha.9.tgz#744b94c6d8c0975c2adf50aa3a9aaa24f764f191"
-  integrity sha512-NXTizbtKoKCsigM/NVMZtRiAtvGC9hT75BzyoHHWsxD1rabRMDd5jpb4uDoVlx3IWoZsUglpTtr5QzHgQy4DVA==
+"@rshackleton/gatsby-transformer-kontent-image@0.1.0-beta.1":
+  version "0.1.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-transformer-kontent-image/-/gatsby-transformer-kontent-image-0.1.0-beta.1.tgz#1ed0dc4b29f789d411e5232168f4a6ad02d337ac"
+  integrity sha512-Bxg5XhuRC6Y+9Upm6UHOFu805TztRA8ZeDnNhwYG1KKIVFaCvoKRQQ/76OSLSC8Kua5Aghl2ho/vfbvj0nzVbA==
   dependencies:
     "@kentico/kontent-delivery" "^8.2.0"
     "@types/fs-extra" "^8.0.1"
