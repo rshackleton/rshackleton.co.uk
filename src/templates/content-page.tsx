@@ -70,7 +70,9 @@ export const query = graphql`
           images {
             imageId
             description
-            url
+            fluid(maxWidth: 788) {
+              ...KontentAssetFluid
+            }
           }
           links {
             codename

@@ -24,7 +24,7 @@
     "@emotion/core": "10.0.27",
     "@emotion/styled": "10.0.27",
     "@kentico/gatsby-source-kontent": "4.2.0",
-    "@rshackleton/gatsby-transformer-kontent": "0.1.0-alpha.8",
+    "@rshackleton/gatsby-transformer-kontent": "0.1.0-alpha.9",
     "babel-plugin-emotion": "10.0.27",
     "dotenv": "8.2.0",
     "emotion-reset": "2.0.4",

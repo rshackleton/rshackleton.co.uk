@@ -81,6 +81,8 @@ interface KontentRichTextImage {
   imageId: string;
   url: string;
   width: number;
+  fixed: FluidObject;
+  fluid: FluidObject;
 }
 
 /**

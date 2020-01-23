@@ -138,7 +138,7 @@ function replaceNode(
       <InlineAsset
         description={image.description}
         id={image.imageId}
-        url={image.url}
+        image={image.fluid}
       />
     );
   }
