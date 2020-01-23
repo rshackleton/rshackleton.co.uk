@@ -1,3 +1,5 @@
+import { Connection, ContactPage } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
@@ -30,7 +32,7 @@ const Contact: FC<ContactProps> = ({
     url: `/contact`,
   };
 
-  const banner = data.elements.banner.value[0].url;
+  const banner = data.elements.banner.value[0].fluid;
   const bannerDescription = data.elements.banner.value[0].description;
   const content = data.elements.body.resolvedData.html;
   const images = data.elements.body.images;
@@ -72,7 +74,9 @@ export const query = graphql`
               images {
                 imageId
                 description
-                url
+                fluid(maxWidth: 788) {
+                  ...KontentAssetFluid
+                }
               }
               links {
                 codename
@@ -87,7 +91,9 @@ export const query = graphql`
             banner {
               value {
                 description
-                url
+                fluid(maxWidth: 1920) {
+                  ...KontentAssetFluid
+                }
               }
             }
             metadata__page_title {

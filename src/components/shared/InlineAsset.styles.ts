@@ -1,7 +1,9 @@
-import styled from '@emotion/styled';
+import GatsbyImage from 'gatsby-image';
 
-import PictureBase from '@components/shared/Picture';
+import styled from '@utils/styled';
+import { rhythm } from '@utils/typography';
 
-export const Picture = styled(PictureBase)`
+export const Image = styled(GatsbyImage)`
   display: block;
+  margin-bottom: ${rhythm(1)};
 `;

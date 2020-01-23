@@ -1,3 +1,5 @@
+import { ContentPage } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
@@ -11,7 +13,7 @@ interface ContentPageProps {
   };
 }
 
-const ContentPage: FC<ContentPageProps> = ({
+const ContentPageTemplate: FC<ContentPageProps> = ({
   data: { kontentItemContentPage: data },
 }) => {
   const ogImage = data.elements.metadata__open_graph_image.value[0];
@@ -26,7 +28,7 @@ const ContentPage: FC<ContentPageProps> = ({
     url: `/${slug}`,
   };
 
-  const banner = data.elements.banner.value[0].url;
+  const banner = data.elements.banner.value[0].fluid;
   const bannerDescription = data.elements.banner.value[0].description;
   const content = data.elements.body.resolvedData.html;
   const images = data.elements.body.images;
@@ -48,7 +50,7 @@ const ContentPage: FC<ContentPageProps> = ({
   );
 };
 
-export default ContentPage;
+export default ContentPageTemplate;
 
 export const query = graphql`
   query($slug: String!) {
@@ -68,7 +70,9 @@ export const query = graphql`
           images {
             imageId
             description
-            url
+            fluid(maxWidth: 788) {
+              ...KontentAssetFluid
+            }
           }
           links {
             codename
@@ -83,7 +87,9 @@ export const query = graphql`
         banner {
           value {
             description
-            url
+            fluid(maxWidth: 1920) {
+              ...KontentAssetFluid
+            }
           }
         }
         metadata__page_title {

@@ -1,3 +1,5 @@
+import { Connection, HomePage } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
@@ -29,7 +31,7 @@ const Index: FC<IndexProps> = ({
     url: '/',
   };
 
-  const image = data.elements.background_image.value[0].url;
+  const image = data.elements.background_image.value[0].fluid;
   const imageDescription = data.elements.background_image.value[0].description;
 
   return (
@@ -52,7 +54,9 @@ export const query = graphql`
             background_image {
               value {
                 description
-                url
+                fluid(maxWidth: 1920) {
+                  ...KontentAssetFluid
+                }
               }
             }
             metadata__page_title {

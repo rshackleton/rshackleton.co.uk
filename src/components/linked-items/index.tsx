@@ -1,10 +1,12 @@
+import { KontentItem, Article, CodeBlock, ContentPage, Tweet } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
-import Article from '@components/linked-items/Article';
-import CodeBlock from '@components/linked-items/CodeBlock';
-import ContentPage from '@components/linked-items/ContentPage';
-import Tweet from '@components/linked-items/Tweet';
+import ArticleComponent from '@components/linked-items/Article';
+import CodeBlockComponent from '@components/linked-items/CodeBlock';
+import ContentPageComponent from '@components/linked-items/ContentPage';
+import TweetComponent from '@components/linked-items/Tweet';
 
 interface LinkedItemProps {
   linkedItem: KontentItem;
@@ -15,19 +17,19 @@ const LinkedItem: FC<LinkedItemProps> = ({ linkedItem }) => {
 
   switch (type) {
     case 'article': {
-      return <Article linkedItem={linkedItem as Article} />;
+      return <ArticleComponent linkedItem={linkedItem as Article} />;
     }
 
     case 'code_block': {
-      return <CodeBlock linkedItem={linkedItem as CodeBlock} />;
+      return <CodeBlockComponent linkedItem={linkedItem as CodeBlock} />;
     }
 
     case 'content_page': {
-      return <ContentPage linkedItem={linkedItem as ContentPage} />;
+      return <ContentPageComponent linkedItem={linkedItem as ContentPage} />;
     }
 
     case 'tweet': {
-      return <Tweet linkedItem={linkedItem as Tweet} />;
+      return <TweetComponent linkedItem={linkedItem as Tweet} />;
     }
 
     default:

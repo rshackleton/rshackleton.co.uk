@@ -1,22 +1,17 @@
-import styled from '@emotion/styled';
+import GatsbyImage from 'gatsby-image';
 
-import PictureBase from '@components/shared/Picture';
+import styled from '@utils/styled';
 import { rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
-export const Container = styled.div<{ theme: Theme }>`
+export const Container = styled.div`
   position: relative;
   display: block;
   height: ${({ theme }) => rhythm(theme.dimensions.banner)};
   z-index: ${({ theme }) => theme.layers.base};
 `;
 
-export const Picture = styled(PictureBase)`
+export const Img = styled(GatsbyImage)`
   display: block;
-
-  @supports (object-fit: cover) {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+  height: 100%;
+  width: 100%;
 `;

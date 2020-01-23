@@ -1,3 +1,5 @@
+import { Article, Site } from 'index';
+
 import { graphql } from 'gatsby';
 import { Disqus } from 'gatsby-plugin-disqus';
 import React, { FC } from 'react';
@@ -15,7 +17,7 @@ interface ArticlePageProps {
   };
 }
 
-const ArticlePage: FC<ArticlePageProps> = ({
+const ArticleTemplate: FC<ArticlePageProps> = ({
   data: {
     kontentItemArticle: data,
     site: {
@@ -24,7 +26,7 @@ const ArticlePage: FC<ArticlePageProps> = ({
   },
 }) => {
   const id = data.system.id;
-  const banner = data.elements.banner.value[0].url;
+  const banner = data.elements.banner.value[0].fluid;
   const bannerDescription = data.elements.banner.value[0].description;
   const content = data.elements.body.resolvedData.html;
   const date = new Date(data.elements.date.value);
@@ -33,7 +35,7 @@ const ArticlePage: FC<ArticlePageProps> = ({
   const linkedItems = data.elements.body.linked_items;
   const slug = data.elements.slug.value;
   const tags = data.elements.article_tags.value;
-  const title = data.elements.title.value;
+  const title = data.elements.title.value || '';
 
   const ogImage = data.elements.metadata__open_graph_image.value[0];
 
@@ -72,7 +74,7 @@ const ArticlePage: FC<ArticlePageProps> = ({
     ],
   };
 
-  let disqusConfig = {
+  const disqusConfig = {
     url: `${siteUrl + seo.url}`,
     identifier: id,
     title,
@@ -94,7 +96,7 @@ const ArticlePage: FC<ArticlePageProps> = ({
   );
 };
 
-export default ArticlePage;
+export default ArticleTemplate;
 
 export const query = graphql`
   query($slug: String!) {
@@ -126,7 +128,9 @@ export const query = graphql`
         banner {
           value {
             description
-            url
+            fluid(maxWidth: 1920) {
+              ...KontentAssetFluid
+            }
           }
         }
         body {
@@ -136,7 +140,9 @@ export const query = graphql`
           images {
             imageId
             description
-            url
+            fluid(maxWidth: 788) {
+              ...KontentAssetFluid
+            }
           }
           links {
             codename

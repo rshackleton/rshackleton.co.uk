@@ -1,3 +1,5 @@
+import { Connection, Article, ArticleListing } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
@@ -31,7 +33,7 @@ const Articles: FC<ArticlesProps> = ({
     url: `/articles`,
   };
 
-  const banner = data.elements.banner.value[0].url;
+  const banner = data.elements.banner.value[0].fluid;
   const bannerDescription = data.elements.banner.value[0].description;
 
   const title = data.elements.title.value;
@@ -67,7 +69,9 @@ export const query = graphql`
             banner {
               value {
                 description
-                url
+                fluid(maxWidth: 1920) {
+                  ...KontentAssetFluid
+                }
               }
             }
             metadata__page_title {

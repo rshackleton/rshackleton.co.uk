@@ -2,9 +2,7 @@ import React, { FC } from 'react';
 
 import { Container, Link, LinkItem, Links } from './Navigation.styles';
 
-interface NavigationProps {}
-
-const Navigation: FC<NavigationProps> = () => (
+const Navigation: FC<{}> = () => (
   <Container>
     <Links>
       <LinkItem>

@@ -1,3 +1,5 @@
+import { Tweet } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
@@ -9,7 +11,7 @@ interface TweetProps {
   linkedItem: Tweet;
 }
 
-const Tweet: FC<TweetProps> = ({ linkedItem }) => {
+const TweetComponent: FC<TweetProps> = ({ linkedItem }) => {
   const url = linkedItem.elements.tweet_url.value || '';
 
   const result = URL_REGEX.exec(url);
@@ -27,7 +29,7 @@ const Tweet: FC<TweetProps> = ({ linkedItem }) => {
   return <TweetEmbed {...props} />;
 };
 
-export default Tweet;
+export default TweetComponent;
 
 export const KontentItemTweetFragment = graphql`
   fragment KontentItemTweetFragment on KontentItemTweet {

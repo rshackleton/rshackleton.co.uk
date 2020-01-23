@@ -2,6 +2,7 @@ import orderBy from 'lodash/orderBy';
 import React, { FC } from 'react';
 
 import { Container, Tag } from './ArticleFooter.styles';
+import { KontentTaxonomyItem } from 'index';
 
 interface ArticleFooterProps {
   tags?: KontentTaxonomyItem[];

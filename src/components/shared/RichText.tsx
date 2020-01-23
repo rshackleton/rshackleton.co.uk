@@ -1,8 +1,11 @@
 /* @jsx jsx */
+import { KontentRichTextImage, KontentRichTextLink, KontentItem } from 'index';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { jsx } from '@emotion/core';
 import parseHTML, { DomElement } from 'html-react-parser';
 import get from 'lodash/get';
-import { FC, Fragment } from 'react';
+import React, { FC, Fragment } from 'react';
 
 import InlineAsset from '@components/shared/InlineAsset';
 import InlineLink from '@components/shared/InlineLink';
@@ -40,61 +43,72 @@ const RichText: FC<RichTextProps> = ({
 export default RichText;
 
 /** Get data for Kentico Cloud inline asset. */
-function getAsset(id: string, assets: KontentRichTextImage[]) {
+function getAsset(
+  id: string,
+  assets: KontentRichTextImage[],
+): KontentRichTextImage | undefined {
   return assets.find(asset => asset.imageId === id);
 }
 
 /** Get ID for Kentico Cloud inline asset from DOM node. */
-function getAssetId(domNode: DomElement) {
+function getAssetId(domNode: DomElement): string | null {
   return get(domNode, 'attribs["data-asset-id"]') || null;
 }
 
 /** Get code name for Kentico Cloud inline content item from DOM node. */
-function getCodeName(domNode: DomElement) {
+function getCodeName(domNode: DomElement): string | null {
   return get(domNode, 'attribs["data-codename"]') || null;
 }
 
 /** Get data for Kentico Cloud inline link. */
-function getLink(id: number, links: KontentRichTextLink[]) {
+function getLink(
+  id: number,
+  links: KontentRichTextLink[],
+): KontentRichTextLink | undefined {
   return links.find(link => link.linkId === id);
 }
 
 /** Get content for Kentico Cloud inline link from DOM node. */
-function getLinkContent(domNode: DomElement) {
+function getLinkContent(domNode: DomElement): string | null {
   return get(domNode, 'children[0].data') || null;
 }
 
 /** Get data for Kentico Cloud inline content item. */
-function getLinkedItem(codename: string, linkedItems: KontentItem[]) {
+function getLinkedItem(
+  codename: string,
+  linkedItems: KontentItem[],
+): KontentItem | undefined {
   return linkedItems.find(item => item.system.codename === codename);
 }
 
 /** Get ID for Kentico Cloud inline link from DOM node. */
-function getLinkId(domNode: DomElement) {
+function getLinkId(domNode: DomElement): number | null {
   return get(domNode, 'attribs["data-item-id"]') || null;
 }
 
 /** Check if DOM node is a Kentico Cloud inline asset. */
-function isAsset(domNode: DomElement) {
+function isAsset(domNode: DomElement): boolean {
   return (
     domNode.name === 'figure' &&
-    domNode.attribs &&
-    domNode.attribs['data-asset-id']
+    !!domNode.attribs &&
+    !!domNode.attribs['data-asset-id']
   );
 }
 
 /** Check if DOM node is a Kentico Cloud inline link. */
-function isLink(domNode: DomElement) {
+function isLink(domNode: DomElement): boolean {
   return (
-    domNode.name === 'a' && domNode.attribs && domNode.attribs['data-item-id']
+    domNode.name === 'a' &&
+    !!domNode.attribs &&
+    !!domNode.attribs['data-item-id']
   );
 }
 
 /** Check if DOM node is a Kentico Cloud inline content item. */
-function isLinkedItem(domNode: DomElement) {
+function isLinkedItem(domNode: DomElement): boolean {
   return (
     domNode.name === 'p' &&
-    domNode.attribs &&
+    !!domNode.attribs &&
     domNode.attribs.type === 'application/kenticocloud'
   );
 }
@@ -109,6 +123,11 @@ function replaceNode(
   // Replace inline assets.
   if (isAsset(domNode)) {
     const id = getAssetId(domNode);
+
+    if (!id) {
+      return false;
+    }
+
     const image = getAsset(id, images);
 
     if (!image) {
@@ -119,20 +138,26 @@ function replaceNode(
       <InlineAsset
         description={image.description}
         id={image.imageId}
-        url={image.url}
+        image={image.fluid}
       />
     );
   }
 
   // Replace inline links.
   if (isLink(domNode)) {
-    const content = getLinkContent(domNode);
     const id = getLinkId(domNode);
+
+    if (!id) {
+      return false;
+    }
+
     const link = getLink(id, links);
 
     if (!link) {
       return false;
     }
+
+    const content = getLinkContent(domNode) || '';
 
     return (
       <InlineLink
@@ -147,6 +172,11 @@ function replaceNode(
   // Replace inline linked items.
   if (isLinkedItem(domNode)) {
     const codename = getCodeName(domNode);
+
+    if (!codename) {
+      return false;
+    }
+
     const linkedItem = getLinkedItem(codename, linkedItems);
 
     if (!linkedItem) {

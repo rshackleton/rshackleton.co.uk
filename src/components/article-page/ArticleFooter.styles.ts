@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@utils/styled';
 
 import { rhythm } from '@utils/typography';
 
