@@ -1,12 +1,9 @@
-import styled from '@emotion/styled';
-
-// import mq from '@utils/mq';
-import theme from '@utils/theme';
+import styled from '@utils/styled';
 import { rhythm } from '@utils/typography';
 
 export const ErrorMessage = styled.span`
   display: block;
-  color: ${theme.colors.error};
+  color: ${({ theme }) => theme.colors.error};
   margin-bottom: ${rhythm(0.5)};
 `;
 

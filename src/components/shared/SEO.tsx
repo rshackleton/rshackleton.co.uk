@@ -1,3 +1,5 @@
+import { Site } from 'index';
+
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FC, ReactNode } from 'react';
 import Helmet from 'react-helmet';

@@ -1,3 +1,5 @@
+import { ContentPage } from 'index';
+
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 
@@ -7,17 +9,17 @@ interface ContentPageProps {
   linkedItem: ContentPage;
 }
 
-const ContentPage: FC<ContentPageProps> = ({ linkedItem }) => {
+const ContentPageComponent: FC<ContentPageProps> = ({ linkedItem }) => {
   const props = {
-    slug: linkedItem.elements.slug.value,
-    summary: linkedItem.elements.summary.value,
-    title: linkedItem.elements.title.value,
+    slug: linkedItem.elements.slug.value || '',
+    summary: linkedItem.elements.summary.value || '',
+    title: linkedItem.elements.title.value || '',
   };
 
   return <ContentPageSummary {...props} />;
 };
 
-export default ContentPage;
+export default ContentPageComponent;
 
 export const KontentItemContentPageFragment = graphql`
   fragment KontentItemContentPageFragment on KontentItemContentPage {

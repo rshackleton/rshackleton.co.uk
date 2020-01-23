@@ -1,3 +1,5 @@
+import { FixedObject, FluidObject } from 'gatsby-image';
+
 /**
  * A GatsbyJS connection.
  */
@@ -62,10 +64,12 @@ interface KontentAsset {
   name: string;
   description?: string;
   type: string;
-  size: Number;
+  size: number;
   url: string;
-  width: Number;
-  height: Number;
+  width: number;
+  height: number;
+  fixed: FixedObject;
+  fluid: FluidObject;
 }
 
 /**

@@ -1,11 +1,10 @@
-import styled from '@emotion/styled';
+import styled from '@utils/styled';
 import { Link } from 'gatsby';
 
 import SiteWideBase from '@components/shared/SiteWide';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
-export const Container = styled.header<{ theme: Theme }>`
+export const Container = styled.header`
   position: fixed;
   top: 0;
   display: block;
@@ -22,7 +21,7 @@ export const SiteWide = styled(SiteWideBase)`
   align-items: center;
 `;
 
-export const Title = styled.h1<{ theme: Theme }>`
+export const Title = styled.h1`
   margin: 0;
   ${{ ...adjustFontSizeTo(18) }};
   font-weight: normal;

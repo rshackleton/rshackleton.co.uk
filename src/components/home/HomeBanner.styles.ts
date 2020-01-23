@@ -1,9 +1,8 @@
-import styled from '@emotion/styled';
+import GatsbyImage from 'gatsby-image';
 
-import PictureBase from '@components/shared/Picture';
 import mq from '@utils/mq';
+import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
 export const Banner = styled.div`
   position: absolute;
@@ -12,7 +11,7 @@ export const Banner = styled.div`
   height: 100%;
 `;
 
-export const Container = styled.div<{ theme: Theme }>`
+export const Container = styled.div`
   position: relative;
   display: flex;
   height: ${({ theme }) =>
@@ -26,7 +25,7 @@ export const Container = styled.div<{ theme: Theme }>`
   }
 `;
 
-export const Content = styled.div<{ theme: Theme }>`
+export const Content = styled.div`
   position: relative;
   display: block;
   width: ${({ theme }) => theme.container.base};
@@ -38,17 +37,13 @@ export const Content = styled.div<{ theme: Theme }>`
   }
 `;
 
-export const Picture = styled(PictureBase)`
+export const Img = styled(GatsbyImage)`
   display: block;
-
-  @supports (object-fit: cover) {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+  height: 100%;
+  width: 100%;
 `;
 
-export const TagLine = styled.h2<{ theme: Theme }>`
+export const TagLine = styled.h2`
   display: inline-block;
   margin-bottom: 0;
   ${{ ...adjustFontSizeTo(24) }}
@@ -60,7 +55,7 @@ export const TagLine = styled.h2<{ theme: Theme }>`
   }
 `;
 
-export const Title = styled.h1<{ theme: Theme }>`
+export const Title = styled.h1`
   display: inline-block;
   margin-bottom: ${rhythm(0.5)};
   ${{ ...adjustFontSizeTo(42) }}

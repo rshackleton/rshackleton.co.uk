@@ -1,15 +1,14 @@
-import styled from '@emotion/styled';
+import styled from '@utils/styled';
 
 import mq from '@utils/mq';
 import { rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
 export const Outer = styled.div`
   display: block;
   width: 100%;
 `;
 
-export const Inner = styled.div<{ theme: Theme }>`
+export const Inner = styled.div`
   position: relative;
   display: block;
   margin: ${rhythm(-4)} auto 0;

@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import React, { useRef, useState, FC, MutableRefObject } from 'react';
+import React, { useRef, useState, FC } from 'react';
 import * as Yup from 'yup';
 
 import {

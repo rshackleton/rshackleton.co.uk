@@ -1,5 +1,6 @@
 import { Global } from '@emotion/core';
 import { graphql, useStaticQuery } from 'gatsby';
+import { FluidObject } from 'gatsby-image';
 import React, { ReactNode, FC } from 'react';
 
 import Footer from '@components/shared/Footer';
@@ -14,7 +15,7 @@ import {
 } from './InsetWithBanner.styles';
 
 interface LayoutProps {
-  banner: string;
+  banner: FluidObject;
   bannerDescription?: string;
   children: ReactNode;
 }

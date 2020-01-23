@@ -1,8 +1,7 @@
-import styled from '@emotion/styled';
+import styled from '@utils/styled';
 import { Link as LinkBase } from 'gatsby';
 
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
 export const Container = styled.nav`
   display: block;
@@ -24,7 +23,7 @@ export const LinkItem = styled.li`
   }
 `;
 
-export const Link = styled(LinkBase)<{ theme: Theme }>`
+export const Link = styled(LinkBase)`
   display: block;
   color: ${({ theme }) => theme.colors.body};
   font-family: ${({ theme }) => theme.fonts.headerFontFamily};

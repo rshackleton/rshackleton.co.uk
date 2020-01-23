@@ -85,6 +85,12 @@ module.exports = {
       },
     },
     {
+      resolve: `@rshackleton/gatsby-transformer-kontent`,
+      options: {
+        local: false,
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
     },
     {

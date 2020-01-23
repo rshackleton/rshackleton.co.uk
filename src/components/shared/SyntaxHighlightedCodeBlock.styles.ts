@@ -1,12 +1,11 @@
 import { css } from '@emotion/core';
-import styled from '@emotion/styled';
+import styled from '@utils/styled';
 
 import mq from '@utils/mq';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
 interface ContainerProps {
-  hasCaption: Boolean;
+  hasCaption: boolean;
 }
 
 export const Container = styled.figure<ContainerProps>`
@@ -39,7 +38,7 @@ export const Caption = styled.figcaption`
   }
 `;
 
-export const CaptionLink = styled.a<{ theme: Theme }>`
+export const CaptionLink = styled.a`
   display: inline-block;
   color: ${({ theme }) => theme.colors.body};
   text-decoration: none;

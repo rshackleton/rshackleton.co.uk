@@ -1,10 +1,9 @@
-import styled from '@emotion/styled';
+import styled from '@utils/styled';
 
 import SiteWideBase from '@components/shared/SiteWide';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
-export const Container = styled.footer<{ theme: Theme }>`
+export const Container = styled.footer`
   display: block;
   height: ${({ theme }) => rhythm(theme.dimensions.footer)};
   width: 100%;
@@ -18,7 +17,7 @@ export const SiteWide = styled(SiteWideBase)`
   align-items: center;
 `;
 
-export const Legal = styled.span<{ theme: Theme }>`
+export const Legal = styled.span`
   margin: 0;
   color: ${({ theme }) => theme.colors.body};
   font-family: ${({ theme }) => theme.fonts.headerFontFamily};

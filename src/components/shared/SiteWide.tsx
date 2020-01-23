@@ -1,13 +1,12 @@
-import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import React, { ReactNode, FC } from 'react';
 
+import styled from '@utils/styled';
 import { rhythm } from '@utils/typography';
-import { Theme } from '@utils/theme';
 
 const Container = styled.div`
   display: block;
-  max-width: ${({ theme }: { theme: Partial<Theme> }) =>
+  max-width: ${({ theme }) =>
     theme && theme.container ? theme.container.base : ''};
   margin: 0 auto;
   padding: 0 ${rhythm(1)};
