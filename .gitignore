@@ -13,3 +13,5 @@ node_modules
 
 # Secrets
 .env
+
+yarn-error.log
