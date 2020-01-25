@@ -1,11 +1,10 @@
-import { Connection, Article, ArticleListing } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import ArticleList from '@components/articles/ArticleList';
 import Layout from '@components/layouts/InsetWithBanner';
+import SearchModal from '@components/search/SearchModal';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import { Article, ArticleListing, Connection } from 'index';
+import React, { FC } from 'react';
 
 interface ArticlesProps {
   data: {
@@ -50,6 +49,7 @@ const Articles: FC<ArticlesProps> = ({
     <Layout banner={banner} bannerDescription={bannerDescription}>
       <SEO {...seo} />
       <h1>{title}</h1>
+      <SearchModal />
       <ArticleList items={items} />
     </Layout>
   );
