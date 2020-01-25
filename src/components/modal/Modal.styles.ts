@@ -14,7 +14,6 @@ export const ModalWrapper = styled.div<ITransitionProps>`
   flex-direction: column;
   background: ${({ theme }) => theme.colors.siteBackground};
   height: 100vh;
-  justify-content: center;
   opacity: 0;
   overflow-x: hidden;
   overflow-y: auto;
@@ -54,6 +53,9 @@ export const ModalWrapper = styled.div<ITransitionProps>`
 `;
 
 export const ModalInner = styled(SiteWide)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: 100%;
 `;
 

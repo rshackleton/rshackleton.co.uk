@@ -30,6 +30,7 @@
     "@rshackleton/gatsby-transformer-kontent-image": "0.1.0-beta.1",
     "algoliasearch": "^3.35.1",
     "babel-plugin-emotion": "10.0.27",
+    "body-scroll-lock": "^2.6.4",
     "dotenv": "8.2.0",
     "emotion-reset": "2.0.4",
     "emotion-theming": "10.0.27",
@@ -70,11 +71,13 @@
     "yup": "0.28.0"
   },
   "devDependencies": {
+    "@types/body-scroll-lock": "^2.6.1",
     "@types/lodash": "4.14.149",
     "@types/node": "13.5.0",
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "@types/react-helmet": "5.0.15",
+    "@types/react-instantsearch-core": "^5.2.6",
     "@types/react-instantsearch-dom": "^5.2.6",
     "@types/react-syntax-highlighter": "11.0.4",
     "@types/react-transition-group": "^4.2.3",

@@ -1,13 +1,20 @@
+/** @jsx jsx */
 import Modal from '@components/modal/Modal';
+import { usePageContext } from '@components/PageContext';
+import { css, jsx } from '@emotion/core';
+import { rhythm } from '@utils/typography';
+import { QueryParameters } from 'algoliasearch';
 import algoliasearch from 'algoliasearch/lite';
+import {
+  clearAllBodyScrollLocks,
+  disableBodyScroll,
+  enableBodyScroll,
+} from 'body-scroll-lock';
 import 'instantsearch.css/themes/reset-min.css';
 import * as React from 'react';
-import {
-  Hits,
-  InstantSearch,
-  PoweredBy,
-  SearchBox,
-} from 'react-instantsearch-dom';
+import { Configure, Hits, InstantSearch } from 'react-instantsearch-dom';
+import SearchBox from './SearchBox';
+import SearchResult from './SearchResult';
 
 /**
  * SearchModal props.
@@ -55,16 +62,64 @@ const SearchModalProvider: React.FC<ISearchModalProviderProps> = ({
 const useSearchModal = (): SearchModalContextValue =>
   React.useContext(SearchModalContext);
 
-const searchClient = algoliasearch(
+const algolia = algoliasearch(
   process.env.GATSBY_ALGOLIA_APP_ID || '',
   process.env.GATSBY_ALGOLIA_API_KEY || '',
 );
+
+const searchClient = {
+  search(
+    queries: {
+      indexName: string;
+      query: string;
+      params: QueryParameters;
+    }[],
+  ) {
+    if (queries.every(({ params }) => !params.query)) {
+      return Promise.resolve({
+        results: queries.map(() => ({
+          hits: [],
+          nbHits: 0,
+          nbPages: 0,
+          processingTimeMS: 0,
+        })),
+      });
+    }
+
+    return algolia.search(queries);
+  },
+};
 
 /**
  * The search modal.
  */
 const SearchModal: React.FC<ISearchModalProps> = () => {
+  const { location } = usePageContext();
   const [showModal, setShowModal] = useSearchModal();
+  const scrollableRef = React.useRef<HTMLDivElement>(null);
+
+  const locationKey = location?.key || '';
+
+  // Ensure modal is hidden when location changes.
+  React.useEffect(() => {
+    setShowModal && setShowModal(false);
+  }, [locationKey]);
+
+  React.useLayoutEffect(() => {
+    if (!scrollableRef.current) {
+      return;
+    }
+
+    if (showModal) {
+      disableBodyScroll(scrollableRef.current);
+    } else {
+      enableBodyScroll(scrollableRef.current);
+    }
+
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, [showModal]);
 
   return (
     <Modal
@@ -78,9 +133,23 @@ const SearchModal: React.FC<ISearchModalProps> = () => {
         searchClient={searchClient}
         indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME || ''}
       >
-        <SearchBox />
-        <PoweredBy />
-        <Hits />
+        <Configure />
+        <SearchBox focus={showModal} />
+        <div
+          css={css`
+            overflow-y: auto;
+          `}
+          ref={scrollableRef}
+        >
+          <Hits
+            css={css`
+              li {
+                margin-bottom: ${rhythm(1)};
+              }
+            `}
+            hitComponent={SearchResult}
+          />
+        </div>
       </InstantSearch>
     </Modal>
   );

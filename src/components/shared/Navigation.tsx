@@ -1,7 +1,5 @@
-import React, { FC } from 'react';
-
 import SearchButton from '@components/search/SearchButton';
-
+import React, { FC } from 'react';
 import { Container, Link, LinkItem, Links } from './Navigation.styles';
 
 const Navigation: FC<{}> = () => (
