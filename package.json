@@ -30,16 +30,16 @@
     "emotion-reset": "2.0.4",
     "emotion-theming": "10.0.27",
     "formik": "2.1.2",
-    "gatsby": "2.18.25",
+    "gatsby": "2.19.5",
     "gatsby-image": "2.2.39",
     "gatsby-plugin-algolia": "0.5.0",
     "gatsby-plugin-alias-imports": "1.0.5",
     "gatsby-plugin-disqus": "1.1.4",
     "gatsby-plugin-emotion": "4.1.21",
     "gatsby-plugin-feed": "2.3.26",
-    "gatsby-plugin-google-analytics": "2.1.33",
+    "gatsby-plugin-google-analytics": "2.1.34",
     "gatsby-plugin-google-tagmanager": "2.1.24",
-    "gatsby-plugin-manifest": "2.2.37",
+    "gatsby-plugin-manifest": "2.2.38",
     "gatsby-plugin-netlify": "2.1.31",
     "gatsby-plugin-offline": "3.0.32",
     "gatsby-plugin-react-helmet": "3.1.21",
@@ -113,6 +113,6 @@
     ]
   },
   "resolutions": {
-    "gatsby": "2.18.25"
+    "gatsby": "2.19.5"
   }
 }
