@@ -1,16 +1,21 @@
 import { FixedObject, FluidObject } from 'gatsby-image';
+import { TransitionStatus } from 'react-transition-group/Transition';
+
+interface ITransitionProps {
+  state: TransitionStatus;
+}
 
 /**
  * A GatsbyJS connection.
  */
-interface Connection<T extends Node> {
-  edges: Edge<T>[];
+interface IConnection<T extends INode> {
+  edges: IEdge<T>[];
 }
 
 /**
  * A GatsbyJS connection edge.
  */
-interface Edge<T extends Node> {
+interface IEdge<T extends INode> {
   next?: T;
   node: T;
   previous?: T;
@@ -19,23 +24,23 @@ interface Edge<T extends Node> {
 /**
  * A GatsbyJS node.
  */
-interface Node {
+interface INode {
   id: string;
-  parent: Node;
-  children: Node[];
+  parent: INode;
+  children: INode[];
 }
 
 /**
  * The site config data.
  */
-interface Site {
-  siteMetadata: SiteMetadata;
+interface ISite {
+  siteMetadata: ISiteMetadata;
 }
 
 /**
  * The site metadata.
  */
-interface SiteMetadata {
+interface ISiteMetadata {
   lang?: string;
   locale?: string;
   siteUrl?: string;
@@ -46,7 +51,7 @@ interface SiteMetadata {
 /**
  * A Kentico Kontent item.
  */
-interface KontentItem extends Node {
+interface IKontentItem extends INode {
   system: {
     codename: string;
     id: string;
@@ -60,7 +65,7 @@ interface KontentItem extends Node {
 /**
  * A Kentico Kontent asset.
  */
-interface KontentAsset {
+interface IKontentAsset {
   name: string;
   description?: string;
   type: string;
@@ -75,7 +80,7 @@ interface KontentAsset {
 /**
  * A Kentico Kontent rich text image.
  */
-interface KontentRichTextImage {
+interface IKontentRichTextImage {
   description?: string;
   height: number;
   imageId: string;
@@ -88,7 +93,7 @@ interface KontentRichTextImage {
 /**
  * A Kentico Kontent rich text link.
  */
-interface KontentRichTextLink {
+interface IKontentRichTextLink {
   codename: string;
   linkId: number;
   type: string;
@@ -98,7 +103,7 @@ interface KontentRichTextLink {
 /**
  * A Kentico Kontent taxonomy item.
  */
-interface KontentTaxonomyItem {
+interface IKontentTaxonomyItem {
   name: string;
   codename: string;
 }
@@ -106,7 +111,7 @@ interface KontentTaxonomyItem {
 /**
  * A Kentico Kontent element.
  */
-interface KontentElement {
+interface IKontentElement {
   name: string;
   type: string;
 }
@@ -114,27 +119,27 @@ interface KontentElement {
 /**
  * A Kentico Kontent asset element.
  */
-interface KontentAssetElement extends KontentElement {
-  value: KontentAsset[];
+interface IKontentAssetElement extends IKontentElement {
+  value: IKontentAsset[];
 }
 
 /**
  * A Kentico Kontent date element.
  */
-interface KontentDateElement extends KontentElement {
+interface IKontentDateElement extends IKontentElement {
   value: string;
 }
 
 /**
  * A Kentico Kontent rich text element.
  */
-interface KontentRichTextElement extends KontentElement {
+interface IKontentRichTextElement extends IKontentElement {
   name: string;
   type: string;
   value?: string;
-  images: KontentRichTextImage[];
-  links: KontentRichTextLink[];
-  linked_items: KontentItem[];
+  images: IKontentRichTextImage[];
+  links: IKontentRichTextLink[];
+  linked_items: IKontentItem[];
   linkedItemCodenames: string[];
   resolvedData: {
     componentCodenames: string[];
@@ -146,109 +151,109 @@ interface KontentRichTextElement extends KontentElement {
 /**
  * A Kentico Kontent taxonomy element.
  */
-interface KontentTaxonomyElement extends KontentElement {
+interface IKontentTaxonomyElement extends IKontentElement {
   taxonomyGroup: string;
-  value: KontentTaxonomyItem[];
+  value: IKontentTaxonomyItem[];
 }
 
 /**
  * A Kentico Kontent text element.
  */
-interface KontentTextElement extends KontentElement {
+interface IKontentTextElement extends IKontentElement {
   value?: string;
 }
 
 /**
  * Content page.
  */
-interface Article extends KontentItem {
+interface IArticle extends IKontentItem {
   elements: {
-    article_tags: KontentTaxonomyElement;
-    banner: KontentAssetElement;
-    body: KontentRichTextElement;
-    date: KontentDateElement;
-    slug: KontentTextElement;
-    summary: KontentTextElement;
-    title: KontentTextElement;
-    metadata__page_title: KontentTextElement;
-    metadata__page_description: KontentTextElement;
-    metadata__page_keywords: KontentTextElement;
-    metadata__open_graph_image: KontentAssetElement;
+    article_tags: IKontentTaxonomyElement;
+    banner: IKontentAssetElement;
+    body: IKontentRichTextElement;
+    date: IKontentDateElement;
+    slug: IKontentTextElement;
+    summary: IKontentTextElement;
+    title: IKontentTextElement;
+    metadata__page_title: IKontentTextElement;
+    metadata__page_description: IKontentTextElement;
+    metadata__page_keywords: IKontentTextElement;
+    metadata__open_graph_image: IKontentAssetElement;
   };
 }
 
 /**
  * Content page.
  */
-interface ArticleListing extends KontentItem {
+interface IArticleListing extends IKontentItem {
   elements: {
-    banner: KontentAssetElement;
-    title: KontentTextElement;
-    metadata__page_title: KontentTextElement;
-    metadata__page_description: KontentTextElement;
-    metadata__page_keywords: KontentTextElement;
-    metadata__open_graph_image: KontentAssetElement;
+    banner: IKontentAssetElement;
+    title: IKontentTextElement;
+    metadata__page_title: IKontentTextElement;
+    metadata__page_description: IKontentTextElement;
+    metadata__page_keywords: IKontentTextElement;
+    metadata__open_graph_image: IKontentAssetElement;
   };
 }
 
 /**
  * Code block.
  */
-interface CodeBlock extends KontentItem {
+interface ICodeBlock extends IKontentItem {
   elements: {
-    code: KontentTextElement;
-    language: KontentTextElement;
-    source_url: KontentTextElement;
+    code: IKontentTextElement;
+    language: IKontentTextElement;
+    source_url: IKontentTextElement;
   };
 }
 
 /**
  * Content page.
  */
-interface ContentPage extends KontentItem {
+interface IContentPage extends IKontentItem {
   elements: {
-    banner: KontentAssetElement;
-    body: KontentRichTextElement;
-    slug: KontentTextElement;
-    summary: KontentTextElement;
-    title: KontentTextElement;
-    metadata__page_title: KontentTextElement;
-    metadata__page_description: KontentTextElement;
-    metadata__page_keywords: KontentTextElement;
-    metadata__open_graph_image: KontentAssetElement;
+    banner: IKontentAssetElement;
+    body: IKontentRichTextElement;
+    slug: IKontentTextElement;
+    summary: IKontentTextElement;
+    title: IKontentTextElement;
+    metadata__page_title: IKontentTextElement;
+    metadata__page_description: IKontentTextElement;
+    metadata__page_keywords: IKontentTextElement;
+    metadata__open_graph_image: IKontentAssetElement;
   };
 }
 
 /**
  * Content page.
  */
-interface ContactPage extends KontentItem {
+interface IContactPage extends IKontentItem {
   elements: {
-    banner: KontentAssetElement;
-    body: KontentRichTextElement;
-    title: KontentTextElement;
-    metadata__page_title: KontentTextElement;
-    metadata__page_description: KontentTextElement;
-    metadata__page_keywords: KontentTextElement;
-    metadata__open_graph_image: KontentAssetElement;
+    banner: IKontentAssetElement;
+    body: IKontentRichTextElement;
+    title: IKontentTextElement;
+    metadata__page_title: IKontentTextElement;
+    metadata__page_description: IKontentTextElement;
+    metadata__page_keywords: IKontentTextElement;
+    metadata__open_graph_image: IKontentAssetElement;
   };
 }
 
 /**
  * Home page.
  */
-interface HomePage extends KontentItem {
+interface IHomePage extends IKontentItem {
   elements: {
-    background_image: KontentAssetElement;
-    metadata__open_graph_image: KontentAssetElement;
-    metadata__page_description: KontentTextElement;
-    metadata__page_keywords: KontentTextElement;
-    metadata__page_title: KontentTextElement;
+    background_image: IKontentAssetElement;
+    metadata__open_graph_image: IKontentAssetElement;
+    metadata__page_description: IKontentTextElement;
+    metadata__page_keywords: IKontentTextElement;
+    metadata__page_title: IKontentTextElement;
   };
 }
 
-interface Tweet extends KontentItem {
+interface ITweet extends IKontentItem {
   elements: {
-    tweet_url: KontentTextElement;
+    tweet_url: IKontentTextElement;
   };
 }

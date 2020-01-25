@@ -1,8 +1,13 @@
+import Modal from '@components/modal/Modal';
 import algoliasearch from 'algoliasearch/lite';
-import 'instantsearch.css/themes/algolia-min.css';
+import 'instantsearch.css/themes/reset-min.css';
 import * as React from 'react';
-import { Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
-import { Modal, ModalClose } from '@components/modal/Modal.styles';
+import {
+  Hits,
+  InstantSearch,
+  PoweredBy,
+  SearchBox,
+} from 'react-instantsearch-dom';
 
 /**
  * SearchModal props.
@@ -61,25 +66,20 @@ const searchClient = algoliasearch(
 const SearchModal: React.FC<ISearchModalProps> = () => {
   const [showModal, setShowModal] = useSearchModal();
 
-  if (!showModal) {
-    return null;
-  }
-
   return (
-    <Modal>
-      <ModalClose
-        onClick={event => {
-          event.preventDefault();
-          setShowModal && setShowModal(false);
-        }}
-      >
-        Close
-      </ModalClose>
+    <Modal
+      visible={showModal || false}
+      onClose={event => {
+        event.preventDefault();
+        setShowModal && setShowModal(false);
+      }}
+    >
       <InstantSearch
         searchClient={searchClient}
         indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME || ''}
       >
         <SearchBox />
+        <PoweredBy />
         <Hits />
       </InstantSearch>
     </Modal>
