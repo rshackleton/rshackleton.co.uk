@@ -70,7 +70,7 @@
     "@types/react-helmet": "5.0.15",
     "@types/react-syntax-highlighter": "11.0.4",
     "@types/typography": "0.16.3",
-    "@types/yup": "0.26.27",
+    "@types/yup": "0.26.28",
     "@typescript-eslint/eslint-plugin": "2.17.0",
     "@typescript-eslint/parser": "2.17.0",
     "babel-eslint": "10.0.3",
