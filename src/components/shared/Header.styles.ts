@@ -11,7 +11,7 @@ export const Container = styled.header`
   height: ${({ theme }) => rhythm(theme.dimensions.header)};
   width: 100%;
   background: ${({ theme }) => theme.colors.siteBackground};
-  z-index: ${({ theme }) => theme.layers.overlay};
+  z-index: ${({ theme }) => theme.layers.header};
 `;
 
 export const SiteWide = styled(SiteWideBase)`

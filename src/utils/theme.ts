@@ -63,6 +63,7 @@ const theme: Theme = {
     root: -1,
     base: 1,
     content: 10,
+    header: 50,
     overlay: 100,
     priority: 1000,
   },

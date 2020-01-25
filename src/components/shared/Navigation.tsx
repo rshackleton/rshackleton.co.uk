@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import SearchButton from '@components/search/SearchButton';
+
 import { Container, Link, LinkItem, Links } from './Navigation.styles';
 
 const Navigation: FC<{}> = () => (
@@ -13,6 +15,9 @@ const Navigation: FC<{}> = () => (
       </LinkItem>
       <LinkItem>
         <Link to="/contact">Contact</Link>
+      </LinkItem>
+      <LinkItem>
+        <SearchButton />
       </LinkItem>
     </Links>
   </Container>
