@@ -23,7 +23,7 @@
     "@babel/preset-react": "7.8.3",
     "@emotion/core": "10.0.27",
     "@emotion/styled": "10.0.27",
-    "@kentico/gatsby-source-kontent": "4.2.0",
+    "@kentico/gatsby-source-kontent": "4.3.0",
     "@rshackleton/gatsby-transformer-kontent-image": "0.1.0-beta.1",
     "babel-plugin-emotion": "10.0.27",
     "dotenv": "8.2.0",

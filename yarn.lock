@@ -2649,12 +2649,12 @@
   dependencies:
     core-js "^2.5.7"
 
-"@kentico/gatsby-source-kontent@4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.2.0.tgz#ecbbde70d79551d2347f9066dde82de5833b85bf"
-  integrity sha512-hoPVeRRUFLHS4T8UkB2RagOrPuMmLXDP/ShMKcjy4qSWHws+gcBUWAztB/1zYvmA4Fbal1tUONLFBGHWjH53uQ==
+"@kentico/gatsby-source-kontent@4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.3.0.tgz#888c195904c726d489e099702260b29e02e32d41"
+  integrity sha512-c9LY0fLx+Jw49I6ByZWLSvGqqC0q/A0Axnl3vxQCkZD8VlY76rpr3v39zk3yE1RYVvvC/lssq9sGiSr621xUMQ==
   dependencies:
-    "@kentico/kontent-delivery" "^8.0.0"
+    "@kentico/kontent-delivery" "^9.0.0"
     change-case "^3.1.0"
     flatted "^2.0.0"
     json-stringify-safe "^5.0.1"
@@ -2670,12 +2670,28 @@
   dependencies:
     axios "0.19.0"
 
-"@kentico/kontent-delivery@^8.0.0", "@kentico/kontent-delivery@^8.2.0":
+"@kentico/kontent-core@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-6.0.0.tgz#548c7384aacb93a41b896b9740e322879c262194"
+  integrity sha512-9IS8UdGGc3/7N5GzsWo9v3F1RT/zxSFELAYNgVC2NzXr9+Y9EiggsaldwD7jQTzvtUEHcRGpWtDlQmvfzQ3qnA==
+  dependencies:
+    axios "0.19.0"
+
+"@kentico/kontent-delivery@^8.2.0":
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-8.2.0.tgz#6c3feb84e8d934a94c085210ceea492ed6eeb9c9"
   integrity sha512-M7HBv18dCxDLpFRHRnjm2xcvBq9nD/LDuHBpfrwtr4beGJ+8QWr/u8AAhBJXM2uLKn4M/dt/f35HvzpPdRB/zA==
   dependencies:
     "@kentico/kontent-core" "5.0.1"
+    parse5 "5.1.1"
+    reflect-metadata "0.1.13"
+
+"@kentico/kontent-delivery@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-9.0.0.tgz#216f1c976e02eb06359e04ff3c30a98fba57e7b5"
+  integrity sha512-OPOpoWB2oOrhtrVQ42H0bKhnuPhdjdDiurAEcjcSAx//iGIxWap5joPfs1qIpaOe8yS4Oip2HBzdBy4Hj7pJkw==
+  dependencies:
+    "@kentico/kontent-core" "6.0.0"
     parse5 "5.1.1"
     reflect-metadata "0.1.13"
 
