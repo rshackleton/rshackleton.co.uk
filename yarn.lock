@@ -2964,7 +2964,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-syntax-highlighter@^11.0.4":
+"@types/react-syntax-highlighter@11.0.4":
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/@types/react-syntax-highlighter/-/react-syntax-highlighter-11.0.4.tgz#d86d17697db62f98046874f62fdb3e53a0bbc4cd"
   integrity sha512-9GfTo3a0PHwQeTVoqs0g5bS28KkSY48pp5659wA+Dp4MqceDEa8EHBqrllJvvtyusszyJhViUEap0FDvlk/9Zg==
@@ -8117,7 +8117,7 @@ gatsby-graphiql-explorer@^0.2.32:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-gatsby-image@^2.2.39:
+gatsby-image@2.2.39:
   version "2.2.39"
   resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.2.39.tgz#c2982152923409139b03446c58fbaa99c15e47a2"
   integrity sha512-ypb5J+ACeHoGhyw//O0ye7z8sm8yW/MVqpuZ+gkCyXWt3zexp4jjHqV3uDOkvI9fPQC/QCZLXepE7Ve77iAeEg==
@@ -8181,7 +8181,7 @@ gatsby-plugin-emotion@4.1.21:
     "@babel/runtime" "^7.7.6"
     "@emotion/babel-preset-css-prop" "^10.0.23"
 
-gatsby-plugin-feed@^2.3.26:
+gatsby-plugin-feed@2.3.26:
   version "2.3.26"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.3.26.tgz#00043a581b81b73c595b7620fe0f381d241ca8da"
   integrity sha512-L2/LyCkZ+cPF2QAISszEwi2D2CuRk6ELp75d8tN7oCRDKkcSCJZND6gzIvBxNzGjEnbxtTk9OhL/1TnmJTALNQ==
@@ -8344,7 +8344,7 @@ gatsby-react-router-scroll@^2.1.20:
     scroll-behavior "^0.9.10"
     warning "^3.0.0"
 
-gatsby-source-filesystem@^2.1.46:
+gatsby-source-filesystem@2.1.46, gatsby-source-filesystem@^2.1.46:
   version "2.1.46"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.1.46.tgz#ab90c4520f0664218c7334dbec6cd90acc85cf9d"
   integrity sha512-5LC90+qMKK+/hJzZxKcazx5JvvOO1wHH+ZE7JDSHSzZ1QB+RKWnkvG4a7n6dyiFybo1HN3ql5YQXQLkBEiIfMg==
