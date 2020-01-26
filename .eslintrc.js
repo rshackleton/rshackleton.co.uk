@@ -18,6 +18,11 @@ module.exports = {
       'warn',
       { allowExpressions: true },
     ],
+    '@typescript-eslint/interface-name-prefix': [
+      'warn',
+      { prefixWithI: 'always' },
+    ],
+    '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-use-before-define': [
       'warn',
       { functions: false, classes: true },
