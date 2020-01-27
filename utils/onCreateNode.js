@@ -1,6 +1,6 @@
-var crypto = require('crypto');
+const crypto = require('crypto');
 
-var resolveUrl = require('./resolveUrl');
+const resolveUrl = require('./resolveUrl');
 
 module.exports = ({ actions, createNodeId, node }) => {
   const { createNode, createParentChildLink } = actions;
@@ -69,16 +69,24 @@ function getTypeSpecificFieldData(node) {
   switch (node.internal.type) {
     case 'KontentItemArticle':
       return {
-        content: node.elements.body.value,
+        // @todo: handle long content based on the docs:
+        // https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/indexing-long-documents/
+        content: '',
+        // content: node.elements.body.value,
         published: node.elements.date.value,
         published_unix: toUnix(node.elements.date.value),
+        summary: node.elements.summary.value,
         tags: node.elements.article_tags.value.map(v => v.name),
         title: node.elements.title.value,
       };
 
     case 'KontentItemContentPage':
       return {
-        content: node.elements.body.value,
+        // @todo: handle long content based on the docs:
+        // https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/how-to/indexing-long-documents/
+        content: '',
+        // content: node.elements.body.value,
+        summary: node.elements.summary.value,
         title: node.elements.title.value,
       };
 

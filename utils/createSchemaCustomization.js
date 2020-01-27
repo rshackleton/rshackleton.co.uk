@@ -1,6 +1,6 @@
-var get = require('lodash/get');
+const get = require('lodash/get');
 
-var resolveUrl = require('./resolveUrl');
+const resolveUrl = require('./resolveUrl');
 
 module.exports = ({ actions }) => {
   const { createFieldExtension, createTypes } = actions;
@@ -34,6 +34,7 @@ module.exports = ({ actions }) => {
       modified_unix: Int!
       published: Date @dateformat
       published_unix: Int
+      summary: String!
       tags: [String!]
       title: String!
       type: String!
