@@ -140,6 +140,7 @@ module.exports = {
                       modified_unix
                       published
                       published_unix
+                      summary
                       title
                       type
                       url
@@ -150,9 +151,15 @@ module.exports = {
               }
             `,
             settings: {
-              attributesToSnippet: [`content:20`],
+              attributesToSnippet: [`summary:20`],
               customRanking: ['desc(published_unix)'],
-              searchableAttributes: ['title', 'content', '_tags', 'type'],
+              searchableAttributes: [
+                'title',
+                'content',
+                'summary',
+                '_tags',
+                'type',
+              ],
             },
             transformer: ({ data }) =>
               data.allSearchableItem.edges.map(({ node }) => node),
