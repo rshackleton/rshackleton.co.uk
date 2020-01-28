@@ -5,17 +5,17 @@ import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
 import { Disqus } from 'gatsby-plugin-disqus';
-import { Article, Site } from 'index';
 import React, { FC } from 'react';
+import { IArticle, ISite } from 'index';
 
-interface ArticlePageProps {
+interface IArticlePageProps {
   data: {
-    kontentItemArticle: Article;
-    site: Site;
+    kontentItemArticle: IArticle;
+    site: ISite;
   };
 }
 
-const ArticleTemplate: FC<ArticlePageProps> = ({
+const ArticleTemplate: FC<IArticlePageProps> = ({
   data: {
     kontentItemArticle: data,
     site: {

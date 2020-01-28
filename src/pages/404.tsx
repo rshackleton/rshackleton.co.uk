@@ -2,16 +2,16 @@ import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
-import { ContentPage } from 'index';
 import React, { FC } from 'react';
+import { IContentPage } from 'index';
 
-interface NotFoundPageProps {
+interface INotFoundPageProps {
   data: {
-    kontentItemContentPage: ContentPage;
+    kontentItemContentPage: IContentPage;
   };
 }
 
-const NotFoundPage: FC<NotFoundPageProps> = ({
+const NotFoundPage: FC<INotFoundPageProps> = ({
   data: { kontentItemContentPage: data },
 }) => {
   const ogImage = data.elements.metadata__open_graph_image.value[0];

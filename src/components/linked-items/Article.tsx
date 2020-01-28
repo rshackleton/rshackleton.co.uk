@@ -1,15 +1,13 @@
-import { Article } from 'index';
-
+import ArticleSummary from '@components/shared/ArticleSummary';
 import { graphql } from 'gatsby';
+import { IArticle } from 'index';
 import React, { FC } from 'react';
 
-import ArticleSummary from '@components/shared/ArticleSummary';
-
-interface ArticleProps {
-  linkedItem: Article;
+interface IArticleProps {
+  linkedItem: IArticle;
 }
 
-const ArticleComponent: FC<ArticleProps> = ({ linkedItem }) => {
+const ArticleComponent: FC<IArticleProps> = ({ linkedItem }) => {
   const props = {
     slug: linkedItem.elements.slug.value || '',
     summary: linkedItem.elements.summary.value || '',

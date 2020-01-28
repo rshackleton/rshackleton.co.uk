@@ -1,17 +1,15 @@
-import { Tweet } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import TweetEmbed from '@components/shared/TweetEmbed';
+import { graphql } from 'gatsby';
+import { ITweet } from 'index';
+import React, { FC } from 'react';
 
 const URL_REGEX = /https:\/\/twitter\.com\/(\w+)\/status\/(\d+)\/?/;
 
-interface TweetProps {
-  linkedItem: Tweet;
+interface ITweetProps {
+  linkedItem: ITweet;
 }
 
-const TweetComponent: FC<TweetProps> = ({ linkedItem }) => {
+const TweetComponent: FC<ITweetProps> = ({ linkedItem }) => {
   const url = linkedItem.elements.tweet_url.value || '';
 
   const result = URL_REGEX.exec(url);

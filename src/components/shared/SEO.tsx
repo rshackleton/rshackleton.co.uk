@@ -1,10 +1,10 @@
 import ogDefaultImage from '@assets/og-default.jpg';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Site } from 'index';
+import { ISite } from 'index';
 import React, { FC, ReactNode } from 'react';
 import Helmet from 'react-helmet';
 
-interface SEOProps {
+interface ISEOProps {
   title?: string | null;
   description?: string | null;
   keywords?: string | null;
@@ -16,7 +16,7 @@ interface SEOProps {
   extraTags?: ReactNode[];
 }
 
-const SEO: FC<SEOProps> = ({
+const SEO: FC<ISEOProps> = ({
   title,
   description,
   keywords,
@@ -27,7 +27,7 @@ const SEO: FC<SEOProps> = ({
   url,
   extraTags = [],
 }) => {
-  const data: { site: Site } = useStaticQuery(
+  const data: { site: ISite } = useStaticQuery(
     graphql`
       query SEOSiteData {
         site {

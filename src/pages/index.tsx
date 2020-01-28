@@ -2,16 +2,16 @@ import HomeBanner from '@components/home/HomeBanner';
 import Layout from '@components/layouts/Default';
 import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
-import { Connection, HomePage } from 'index';
 import React, { FC } from 'react';
+import { IConnection, IHomePage } from 'index';
 
-interface IndexProps {
+interface IIndexProps {
   data: {
-    allKontentItemHomePage: Connection<HomePage>;
+    allKontentItemHomePage: IConnection<IHomePage>;
   };
 }
 
-const Index: FC<IndexProps> = ({
+const Index: FC<IIndexProps> = ({
   data: {
     allKontentItemHomePage: {
       edges: [{ node: data }],
