@@ -26,6 +26,9 @@ module.exports = {
       resolve: `gatsby-plugin-ts`,
       options: {
         codegen: false,
+        forkTsCheckerPlugin: {
+          eslint: true,
+        },
       },
     },
     {

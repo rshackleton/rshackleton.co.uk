@@ -1,12 +1,11 @@
 import React, { FC, ReactNode } from 'react';
-
 import { Inner, Outer } from './ContainerInset.styles';
 
-interface ContainerInsetProps {
+interface IContainerInsetProps {
   children: ReactNode;
 }
 
-const ContainerInset: FC<ContainerInsetProps> = ({
+const ContainerInset: FC<IContainerInsetProps> = ({
   children,
   ...otherProps
 }) => (

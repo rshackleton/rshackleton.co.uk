@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
-
 import { Container, Summary, Title } from './ContentPageSummary.styles';
 
-interface ContentPageSummary {
+interface IContentPageSummaryProps {
   slug: string;
   summary: string;
   title: string;
 }
 
-const ContentPageSummary: FC<ContentPageSummary> = ({
+const ContentPageSummary: FC<IContentPageSummaryProps> = ({
   slug,
   summary,
   title,

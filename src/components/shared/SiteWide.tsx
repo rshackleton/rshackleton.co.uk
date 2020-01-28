@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
-import React, { ReactNode, FC } from 'react';
-
 import styled from '@utils/styled';
 import { rhythm } from '@utils/typography';
+import PropTypes from 'prop-types';
+import React, { FC, ReactNode } from 'react';
 
 const Container = styled.div`
   display: block;
@@ -12,11 +11,11 @@ const Container = styled.div`
   padding: 0 ${rhythm(1)};
 `;
 
-interface SiteWideProps {
+interface ISiteWideProps {
   children: ReactNode;
 }
 
-const SiteWide: FC<SiteWideProps> = ({ children, ...otherProps }) => (
+const SiteWide: FC<ISiteWideProps> = ({ children, ...otherProps }) => (
   <Container {...otherProps}>{children}</Container>
 );
 

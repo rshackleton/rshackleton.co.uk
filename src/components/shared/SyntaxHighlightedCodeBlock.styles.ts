@@ -1,14 +1,13 @@
 import { css } from '@emotion/core';
-import styled from '@utils/styled';
-
 import mq from '@utils/mq';
+import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
 
-interface ContainerProps {
+interface IContainerProps {
   hasCaption: boolean;
 }
 
-export const Container = styled.figure<ContainerProps>`
+export const Container = styled.figure<IContainerProps>`
   margin: 0 ${rhythm(-0.5)} ${rhythm(1)};
 
   ${mq.sm} {

@@ -1,15 +1,13 @@
-import React, { FC } from 'react';
-
 import formatDate from '@utils/formatDate';
-
+import React, { FC } from 'react';
 import { Container, Meta, Title } from './ArticleHeader.styles';
 
-interface ArticleHeaderProps {
+interface IArticleHeaderProps {
   date: Date;
   title: string;
 }
 
-const ArticleHeader: FC<ArticleHeaderProps> = ({ date, title }) => (
+const ArticleHeader: FC<IArticleHeaderProps> = ({ date, title }) => (
   <Container>
     <Title>{title}</Title>
     <Meta>{formatDate(date)}</Meta>

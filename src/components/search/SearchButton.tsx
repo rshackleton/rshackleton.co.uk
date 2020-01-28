@@ -1,9 +1,8 @@
+import { Button } from '@components/search/SearchButton.styles';
+import { useSearchModal } from '@components/search/SearchModal';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-
-import { useSearchModal } from '@components/search/SearchModal';
-import { Button } from '@components/search/SearchButton.styles';
 
 interface ISearchButtonProps {}
 

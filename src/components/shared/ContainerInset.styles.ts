@@ -1,6 +1,5 @@
-import styled from '@utils/styled';
-
 import mq from '@utils/mq';
+import styled from '@utils/styled';
 import { rhythm } from '@utils/typography';
 
 export const Outer = styled.div`

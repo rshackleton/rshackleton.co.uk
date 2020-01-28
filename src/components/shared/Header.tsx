@@ -1,14 +1,12 @@
-import React, { FC } from 'react';
-
 import Navigation from '@components/shared/Navigation';
-
+import React, { FC } from 'react';
 import { Container, SiteWide, Title, TitleLink } from './Header.styles';
 
-interface HeaderProps {
+interface IHeaderProps {
   siteTitle: string;
 }
 
-const Header: FC<HeaderProps> = ({ siteTitle }) => (
+const Header: FC<IHeaderProps> = ({ siteTitle }) => (
   <Container>
     <SiteWide>
       <Title>

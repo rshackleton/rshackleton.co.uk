@@ -1,6 +1,5 @@
 import { FluidObject } from 'gatsby-image';
 import React, { FC } from 'react';
-
 import {
   Banner,
   Container,
@@ -10,12 +9,12 @@ import {
   Title,
 } from './HomeBanner.styles';
 
-interface HomeBannerProps {
+interface IHomeBannerProps {
   image: FluidObject;
   imageDescription?: string;
 }
 
-const HomeBanner: FC<HomeBannerProps> = ({ image, imageDescription }) => (
+const HomeBanner: FC<IHomeBannerProps> = ({ image, imageDescription }) => (
   <Container>
     <Banner>
       <Img alt={imageDescription} fluid={image} />

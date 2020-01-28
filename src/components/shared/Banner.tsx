@@ -1,14 +1,13 @@
 import { FluidObject } from 'gatsby-image';
 import React, { FC } from 'react';
-
 import { Container, Img } from './Banner.styles';
 
-export interface BannerProps {
+export interface IBannerProps {
   image: FluidObject;
   imageDescription?: string;
 }
 
-const Banner: FC<BannerProps> = ({
+const Banner: FC<IBannerProps> = ({
   image,
   imageDescription,
   ...otherProps
