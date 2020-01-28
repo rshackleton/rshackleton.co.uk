@@ -58,7 +58,7 @@ const Articles: FC<ArticlesProps> = ({
 export default Articles;
 
 export const query = graphql`
-  {
+  query Articles {
     allKontentItemArticleListing(limit: 1) {
       edges {
         node {

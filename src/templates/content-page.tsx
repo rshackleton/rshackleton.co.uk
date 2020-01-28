@@ -1,11 +1,9 @@
-import { ContentPage } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import { ContentPage } from 'index';
+import React, { FC } from 'react';
 
 interface ContentPageProps {
   data: {
@@ -53,7 +51,7 @@ const ContentPageTemplate: FC<ContentPageProps> = ({
 export default ContentPageTemplate;
 
 export const query = graphql`
-  query($slug: String!) {
+  query Content($slug: String!) {
     kontentItemContentPage(elements: { slug: { value: { eq: $slug } } }) {
       id
       elements {

@@ -1,11 +1,9 @@
-import { Connection, HomePage } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import HomeBanner from '@components/home/HomeBanner';
 import Layout from '@components/layouts/Default';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import { Connection, HomePage } from 'index';
+import React, { FC } from 'react';
 
 interface IndexProps {
   data: {
@@ -45,7 +43,7 @@ const Index: FC<IndexProps> = ({
 export default Index;
 
 export const query = graphql`
-  {
+  query Home {
     allKontentItemHomePage {
       edges {
         node {

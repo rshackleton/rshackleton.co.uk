@@ -1,11 +1,9 @@
-import { ContentPage } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import { ContentPage } from 'index';
+import React, { FC } from 'react';
 
 interface NotFoundPageProps {
   data: {
@@ -51,7 +49,7 @@ const NotFoundPage: FC<NotFoundPageProps> = ({
 export default NotFoundPage;
 
 export const query = graphql`
-  {
+  query PageNotFound {
     kontentItemContentPage(elements: { slug: { value: { eq: "not-found" } } }) {
       id
       elements {

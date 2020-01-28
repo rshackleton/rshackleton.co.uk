@@ -1,10 +1,8 @@
-import { Site } from 'index';
-
+import ogDefaultImage from '@assets/og-default.jpg';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Site } from 'index';
 import React, { FC, ReactNode } from 'react';
 import Helmet from 'react-helmet';
-
-import ogDefaultImage from '@assets/og-default.jpg';
 
 interface SEOProps {
   title?: string | null;
@@ -31,7 +29,7 @@ const SEO: FC<SEOProps> = ({
 }) => {
   const data: { site: Site } = useStaticQuery(
     graphql`
-      {
+      query SEOSiteData {
         site {
           siteMetadata {
             lang

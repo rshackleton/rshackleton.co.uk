@@ -23,7 +23,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typescript`,
+      resolve: `gatsby-plugin-ts`,
+      options: {
+        codegen: false,
+      },
     },
     {
       resolve: `gatsby-plugin-react-helmet`,
