@@ -1,23 +1,21 @@
-import { Article, Site } from 'index';
-
-import { graphql } from 'gatsby';
-import { Disqus } from 'gatsby-plugin-disqus';
-import React, { FC } from 'react';
-
 import ArticleFooter from '@components/article-page/ArticleFooter';
 import ArticleHeader from '@components/article-page/ArticleHeader';
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import { Disqus } from 'gatsby-plugin-disqus';
+import React, { FC } from 'react';
+import { IArticle, ISite } from 'index';
 
-interface ArticlePageProps {
+interface IArticlePageProps {
   data: {
-    kontentItemArticle: Article;
-    site: Site;
+    kontentItemArticle: IArticle;
+    site: ISite;
   };
 }
 
-const ArticleTemplate: FC<ArticlePageProps> = ({
+const ArticleTemplate: FC<IArticlePageProps> = ({
   data: {
     kontentItemArticle: data,
     site: {
@@ -99,7 +97,7 @@ const ArticleTemplate: FC<ArticlePageProps> = ({
 export default ArticleTemplate;
 
 export const query = graphql`
-  query($slug: String!) {
+  query Article($slug: String!) {
     site {
       siteMetadata {
         siteUrl

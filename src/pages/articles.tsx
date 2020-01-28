@@ -3,17 +3,17 @@ import Layout from '@components/layouts/InsetWithBanner';
 import SearchModal from '@components/search/SearchModal';
 import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
-import { Article, ArticleListing, Connection } from 'index';
+import { IArticle, IArticleListing, IConnection } from 'index';
 import React, { FC } from 'react';
 
-interface ArticlesProps {
+interface IArticlesProps {
   data: {
-    allKontentItemArticle: Connection<Article>;
-    allKontentItemArticleListing: Connection<ArticleListing>;
+    allKontentItemArticle: IConnection<IArticle>;
+    allKontentItemArticleListing: IConnection<IArticleListing>;
   };
 }
 
-const Articles: FC<ArticlesProps> = ({
+const Articles: FC<IArticlesProps> = ({
   data: {
     allKontentItemArticleListing: {
       edges: [{ node: data }],
@@ -58,7 +58,7 @@ const Articles: FC<ArticlesProps> = ({
 export default Articles;
 
 export const query = graphql`
-  {
+  query Articles {
     allKontentItemArticleListing(limit: 1) {
       edges {
         node {

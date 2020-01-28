@@ -1,6 +1,5 @@
 import { FluidObject } from 'gatsby-image';
-import React, { ReactNode, FC } from 'react';
-
+import React, { FC, ReactNode } from 'react';
 import {
   Banner,
   ContainerInset,

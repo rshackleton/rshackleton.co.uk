@@ -1,8 +1,7 @@
-import styled from '@utils/styled';
-import { Link } from 'gatsby';
-
 import SiteWideBase from '@components/shared/SiteWide';
+import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
+import { Link } from 'gatsby';
 
 export const Container = styled.header`
   position: fixed;

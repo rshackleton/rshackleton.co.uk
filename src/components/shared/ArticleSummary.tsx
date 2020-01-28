@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
-
 import { Container, Summary, Title } from './ArticleSummary.styles';
 
-interface ArticleSummaryProps {
+interface IArticleSummaryProps {
   slug: string;
   summary: string;
   title: string;
 }
 
-const ArticleSummary: FC<ArticleSummaryProps> = ({ slug, summary, title }) => (
+const ArticleSummary: FC<IArticleSummaryProps> = ({ slug, summary, title }) => (
   <Container to={`/articles/${slug}`}>
     <Title>{title}</Title>
     <Summary>{summary}</Summary>

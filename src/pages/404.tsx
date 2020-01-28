@@ -1,19 +1,17 @@
-import { ContentPage } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import React, { FC } from 'react';
+import { IContentPage } from 'index';
 
-interface NotFoundPageProps {
+interface INotFoundPageProps {
   data: {
-    kontentItemContentPage: ContentPage;
+    kontentItemContentPage: IContentPage;
   };
 }
 
-const NotFoundPage: FC<NotFoundPageProps> = ({
+const NotFoundPage: FC<INotFoundPageProps> = ({
   data: { kontentItemContentPage: data },
 }) => {
   const ogImage = data.elements.metadata__open_graph_image.value[0];
@@ -51,7 +49,7 @@ const NotFoundPage: FC<NotFoundPageProps> = ({
 export default NotFoundPage;
 
 export const query = graphql`
-  {
+  query PageNotFound {
     kontentItemContentPage(elements: { slug: { value: { eq: "not-found" } } }) {
       id
       elements {

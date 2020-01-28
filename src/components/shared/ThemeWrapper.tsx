@@ -1,13 +1,12 @@
-import { ThemeProvider } from 'emotion-theming';
-import React, { ReactNode, FC } from 'react';
-
 import theme from '@utils/theme';
+import { ThemeProvider } from 'emotion-theming';
+import React, { FC, ReactNode } from 'react';
 
-interface ThemeWrapperProps {
+interface IThemeWrapperProps {
   children: ReactNode;
 }
 
-const ThemeWrapper: FC<ThemeWrapperProps> = ({ children }) => (
+const ThemeWrapper: FC<IThemeWrapperProps> = ({ children }) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 

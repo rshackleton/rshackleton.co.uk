@@ -1,11 +1,11 @@
 import { Link } from 'gatsby';
 import React, { FC } from 'react';
 
-interface ArticleListProps {
-  items: ArticleListItem[];
+interface IArticleListProps {
+  items: IArticleListItem[];
 }
 
-interface ArticleListItem {
+interface IArticleListItem {
   id: string;
   codename: string;
   slug: string;
@@ -13,7 +13,7 @@ interface ArticleListItem {
   title: string;
 }
 
-const ArticleList: FC<ArticleListProps> = ({ items = [] }) => (
+const ArticleList: FC<IArticleListProps> = ({ items = [] }) => (
   <div>
     {items
       .filter(item => !isTestItem(item))
@@ -31,6 +31,6 @@ const ArticleList: FC<ArticleListProps> = ({ items = [] }) => (
 export default ArticleList;
 
 /** Check if node is a test node and shouldn't be shown on the website. */
-function isTestItem(item: ArticleListItem): boolean {
+function isTestItem(item: IArticleListItem): boolean {
   return !!item.codename && item.codename.indexOf('test_') === 0;
 }

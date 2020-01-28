@@ -45,4 +45,4 @@ const SearchBox: React.FunctionComponent<ISearchBoxProps> = ({
   );
 };
 
-export default connectSearchBox(SearchBox);
+export default connectSearchBox<ISearchBoxProps>(SearchBox);

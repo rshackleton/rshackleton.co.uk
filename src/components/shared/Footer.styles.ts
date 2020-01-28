@@ -1,6 +1,5 @@
-import styled from '@utils/styled';
-
 import SiteWideBase from '@components/shared/SiteWide';
+import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
 
 export const Container = styled.footer`

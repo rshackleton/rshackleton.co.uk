@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
-
 import { Container } from './TweetEmbed.styles';
 
-interface TweetEmbedProps {
+interface ITweetEmbedProps {
   id: string;
 }
 
-const TweetEmbed: FC<TweetEmbedProps> = ({ id }) => (
+const TweetEmbed: FC<ITweetEmbedProps> = ({ id }) => (
   <Container>
     <TwitterTweetEmbed tweetId={id} />
   </Container>

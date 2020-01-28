@@ -1,35 +1,39 @@
-import { KontentItem, Article, CodeBlock, ContentPage, Tweet } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import ArticleComponent from '@components/linked-items/Article';
 import CodeBlockComponent from '@components/linked-items/CodeBlock';
 import ContentPageComponent from '@components/linked-items/ContentPage';
 import TweetComponent from '@components/linked-items/Tweet';
+import { graphql } from 'gatsby';
+import {
+  IArticle,
+  ICodeBlock,
+  IContentPage,
+  IKontentItem,
+  ITweet,
+} from 'index';
+import React, { FC } from 'react';
 
-interface LinkedItemProps {
-  linkedItem: KontentItem;
+interface ILinkedItemProps {
+  linkedItem: IKontentItem;
 }
 
-const LinkedItem: FC<LinkedItemProps> = ({ linkedItem }) => {
+const LinkedItem: FC<ILinkedItemProps> = ({ linkedItem }) => {
   const type = linkedItem.system.type;
 
   switch (type) {
     case 'article': {
-      return <ArticleComponent linkedItem={linkedItem as Article} />;
+      return <ArticleComponent linkedItem={linkedItem as IArticle} />;
     }
 
     case 'code_block': {
-      return <CodeBlockComponent linkedItem={linkedItem as CodeBlock} />;
+      return <CodeBlockComponent linkedItem={linkedItem as ICodeBlock} />;
     }
 
     case 'content_page': {
-      return <ContentPageComponent linkedItem={linkedItem as ContentPage} />;
+      return <ContentPageComponent linkedItem={linkedItem as IContentPage} />;
     }
 
     case 'tweet': {
-      return <TweetComponent linkedItem={linkedItem as Tweet} />;
+      return <TweetComponent linkedItem={linkedItem as ITweet} />;
     }
 
     default:

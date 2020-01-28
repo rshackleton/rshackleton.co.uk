@@ -1,19 +1,17 @@
-import { ContentPage } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import React, { FC } from 'react';
+import { IContentPage } from 'index';
 
-interface ContentPageProps {
+interface IContentPageProps {
   data: {
-    kontentItemContentPage: ContentPage;
+    kontentItemContentPage: IContentPage;
   };
 }
 
-const ContentPageTemplate: FC<ContentPageProps> = ({
+const ContentPageTemplate: FC<IContentPageProps> = ({
   data: { kontentItemContentPage: data },
 }) => {
   const ogImage = data.elements.metadata__open_graph_image.value[0];
@@ -53,7 +51,7 @@ const ContentPageTemplate: FC<ContentPageProps> = ({
 export default ContentPageTemplate;
 
 export const query = graphql`
-  query($slug: String!) {
+  query Content($slug: String!) {
     kontentItemContentPage(elements: { slug: { value: { eq: $slug } } }) {
       id
       elements {

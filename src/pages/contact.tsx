@@ -1,20 +1,18 @@
-import { Connection, ContactPage } from 'index';
-
-import { graphql } from 'gatsby';
-import React, { FC } from 'react';
-
 import ContactForm from '@components/forms/ContactForm';
 import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
+import { graphql } from 'gatsby';
+import React, { FC } from 'react';
+import { IConnection, IContactPage } from 'index';
 
-interface ContactProps {
+interface IContactProps {
   data: {
-    allKontentItemContactPage: Connection<ContactPage>;
+    allKontentItemContactPage: IConnection<IContactPage>;
   };
 }
 
-const Contact: FC<ContactProps> = ({
+const Contact: FC<IContactProps> = ({
   data: {
     allKontentItemContactPage: {
       edges: [{ node: data }],
@@ -58,7 +56,7 @@ const Contact: FC<ContactProps> = ({
 export default Contact;
 
 export const query = graphql`
-  {
+  query Contact {
     allKontentItemContactPage {
       edges {
         node {

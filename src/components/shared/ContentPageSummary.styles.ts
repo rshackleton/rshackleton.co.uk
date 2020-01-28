@@ -1,7 +1,6 @@
 import styled from '@utils/styled';
-import { Link } from 'gatsby';
-
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
+import { Link } from 'gatsby';
 
 export const Container = styled(Link)`
   display: block;

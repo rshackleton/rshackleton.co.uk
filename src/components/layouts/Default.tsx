@@ -1,5 +1,4 @@
-import React, { ReactNode, FC } from 'react';
-
+import React, { FC, ReactNode } from 'react';
 import { ContentWrapper } from './Default.styles';
 
 interface ILayoutProps {

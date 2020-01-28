@@ -1,7 +1,6 @@
 import { useFormik } from 'formik';
-import React, { useRef, useState, FC } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import * as Yup from 'yup';
-
 import {
   Button,
   ErrorMessage,

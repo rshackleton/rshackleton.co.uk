@@ -1,8 +1,7 @@
-import GatsbyImage from 'gatsby-image';
-
 import mq from '@utils/mq';
 import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
+import GatsbyImage from 'gatsby-image';
 
 export const Banner = styled.div`
   position: absolute;

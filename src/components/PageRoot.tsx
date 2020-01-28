@@ -18,7 +18,7 @@ interface IPageRootProps {
 const PageRoot: React.FC<IPageRootProps> = ({ children, pageContext }) => {
   const data = useStaticQuery(
     graphql`
-      {
+      query PageRootSiteData {
         site {
           siteMetadata {
             title

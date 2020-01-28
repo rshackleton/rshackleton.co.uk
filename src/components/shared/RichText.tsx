@@ -1,24 +1,26 @@
 /* @jsx jsx */
-import { KontentRichTextImage, KontentRichTextLink, KontentItem } from 'index';
-
+import LinkedItem from '@components/linked-items';
+import InlineAsset from '@components/shared/InlineAsset';
+import InlineLink from '@components/shared/InlineLink';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { jsx } from '@emotion/core';
 import parseHTML, { DomElement } from 'html-react-parser';
+import {
+  IKontentItem,
+  IKontentRichTextImage,
+  IKontentRichTextLink,
+} from 'index';
 import get from 'lodash/get';
 import React, { FC, Fragment } from 'react';
 
-import InlineAsset from '@components/shared/InlineAsset';
-import InlineLink from '@components/shared/InlineLink';
-import LinkedItem from '@components/linked-items';
-
-interface RichTextProps {
+interface IRichTextProps {
   content: string;
-  images: KontentRichTextImage[];
-  links: KontentRichTextLink[];
-  linkedItems: KontentItem[];
+  images: IKontentRichTextImage[];
+  links: IKontentRichTextLink[];
+  linkedItems: IKontentItem[];
 }
 
-const RichText: FC<RichTextProps> = ({
+const RichText: FC<IRichTextProps> = ({
   content,
   images,
   links,
@@ -45,8 +47,8 @@ export default RichText;
 /** Get data for Kentico Cloud inline asset. */
 function getAsset(
   id: string,
-  assets: KontentRichTextImage[],
-): KontentRichTextImage | undefined {
+  assets: IKontentRichTextImage[],
+): IKontentRichTextImage | undefined {
   return assets.find(asset => asset.imageId === id);
 }
 
@@ -63,8 +65,8 @@ function getCodeName(domNode: DomElement): string | null {
 /** Get data for Kentico Cloud inline link. */
 function getLink(
   id: number,
-  links: KontentRichTextLink[],
-): KontentRichTextLink | undefined {
+  links: IKontentRichTextLink[],
+): IKontentRichTextLink | undefined {
   return links.find(link => link.linkId === id);
 }
 
@@ -76,8 +78,8 @@ function getLinkContent(domNode: DomElement): string | null {
 /** Get data for Kentico Cloud inline content item. */
 function getLinkedItem(
   codename: string,
-  linkedItems: KontentItem[],
-): KontentItem | undefined {
+  linkedItems: IKontentItem[],
+): IKontentItem | undefined {
   return linkedItems.find(item => item.system.codename === codename);
 }
 
@@ -116,9 +118,9 @@ function isLinkedItem(domNode: DomElement): boolean {
 /** Replace HTML DOM node with React component. */
 function replaceNode(
   domNode: DomElement,
-  images: KontentRichTextImage[],
-  links: KontentRichTextLink[],
-  linkedItems: KontentItem[],
+  images: IKontentRichTextImage[],
+  links: IKontentRichTextLink[],
+  linkedItems: IKontentItem[],
 ): React.ReactElement | object | undefined | false {
   // Replace inline assets.
   if (isAsset(domNode)) {

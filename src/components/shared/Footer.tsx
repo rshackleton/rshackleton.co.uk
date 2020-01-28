@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-
-import { Container, SiteWide, Legal } from './Footer.styles';
+import { Container, Legal, SiteWide } from './Footer.styles';
 
 const Footer: FC<{}> = () => (
   <Container>

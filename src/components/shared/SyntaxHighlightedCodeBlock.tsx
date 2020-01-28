@@ -1,20 +1,19 @@
 import React, { FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { atomDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism';
-
 import {
   Caption,
   CaptionLink,
   Container,
 } from './SyntaxHighlightedCodeBlock.styles';
 
-interface SyntaxHighlightedCodeBlockProps {
+interface ISyntaxHighlightedCodeBlockProps {
   code: string;
   language: string;
   sourceUrl?: string;
 }
 
-const SyntaxHighlightedCodeBlock: FC<SyntaxHighlightedCodeBlockProps> = ({
+const SyntaxHighlightedCodeBlock: FC<ISyntaxHighlightedCodeBlockProps> = ({
   code,
   language,
   sourceUrl,

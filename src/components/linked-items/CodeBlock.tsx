@@ -1,15 +1,13 @@
-import { CodeBlock } from 'index';
-
+import SyntaxHighlightedCodeBlock from '@components/shared/SyntaxHighlightedCodeBlock';
 import { graphql } from 'gatsby';
+import { ICodeBlock } from 'index';
 import React, { FC } from 'react';
 
-import SyntaxHighlightedCodeBlock from '@components/shared/SyntaxHighlightedCodeBlock';
-
-interface CodeBlockProps {
-  linkedItem: CodeBlock;
+interface ICodeBlockProps {
+  linkedItem: ICodeBlock;
 }
 
-const CodeBlockComponent: FC<CodeBlockProps> = ({ linkedItem }) => {
+const CodeBlockComponent: FC<ICodeBlockProps> = ({ linkedItem }) => {
   const props = {
     code: linkedItem.elements.code.value || '',
     language: linkedItem.elements.language.value || '',

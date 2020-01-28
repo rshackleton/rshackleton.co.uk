@@ -1,14 +1,14 @@
 import { Link } from 'gatsby';
 import React, { FC } from 'react';
 
-interface InlineLinkProps {
+interface IInlineLinkProps {
   content: string;
   linkId: number;
   type: string;
   urlSlug: string;
 }
 
-const InlineLink: FC<InlineLinkProps> = ({
+const InlineLink: FC<IInlineLinkProps> = ({
   content,
   linkId,
   type,

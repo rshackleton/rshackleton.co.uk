@@ -1,15 +1,13 @@
-import { ContentPage } from 'index';
-
+import ContentPageSummary from '@components/shared/ContentPageSummary';
 import { graphql } from 'gatsby';
+import { IContentPage } from 'index';
 import React, { FC } from 'react';
 
-import ContentPageSummary from '@components/shared/ContentPageSummary';
-
-interface ContentPageProps {
-  linkedItem: ContentPage;
+interface IContentPageProps {
+  linkedItem: IContentPage;
 }
 
-const ContentPageComponent: FC<ContentPageProps> = ({ linkedItem }) => {
+const ContentPageComponent: FC<IContentPageProps> = ({ linkedItem }) => {
   const props = {
     slug: linkedItem.elements.slug.value || '',
     summary: linkedItem.elements.summary.value || '',
