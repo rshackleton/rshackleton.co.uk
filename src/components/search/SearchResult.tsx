@@ -48,7 +48,7 @@ const SearchResult: React.FunctionComponent<ISearchResultProps> = ({ hit }) => {
           <Highlight attribute="title" hit={hit} tagName="mark" />
         </Link>
       </SearchResultTitle>
-      <SearchResultContent attribute="content" hit={hit} tagName="mark" />
+      <SearchResultContent attribute="summary" hit={hit} tagName="mark" />
       <SearchResultMeta>
         <Highlight
           attribute="_tags"
