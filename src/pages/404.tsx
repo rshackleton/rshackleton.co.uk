@@ -64,7 +64,7 @@ export const query = graphql`
             imageId
             description
             fluid(maxWidth: 788) {
-              ...KontentAssetFluid
+              ...KontentAssetFluid_withWebp
             }
           }
           links {
@@ -81,7 +81,7 @@ export const query = graphql`
           value {
             description
             fluid(maxWidth: 1920) {
-              ...KontentAssetFluid
+              ...KontentAssetFluid_withWebp
             }
           }
         }

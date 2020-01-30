@@ -2873,13 +2873,14 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rshackleton/gatsby-transformer-kontent-image@0.1.0-beta.1":
-  version "0.1.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-transformer-kontent-image/-/gatsby-transformer-kontent-image-0.1.0-beta.1.tgz#1ed0dc4b29f789d411e5232168f4a6ad02d337ac"
-  integrity sha512-Bxg5XhuRC6Y+9Upm6UHOFu805TztRA8ZeDnNhwYG1KKIVFaCvoKRQQ/76OSLSC8Kua5Aghl2ho/vfbvj0nzVbA==
+"@rshackleton/gatsby-transformer-kontent-image@0.1.0-beta.2":
+  version "0.1.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-transformer-kontent-image/-/gatsby-transformer-kontent-image-0.1.0-beta.2.tgz#3f8876c483dc78a8013661821b3d8f053f7eb507"
+  integrity sha512-i+JNqBLUuv8FMBNA366ND511kA8zj7gvV3UePToZjMGygxlYZCd3ZmMkRJFKZZ9XnpE/97hhIAzMllaXd2LXyQ==
   dependencies:
     "@kentico/kontent-delivery" "^8.2.0"
     "@types/fs-extra" "^8.0.1"
+    axios "^0.19.2"
     fs-extra "^8.1.0"
     gatsby-plugin-sharp "^2.3.13"
     gatsby-source-filesystem "^2.1.46"
@@ -4053,6 +4054,13 @@ axios@0.19.0, axios@^0.19.0:
   dependencies:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
+
+axios@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
+  dependencies:
+    follow-redirects "1.5.10"
 
 axobject-query@^2.0.2:
   version "2.0.2"

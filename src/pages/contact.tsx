@@ -3,8 +3,8 @@ import Layout from '@components/layouts/InsetWithBanner';
 import RichText from '@components/shared/RichText';
 import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
-import React, { FC } from 'react';
 import { IConnection, IContactPage } from 'index';
+import React, { FC } from 'react';
 
 interface IContactProps {
   data: {
@@ -73,7 +73,7 @@ export const query = graphql`
                 imageId
                 description
                 fluid(maxWidth: 788) {
-                  ...KontentAssetFluid
+                  ...KontentAssetFluid_withWebp
                 }
               }
               links {
@@ -90,7 +90,7 @@ export const query = graphql`
               value {
                 description
                 fluid(maxWidth: 1920) {
-                  ...KontentAssetFluid
+                  ...KontentAssetFluid_withWebp
                 }
               }
             }
