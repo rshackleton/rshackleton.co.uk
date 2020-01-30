@@ -70,7 +70,7 @@ export const query = graphql`
               value {
                 description
                 fluid(maxWidth: 1920) {
-                  ...KontentAssetFluid
+                  ...KontentAssetFluid_withWebp
                 }
               }
             }
