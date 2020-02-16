@@ -3007,10 +3007,18 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rshackleton/gatsby-transformer-kontent-image@0.1.0-beta.3":
-  version "0.1.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-transformer-kontent-image/-/gatsby-transformer-kontent-image-0.1.0-beta.3.tgz#03d5fdf433be848ee5eadad665bc5b31a66a096c"
-  integrity sha512-oYHKAm9xVUzFpA6V+iGhZqiXYGntEVYTHeKrQGRjeGbmEKcnSgB75L8usFL/nIbFYnRSfYEyiPbifzSvNv1Beg==
+"@rshackleton/gatsby-theme-kontent@0.1.0-beta.6":
+  version "0.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-theme-kontent/-/gatsby-theme-kontent-0.1.0-beta.6.tgz#0ffcec83dc8c58a3ce131a6090df3177a0e313ea"
+  integrity sha512-6VDDmnRIno7oj/WZ9FanF+J87B0loMfxOvs9Fru7eUTDjt4L3wpNu27RvUg1/stE9hbPGJryyq1hm6Srz8+1dg==
+  dependencies:
+    "@kentico/gatsby-source-kontent" "4.3.0"
+    "@rshackleton/gatsby-transformer-kontent-image" "^0.1.0-beta.6"
+
+"@rshackleton/gatsby-transformer-kontent-image@^0.1.0-beta.6":
+  version "0.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-transformer-kontent-image/-/gatsby-transformer-kontent-image-0.1.0-beta.6.tgz#9f2302521fe0ef2e0e91471407e74f244b7dfd8f"
+  integrity sha512-hBOmeTulP0j6TtQDybP7SJEvTU9JOWAMJvFahnWudOZFv46V7cdxNMZsRzT/jE6MEoq35DBKYqIHk3dT8qj/zg==
   dependencies:
     "@kentico/kontent-delivery" "^8.2.0"
     "@types/fs-extra" "^8.0.1"

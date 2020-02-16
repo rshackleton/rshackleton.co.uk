@@ -78,23 +78,19 @@ module.exports = {
       },
     },
     {
-      resolve: `@kentico/gatsby-source-kontent`,
+      resolve: `@rshackleton/gatsby-theme-kontent`,
       options: {
-        deliveryClientConfig: {
-          projectId: process.env.KC_PROJECT_ID,
-          typeResolvers: [],
-          previewApiKey: process.env.KC_PREVIEW_KEY,
-          globalQueryConfig: {
-            usePreviewMode: !!process.env.KC_PREVIEW_KEY,
+        kontent: {
+          deliveryClientConfig: {
+            projectId: process.env.KC_PROJECT_ID,
+            typeResolvers: [],
+            previewApiKey: process.env.KC_PREVIEW_KEY,
+            globalQueryConfig: {
+              usePreviewMode: !!process.env.KC_PREVIEW_KEY,
+            },
           },
+          languageCodenames: [`default`],
         },
-        languageCodenames: [`default`],
-      },
-    },
-    {
-      resolve: `@rshackleton/gatsby-transformer-kontent-image`,
-      options: {
-        local: false,
       },
     },
     {
