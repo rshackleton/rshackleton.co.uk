@@ -1,4 +1,4 @@
-name: Build for PR
+name: Validate PR
 
 on: [pull_request]
 
@@ -38,18 +38,18 @@ jobs:
       id: gatsby-cache
       with:
         path: ".cache"
-        key: ${{ runner.os }}-node-${{ matrix.node-version }}-gatsby-
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-cb-1-gatsby-cache-
         restore-keys: |
-          ${{ runner.os }}-gatsby-
+          ${{ runner.os }}-cb-1-gatsby-cache-
 
     - name: Gatsby public
       uses: actions/cache@v1
       id: gatsby-public
       with:
         path: "public"
-        key: ${{ runner.os }}-node-${{ matrix.node-version }}-gatsby-public-
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-cb-1-gatsby-public-
         restore-keys: |
-          ${{ runner.os }}-gatsby-public-
+          ${{ runner.os }}-cb-1-gatsby-public-
 
     - name: Install dependencies
       run: yarn install
