@@ -1,8 +1,10 @@
-import { TextBox } from '@components/forms/ContactForm.styles';
+import { PoweredBy } from 'react-instantsearch-dom';
+
+import { TextBox } from '@components/forms/ContactForm/ContactForm.styles';
+
 import mq from '@utils/mq';
 import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { PoweredBy } from 'react-instantsearch-dom';
 
 export const SearchBoxWrapper = styled.form`
   display: flex;
