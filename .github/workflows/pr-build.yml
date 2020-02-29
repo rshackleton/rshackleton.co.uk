@@ -1,4 +1,4 @@
-name: Build for PR
+name: Validate PR
 
 on: [pull_request]
 
@@ -19,15 +19,43 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      uses: Borales/actions-yarn@v2.1.0
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: Yarn cache
+      uses: actions/cache@v1
+      id: yarn-cache
       with:
-        cmd: install
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-
+          ${{ runner.os }}-yarn-
+
+    - name: Gatsby cache
+      uses: actions/cache@v1
+      id: gatsby-cache
+      with:
+        path: ".cache"
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-cb-1-gatsby-cache-
+        restore-keys: |
+          ${{ runner.os }}-cb-1-gatsby-cache-
+
+    - name: Gatsby public
+      uses: actions/cache@v1
+      id: gatsby-public
+      with:
+        path: "public"
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-cb-1-gatsby-public-
+        restore-keys: |
+          ${{ runner.os }}-cb-1-gatsby-public-
+
+    - name: Install dependencies
+      run: yarn install
 
     - name: Build
-      uses: Borales/actions-yarn@v2.1.0
-      with:
-        cmd: build
+      run: yarn build
       env:
         ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
         ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
