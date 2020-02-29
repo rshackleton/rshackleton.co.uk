@@ -1,6 +1,7 @@
+import { Snippet } from 'react-instantsearch-dom';
+
 import styled from '@utils/styled';
 import { adjustFontSizeTo, rhythm } from '@utils/typography';
-import { Snippet } from 'react-instantsearch-dom';
 
 export const SearchResultTitle = styled.h3`
   display: block;

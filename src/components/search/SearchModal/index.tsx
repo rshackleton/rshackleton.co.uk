@@ -1,33 +1,23 @@
 /** @jsx jsx */
-import Modal from '@components/presentation/Modal';
-import { usePageContext } from '@components/PageContext';
-import { css, jsx } from '@emotion/core';
-import { rhythm } from '@utils/typography';
 import { QueryParameters } from 'algoliasearch';
 import algoliasearch from 'algoliasearch/lite';
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import 'instantsearch.css/themes/reset-min.css';
 import * as React from 'react';
 import { Configure, Hits, InstantSearch } from 'react-instantsearch-dom';
-import SearchBox from './SearchBox';
-import SearchResult from './SearchResult';
 
-/**
- * SearchModal props.
- */
-interface ISearchModalProps {}
+import 'instantsearch.css/themes/reset-min.css';
 
-/**
- * SearchModalProvider props.
- */
-interface ISearchModalProviderProps {
-  children: React.ReactNode;
-}
+import Modal from '@components/presentation/Modal';
+import { usePageContext } from '@components/PageContext';
 
-/**
- * Modal state.
- */
-type SearchModalContextValue = [boolean, React.Dispatch<React.SetStateAction<boolean>>] | [];
+import { css, jsx } from '@emotion/core';
+
+import { rhythm } from '@utils/typography';
+
+import SearchBox from '@components/search/SearchBox';
+import SearchResult from '@components/search/SearchResult';
+
+import { SearchModalContextValue, ISearchModalProviderProps, ISearchModalProps } from './SearchModal.types';
 
 /**
  * Store modal state.

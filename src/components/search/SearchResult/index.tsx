@@ -1,28 +1,14 @@
 /** @jsx jsx */
-import { usePageContext } from '@components/PageContext';
 import { jsx } from '@emotion/core';
 import { Link } from 'gatsby';
 import * as React from 'react';
-import { Hit } from 'react-instantsearch-core';
 import { Highlight } from 'react-instantsearch-dom';
-import { useSearchModal } from './SearchModal';
+
+import { usePageContext } from '@components/PageContext';
+import { useSearchModal } from '@components/search/SearchModal';
+
 import { SearchResultContent, SearchResultMeta, SearchResultTitle } from './SearchResult.styles';
-
-interface ISearchableItem {
-  content: string;
-  modified: Date;
-  modified_unix: number;
-  published: Date;
-  published_unix: number;
-  title: string;
-  type: string;
-  url: string;
-  _tags: [string];
-}
-
-interface ISearchResultProps {
-  hit: Hit<ISearchableItem>;
-}
+import { ISearchResultProps } from './SearchResult.types';
 
 const SearchResult: React.FunctionComponent<ISearchResultProps> = ({ hit }) => {
   const { path } = usePageContext();
