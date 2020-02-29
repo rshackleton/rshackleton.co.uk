@@ -1,0 +1,42 @@
+name: Build for PR
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        cmd: install
+
+    - name: Build
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        cmd: build
+      env:
+        ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+        ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        ALGOLIA_INDEX_NAME: ${{ secrets.ALGOLIA_INDEX_NAME }}
+        DISQUS_SHORTNAME: ${{ secrets.DISQUS_SHORTNAME }}
+        GTM_ID: ${{ secrets.GTM_ID }}
+        GTM_AUTH: ${{ secrets.GTM_AUTH }}
+        GTM_PREVIEW: ${{ secrets.GTM_PREVIEW }}
+        KC_PROJECT_ID: ${{ secrets.KC_PROJECT_ID }}
+        GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
+        GATSBY_ALGOLIA_API_KEY: ${{ secrets.GATSBY_ALGOLIA_API_KEY }}
+        GATSBY_ALGOLIA_INDEX_NAME: ${{ secrets.GATSBY_ALGOLIA_INDEX_NAME }}
