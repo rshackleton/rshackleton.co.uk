@@ -42,6 +42,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gatsby-
 
+    - name: Gatsby public
+      uses: actions/cache@v1
+      id: gatsby-public
+      with:
+        path: "public"
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-gatsby-public-
+        restore-keys: |
+          ${{ runner.os }}-gatsby-public-
+
     - name: Install dependencies
       run: yarn install
 
