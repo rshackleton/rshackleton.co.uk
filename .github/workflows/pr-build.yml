@@ -32,6 +32,15 @@ jobs:
           ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-
           ${{ runner.os }}-yarn-
 
+    - uses: actions/cache@v1
+      id: gatsby-cache
+      with:
+        path: ".cache"
+        key: ${{ runner.os }}-node-${{ matrix.node-version }}-gatsby-
+        restore-keys: |
+          ${{ runner.os }}-node-${{ matrix.node-version }}-gatsby-
+          ${{ runner.os }}-gatsby-
+
     - name: Install dependencies
       run: yarn install
 
