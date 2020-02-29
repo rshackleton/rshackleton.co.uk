@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const get = require('lodash/get');
-
 const resolveUrl = require('./resolveUrl');
 
 module.exports = ({ actions }) => {

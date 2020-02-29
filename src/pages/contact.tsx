@@ -1,14 +1,15 @@
+import { graphql } from 'gatsby';
+import { Schema } from 'schema';
+import React, { FC } from 'react';
+
 import ContactForm from '@components/forms/ContactForm';
 import Layout from '@components/layouts/InsetWithBanner';
-import RichText from '@components/shared/RichText';
-import SEO from '@components/shared/SEO';
-import { graphql } from 'gatsby';
-import { IConnection, IContactPage } from 'index';
-import React, { FC } from 'react';
+import RichText from '@components/connected/RichText';
+import SEO from '@components/connected/SEO';
 
 interface IContactProps {
   data: {
-    allKontentItemContactPage: IConnection<IContactPage>;
+    allKontentItemContactPage: Schema.IConnection<Schema.IContactPage>;
   };
 }
 
@@ -42,12 +43,7 @@ const Contact: FC<IContactProps> = ({
     <Layout banner={banner} bannerDescription={bannerDescription}>
       <SEO {...seo} />
       <h1>{title}</h1>
-      <RichText
-        content={content}
-        images={images}
-        links={links}
-        linkedItems={linkedItems}
-      />
+      <RichText content={content} images={images} links={links} linkedItems={linkedItems} />
       <ContactForm />
     </Layout>
   );

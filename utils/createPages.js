@@ -1,5 +1,6 @@
-var path = require('path');
-var isTestItem = require('./isTestItem');
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
 
 module.exports = async function createPages({ graphql, actions }) {
   await createArticlePages({ graphql, actions });
@@ -12,7 +13,7 @@ module.exports = async function createPages({ graphql, actions }) {
 async function createArticlePages({ graphql, actions }) {
   const { createPage } = actions;
 
-  const articleTemplate = path.resolve(`src/templates/article-page.tsx`);
+  const articleTemplate = path.resolve(`src/templates/ArticlePage/index.tsx`);
 
   const { data, errors } = await graphql(`
     {
@@ -42,11 +43,6 @@ async function createArticlePages({ graphql, actions }) {
   } = data;
 
   edges.forEach(edge => {
-    if (isTestItem(edge.node)) {
-      console.log(`Skipped node ${edge.node.system.codename}`);
-      return;
-    }
-
     createPage({
       component: articleTemplate,
       path: `articles/${edge.node.elements.slug.value}`,
@@ -61,7 +57,7 @@ async function createArticlePages({ graphql, actions }) {
 async function createContentPages({ graphql, actions }) {
   const { createPage } = actions;
 
-  const contentTemplate = path.resolve(`src/templates/content-page.tsx`);
+  const contentTemplate = path.resolve(`src/templates/ContentPage/index.tsx`);
 
   const { data, errors } = await graphql(`
     {
@@ -91,11 +87,6 @@ async function createContentPages({ graphql, actions }) {
   } = data;
 
   edges.forEach(edge => {
-    if (isTestItem(edge.node)) {
-      console.log(`Skipped node ${edge.node.system.codename}`);
-      return;
-    }
-
     createPage({
       component: contentTemplate,
       path: `${edge.node.elements.slug.value}`,
