@@ -22,11 +22,9 @@ jobs:
     - name: Install dependencies
       uses: Borales/actions-yarn@v2.1.0
       with:
-        # Yarn command
-        cmd: yarn
+        cmd: install
 
     - name: Build
       uses: Borales/actions-yarn@v2.1.0
       with:
-        # Yarn command
-        cmd: yarn build
+        cmd: build
