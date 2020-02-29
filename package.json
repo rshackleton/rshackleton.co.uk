@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0 -S",
     "start": "yarn develop",
     "test": "jest",
     "format": "prettier --write \"{src/**/*.js,src/**/*.jsx,src/**/*.ts,src/**/*.tsx}\"",
