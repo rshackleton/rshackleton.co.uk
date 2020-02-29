@@ -1,19 +1,18 @@
-import Layout from '@components/layouts/InsetWithBanner';
-import RichText from '@components/shared/RichText';
-import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
-import { IContentPage } from 'index';
+import { Schema } from 'schema';
+
+import Layout from '@components/layouts/InsetWithBanner';
+import RichText from '@components/connected/RichText';
+import SEO from '@components/connected/SEO';
 
 interface INotFoundPageProps {
   data: {
-    kontentItemContentPage: IContentPage;
+    kontentItemContentPage: Schema.IContentPage;
   };
 }
 
-const NotFoundPage: FC<INotFoundPageProps> = ({
-  data: { kontentItemContentPage: data },
-}) => {
+const NotFoundPage: FC<INotFoundPageProps> = ({ data: { kontentItemContentPage: data } }) => {
   const ogImage = data.elements.metadata__open_graph_image.value[0];
 
   const seo = {
@@ -36,12 +35,7 @@ const NotFoundPage: FC<INotFoundPageProps> = ({
     <Layout banner={banner} bannerDescription={bannerDescription}>
       <SEO {...seo} />
       <h1>{title}</h1>
-      <RichText
-        content={content}
-        images={images}
-        links={links}
-        linkedItems={linkedItems}
-      />
+      <RichText content={content} images={images} links={links} linkedItems={linkedItems} />
     </Layout>
   );
 };

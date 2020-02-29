@@ -1,13 +1,16 @@
-import SearchModal, {
-  SearchModalProvider,
-} from '@components/search/SearchModal';
-import Footer from '@components/shared/Footer';
-import Header from '@components/shared/Header';
-import ThemeWrapper from '@components/shared/ThemeWrapper';
 import { Global } from '@emotion/core';
-import globalStyles from '@utils/globalStyles';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { ReactNode } from 'react';
+
+import ThemeWrapper from '@components/connected/ThemeWrapper';
+
+import Footer from '@components/presentation/Footer';
+import Header from '@components/presentation/Header';
+
+import SearchModal, { SearchModalProvider } from '@components/search/SearchModal';
+
+import globalStyles from '@utils/globalStyles';
+
 import { PageContext, PageContextProvider } from './PageContext';
 
 interface IPageRootProps {

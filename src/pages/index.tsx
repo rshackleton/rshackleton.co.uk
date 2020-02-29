@@ -1,13 +1,14 @@
-import HomeBanner from '@components/home/HomeBanner';
-import Layout from '@components/layouts/Default';
-import SEO from '@components/shared/SEO';
 import { graphql } from 'gatsby';
-import { IConnection, IHomePage } from 'index';
 import React, { FC } from 'react';
+import { Schema } from 'schema';
+
+import Layout from '@components/layouts/Default';
+import HomeBanner from '@components/presentation/HomeBanner';
+import SEO from '@components/connected/SEO';
 
 interface IIndexProps {
   data: {
-    allKontentItemHomePage: IConnection<IHomePage>;
+    allKontentItemHomePage: Schema.IConnection<Schema.IHomePage>;
   };
 }
 

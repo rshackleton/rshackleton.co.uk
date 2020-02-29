@@ -10,10 +10,7 @@ export interface IPageContextProviderProps {
 
 const PageContext = React.createContext<PageContext>({});
 
-export const PageContextProvider: React.FC<IPageContextProviderProps> = ({
-  children,
-  value,
-}) => {
+export const PageContextProvider: React.FC<IPageContextProviderProps> = ({ children, value }) => {
   return <PageContext.Provider value={value}>{children}</PageContext.Provider>;
 };
 

@@ -1,14 +1,8 @@
 import { useFormik } from 'formik';
 import React, { FC, useRef, useState } from 'react';
 import * as Yup from 'yup';
-import {
-  Button,
-  ErrorMessage,
-  Field,
-  Label,
-  TextArea,
-  TextBox,
-} from './ContactForm.styles';
+
+import { Button, ErrorMessage, Field, Label, TextArea, TextBox } from './ContactForm.styles';
 
 const ContactForm: FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -47,12 +41,7 @@ const ContactForm: FC = () => {
   });
 
   if (confirmed) {
-    return (
-      <p>
-        Your submission has been recieved, I&apos;ll be in contact as soon as
-        possible.
-      </p>
-    );
+    return <p>Your submission has been recieved, I&apos;ll be in contact as soon as possible.</p>;
   }
 
   return (
@@ -66,24 +55,12 @@ const ContactForm: FC = () => {
     >
       <Field>
         <Label htmlFor="name">First Name</Label>
-        <TextBox
-          id="name"
-          name="name"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
+        <TextBox id="name" name="name" type="text" onChange={formik.handleChange} value={formik.values.name} />
         <ErrorMessage>{formik.errors.name}</ErrorMessage>
       </Field>
       <Field>
         <Label htmlFor="email">Email Address</Label>
-        <TextBox
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
+        <TextBox id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} />
         <ErrorMessage>{formik.errors.email}</ErrorMessage>
       </Field>
       <Field>

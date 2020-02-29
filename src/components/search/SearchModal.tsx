@@ -1,15 +1,11 @@
 /** @jsx jsx */
-import Modal from '@components/modal/Modal';
+import Modal from '@components/presentation/Modal';
 import { usePageContext } from '@components/PageContext';
 import { css, jsx } from '@emotion/core';
 import { rhythm } from '@utils/typography';
 import { QueryParameters } from 'algoliasearch';
 import algoliasearch from 'algoliasearch/lite';
-import {
-  clearAllBodyScrollLocks,
-  disableBodyScroll,
-  enableBodyScroll,
-} from 'body-scroll-lock';
+import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import 'instantsearch.css/themes/reset-min.css';
 import * as React from 'react';
 import { Configure, Hits, InstantSearch } from 'react-instantsearch-dom';
@@ -31,9 +27,7 @@ interface ISearchModalProviderProps {
 /**
  * Modal state.
  */
-type SearchModalContextValue =
-  | [boolean, React.Dispatch<React.SetStateAction<boolean>>]
-  | [];
+type SearchModalContextValue = [boolean, React.Dispatch<React.SetStateAction<boolean>>] | [];
 
 /**
  * Store modal state.
@@ -44,28 +38,18 @@ const SearchModalContext = React.createContext<SearchModalContextValue>([]);
  * Provide access to modal state.
  * @param props
  */
-const SearchModalProvider: React.FC<ISearchModalProviderProps> = ({
-  children,
-}) => {
+const SearchModalProvider: React.FC<ISearchModalProviderProps> = ({ children }) => {
   const value = React.useState<boolean>(false);
 
-  return (
-    <SearchModalContext.Provider value={value}>
-      {children}
-    </SearchModalContext.Provider>
-  );
+  return <SearchModalContext.Provider value={value}>{children}</SearchModalContext.Provider>;
 };
 
 /**
  * Provide access to modal state.
  */
-const useSearchModal = (): SearchModalContextValue =>
-  React.useContext(SearchModalContext);
+const useSearchModal = (): SearchModalContextValue => React.useContext(SearchModalContext);
 
-const algolia = algoliasearch(
-  process.env.GATSBY_ALGOLIA_APP_ID || '',
-  process.env.GATSBY_ALGOLIA_API_KEY || '',
-);
+const algolia = algoliasearch(process.env.GATSBY_ALGOLIA_APP_ID || '', process.env.GATSBY_ALGOLIA_API_KEY || '');
 
 const searchClient = {
   search(
@@ -129,10 +113,7 @@ const SearchModal: React.FC<ISearchModalProps> = () => {
         setShowModal && setShowModal(false);
       }}
     >
-      <InstantSearch
-        searchClient={searchClient}
-        indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME || ''}
-      >
+      <InstantSearch searchClient={searchClient} indexName={process.env.GATSBY_ALGOLIA_INDEX_NAME || ''}>
         <Configure />
         <SearchBox focus={showModal} />
         <div

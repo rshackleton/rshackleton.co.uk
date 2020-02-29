@@ -6,11 +6,7 @@ import * as React from 'react';
 import { Hit } from 'react-instantsearch-core';
 import { Highlight } from 'react-instantsearch-dom';
 import { useSearchModal } from './SearchModal';
-import {
-  SearchResultContent,
-  SearchResultMeta,
-  SearchResultTitle,
-} from './SearchResult.styles';
+import { SearchResultContent, SearchResultMeta, SearchResultTitle } from './SearchResult.styles';
 
 interface ISearchableItem {
   content: string;
@@ -50,12 +46,7 @@ const SearchResult: React.FunctionComponent<ISearchResultProps> = ({ hit }) => {
       </SearchResultTitle>
       <SearchResultContent attribute="summary" hit={hit} tagName="mark" />
       <SearchResultMeta>
-        <Highlight
-          attribute="_tags"
-          hit={hit}
-          separator={null}
-          tagName="mark"
-        />
+        <Highlight attribute="_tags" hit={hit} separator={null} tagName="mark" />
         {/* {hit._tags && hit._tags.map(tag => <span key={tag}>{tag}</span>)} */}
       </SearchResultMeta>
     </article>

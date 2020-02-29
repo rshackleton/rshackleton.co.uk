@@ -1,15 +1,16 @@
-import ArticleList from '@components/articles/ArticleList';
+import { graphql } from 'gatsby';
+import { Schema } from 'schema';
+import React, { FC } from 'react';
+
+import ArticleList from '@components/presentation/ArticleList';
 import Layout from '@components/layouts/InsetWithBanner';
 import SearchModal from '@components/search/SearchModal';
-import SEO from '@components/shared/SEO';
-import { graphql } from 'gatsby';
-import { IArticle, IArticleListing, IConnection } from 'index';
-import React, { FC } from 'react';
+import SEO from '@components/connected/SEO';
 
 interface IArticlesProps {
   data: {
-    allKontentItemArticle: IConnection<IArticle>;
-    allKontentItemArticleListing: IConnection<IArticleListing>;
+    allKontentItemArticle: Schema.IConnection<Schema.IArticle>;
+    allKontentItemArticleListing: Schema.IConnection<Schema.IArticleListing>;
   };
 }
 
@@ -93,10 +94,7 @@ export const query = graphql`
         }
       }
     }
-    allKontentItemArticle(
-      limit: 1000
-      sort: { fields: elements___date___value, order: DESC }
-    ) {
+    allKontentItemArticle(limit: 1000, sort: { fields: elements___date___value, order: DESC }) {
       edges {
         node {
           system {

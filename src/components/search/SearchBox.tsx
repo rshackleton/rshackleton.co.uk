@@ -3,20 +3,13 @@ import { jsx } from '@emotion/core';
 import * as React from 'react';
 import { SearchBoxProvided } from 'react-instantsearch-core';
 import { connectSearchBox } from 'react-instantsearch-dom';
-import {
-  SearchBoxInput,
-  SearchBoxPoweredBy,
-  SearchBoxWrapper,
-} from './SearchBox.styles';
+import { SearchBoxInput, SearchBoxPoweredBy, SearchBoxWrapper } from './SearchBox.styles';
 
 interface ISearchBoxProps extends SearchBoxProvided {
   focus: boolean | undefined;
 }
 
-const SearchBox: React.FunctionComponent<ISearchBoxProps> = ({
-  focus,
-  refine,
-}) => {
+const SearchBox: React.FunctionComponent<ISearchBoxProps> = ({ focus, refine }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useLayoutEffect(() => {
