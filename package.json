@@ -80,7 +80,7 @@
     "@types/react-instantsearch-core": "5.2.9",
     "@types/react-instantsearch-dom": "5.2.6",
     "@types/react-syntax-highlighter": "11.0.4",
-    "@types/react-transition-group": "4.2.3",
+    "@types/react-transition-group": "4.2.4",
     "@types/typography": "0.16.3",
     "@types/yup": "0.26.32",
     "@typescript-eslint/eslint-plugin": "2.21.0",
