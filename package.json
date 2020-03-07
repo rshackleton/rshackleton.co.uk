@@ -29,7 +29,7 @@
     "@fortawesome/react-fontawesome": "0.1.9",
     "@rshackleton/gatsby-theme-kontent": "0.1.0-beta.6",
     "algoliasearch": "3.35.1",
-    "babel-plugin-emotion": "10.0.28",
+    "babel-plugin-emotion": "10.0.29",
     "body-scroll-lock": "2.6.4",
     "dotenv": "8.2.0",
     "emotion-reset": "2.0.7",
