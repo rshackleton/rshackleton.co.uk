@@ -8952,10 +8952,10 @@ gatsby-plugin-google-tagmanager@2.1.25:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-gatsby-plugin-graphql-codegen@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.2.3.tgz#58cdcf5a85b16eab13ca372576031a5dda91049f"
-  integrity sha512-M6MTIoPJWBF7li2HRMjbpt1u0TOHxGvRDfIa5u4gizQx59ujJNWudyOJnLO9YuIX4xsYKuGnaWAeMf+IDn8dwA==
+gatsby-plugin-graphql-codegen@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.4.0.tgz#7e57c74e8fc3ddff3dbc69adcbe13075988ab068"
+  integrity sha512-jl8U3JZC2QILnVLCXhC9ouviX2DkhCCD5S6ZhHXPObVat63rWsQSTzbvKLIFok+H7WvvjCiwpmLKdb57GlTtqg==
   dependencies:
     "@graphql-codegen/core" "^1.12.2"
     "@graphql-codegen/typescript" "^1.12.2"
@@ -9069,14 +9069,14 @@ gatsby-plugin-sitemap@2.2.27:
     pify "^3.0.0"
     sitemap "^1.13.0"
 
-gatsby-plugin-ts@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-ts/-/gatsby-plugin-ts-2.2.3.tgz#b52695cf526dccc98a497127edf9b491c476f1b3"
-  integrity sha512-5cDLNqgwawSEaOgTbh29w+E2BFhC5sALzN+H1tsG4JCRn12HwFYnsBHyKX7xZanuXZCCDC7nNWQEN+NKn4DjRg==
+gatsby-plugin-ts@2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-ts/-/gatsby-plugin-ts-2.4.0.tgz#85a9a3de7c8d894358c11beaec86f4e2e390a6ec"
+  integrity sha512-ld6+GY+ffv97yLaEwgsM5PSM/3AJ807J5oLMIy/8aKb7ZTiuuHX5j0F+yOPeDVCWCrpNHczj2H4pzViVQpz3zA==
   dependencies:
     fork-ts-checker-webpack-plugin "^4.0.3"
     fs-extra "^7.0.1"
-    gatsby-plugin-graphql-codegen "^2.2.3"
+    gatsby-plugin-graphql-codegen "^2.4.0"
     ts-loader "^6.2.1"
 
 gatsby-plugin-typography@2.3.22:
