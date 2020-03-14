@@ -3026,10 +3026,10 @@
   dependencies:
     core-js "^2.5.7"
 
-"@kentico/gatsby-source-kontent@4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.3.0.tgz#888c195904c726d489e099702260b29e02e32d41"
-  integrity sha512-c9LY0fLx+Jw49I6ByZWLSvGqqC0q/A0Axnl3vxQCkZD8VlY76rpr3v39zk3yE1RYVvvC/lssq9sGiSr621xUMQ==
+"@kentico/gatsby-source-kontent@4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@kentico/gatsby-source-kontent/-/gatsby-source-kontent-4.4.0.tgz#802c754fb58c02126d69aa254f5bc774b0671d96"
+  integrity sha512-uX1iK1rgeshd284ep7Ld9hYjPIhFN6ie70QOGHK7iSZEuSNd4VD33ynTr9F6hYQgb2gM56bW1V3VriRAMIlzUw==
   dependencies:
     "@kentico/kontent-delivery" "^9.0.0"
     change-case "^3.1.0"
@@ -3152,12 +3152,12 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@rshackleton/gatsby-theme-kontent@0.1.0-beta.6":
-  version "0.1.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-theme-kontent/-/gatsby-theme-kontent-0.1.0-beta.6.tgz#0ffcec83dc8c58a3ce131a6090df3177a0e313ea"
-  integrity sha512-6VDDmnRIno7oj/WZ9FanF+J87B0loMfxOvs9Fru7eUTDjt4L3wpNu27RvUg1/stE9hbPGJryyq1hm6Srz8+1dg==
+"@rshackleton/gatsby-theme-kontent@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@rshackleton/gatsby-theme-kontent/-/gatsby-theme-kontent-0.1.0.tgz#48ee34cd776d09bb32ec1c5c42d8d93c7917347f"
+  integrity sha512-klXZ+Td65oA9S5JJ7/2ya/sxGRvQG1EDfYvEmjy/opvxm7Wmg0bQ4gcdVKUTLcIKeXjJZTlYzYyJbWfTr4H95g==
   dependencies:
-    "@kentico/gatsby-source-kontent" "4.3.0"
+    "@kentico/gatsby-source-kontent" "4.4.0"
     "@rshackleton/gatsby-transformer-kontent-image" "^0.1.0-beta.6"
 
 "@rshackleton/gatsby-transformer-kontent-image@^0.1.0-beta.6":
