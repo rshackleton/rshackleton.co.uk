@@ -27,7 +27,7 @@
     "@fortawesome/fontawesome-svg-core": "1.2.27",
     "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@fortawesome/react-fontawesome": "0.1.9",
-    "@rshackleton/gatsby-theme-kontent": "0.1.0-beta.6",
+    "@rshackleton/gatsby-theme-kontent": "0.1.0",
     "algoliasearch": "3.35.1",
     "babel-plugin-emotion": "10.0.29",
     "body-scroll-lock": "2.6.4",
