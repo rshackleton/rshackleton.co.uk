@@ -2410,6 +2410,22 @@
     tslib "1.10.0"
     upper-case "2.0.1"
 
+"@graphql-codegen/plugin-helpers@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@graphql-codegen/plugin-helpers/-/plugin-helpers-1.13.1.tgz#83291f758a1bcb9c63fa3293c7b09d38bb1427f3"
+  integrity sha512-75GkqYnpt79hHxnVNSaVn9ESHB2ORglTcJWfnKKuO5e6/IbW/TsMB9OR683W6Y9c+nZLmwrVJVCVYLckST+1EA==
+  dependencies:
+    "@graphql-toolkit/common" "0.9.9"
+    camel-case "4.1.1"
+    common-tags "1.8.0"
+    constant-case "3.0.3"
+    import-from "3.0.0"
+    lower-case "2.0.1"
+    param-case "3.0.3"
+    pascal-case "3.1.1"
+    tslib "1.11.1"
+    upper-case "2.0.1"
+
 "@graphql-codegen/typescript-operations@^1.12.2":
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/typescript-operations/-/typescript-operations-1.12.2.tgz#d5d495f237b1bb93839e28da0ddecc5f4ce9f877"
@@ -2469,6 +2485,15 @@
   dependencies:
     "@ardatan/graphql-tools" "4.1.0"
     aggregate-error "3.0.1"
+    lodash "4.17.15"
+
+"@graphql-toolkit/common@0.9.9":
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/@graphql-toolkit/common/-/common-0.9.9.tgz#56daf4ac85deada766418b91d421592cbf18dcf0"
+  integrity sha512-1ucXoQ5yczsu46l52wkmJgnaM8nw9CHUsJzOL4HoQsnvSVKieueRTx/Ef924G/fqQ1TtPyUal/+pPw4i9Sl+6A==
+  dependencies:
+    aggregate-error "3.0.1"
+    graphql-tools-fork "8.9.6"
     lodash "4.17.15"
 
 "@graphql-toolkit/core@^0.9.7":
@@ -8954,12 +8979,13 @@ gatsby-plugin-google-tagmanager@2.2.1:
   dependencies:
     "@babel/runtime" "^7.8.7"
 
-gatsby-plugin-graphql-codegen@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.6.1.tgz#00731a0e5e310d027d6245caf36bcb1f32111bd0"
-  integrity sha512-YE+TFGYduMDMDXANHYGQecOCB0/E0ywr+Q/EuNeizR+7p0HfOAjlBClgXal295fIetV5HgVGpCBALaDwTeBB3g==
+gatsby-plugin-graphql-codegen@^2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-graphql-codegen/-/gatsby-plugin-graphql-codegen-2.7.0.tgz#c894f7be30c26636a10c34279493ade33804ead2"
+  integrity sha512-GLpPY1JviM3i3Zgjav1blluQpqgPwbduYlxuIEjD+sn7CtpOOobpkcQrDVtv2w0S32GcsSQLiFJZY6X2Z+O/xA==
   dependencies:
     "@graphql-codegen/core" "^1.12.2"
+    "@graphql-codegen/plugin-helpers" "^1.13.1"
     "@graphql-codegen/typescript" "^1.12.2"
     "@graphql-codegen/typescript-operations" "^1.12.2"
     "@graphql-toolkit/code-file-loader" "^0.9.7"
@@ -9074,14 +9100,14 @@ gatsby-plugin-sitemap@2.3.1:
     pify "^3.0.0"
     sitemap "^1.13.0"
 
-gatsby-plugin-ts@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-ts/-/gatsby-plugin-ts-2.6.1.tgz#f3142d965f522bf927b3d44fa3f85031b3618649"
-  integrity sha512-9FszzWrx1ZnuTXywhEC5vbix8t9K5K47CbTMUNfiRd88bO8aT0cGP/UzeabAUO4R0l3LKT67+ELsf2xIHe0xRw==
+gatsby-plugin-ts@2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-ts/-/gatsby-plugin-ts-2.7.0.tgz#1117fa72d91ea1e727ffc680f8e5c8bb506abe39"
+  integrity sha512-/xvFxKgoivJHqT/9m1A6I0NsC7KssJLnGDytjZS4F/z1m6z167k1Gk2QZO76Sy4beEHbTydR0BQfwnQc1m5wBw==
   dependencies:
     fork-ts-checker-webpack-plugin "^4.0.3"
     fs-extra "^7.0.1"
-    gatsby-plugin-graphql-codegen "^2.6.1"
+    gatsby-plugin-graphql-codegen "^2.7.0"
     ts-loader "^6.2.1"
 
 gatsby-plugin-typography@2.4.1:
@@ -9797,6 +9823,20 @@ graphql-tools-fork@8.10.0:
     iterall "^1.3.0"
     node-fetch "^2.6.0"
     uuid "^7.0.2"
+
+graphql-tools-fork@8.9.6:
+  version "8.9.6"
+  resolved "https://registry.yarnpkg.com/graphql-tools-fork/-/graphql-tools-fork-8.9.6.tgz#7d84d07c7e6600c363854132bcca395e86455d40"
+  integrity sha512-hkhzIuN63/6zzJ/qzz6mGPOywhjvz06v1QBs6cUVa+UQ7tlzuzOkxRf2i7TqFOM3igK0vMCk3MTXx5iU/G8zEg==
+  dependencies:
+    apollo-link "^1.2.13"
+    apollo-link-http-common "^0.2.15"
+    deprecated-decorator "^0.1.6"
+    extract-files "^7.0.0"
+    form-data "^3.0.0"
+    iterall "^1.3.0"
+    node-fetch "^2.6.0"
+    uuid "^7.0.1"
 
 graphql-type-json@^0.2.4:
   version "0.2.4"
@@ -18240,6 +18280,11 @@ uuid@^3.3.3:
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.3.tgz#4568f0216e78760ee1dbf3a4d2cf53e224112866"
   integrity sha512-pW0No1RGHgzlpHJO1nsVrHKpOEIxkGg1xB+v0ZmdNH5OAeAwzAVrCnI2/6Mtx+Uys6iaylxa+D3g4j63IKKjSQ==
+
+uuid@^7.0.1:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
 
 uuid@^7.0.2:
   version "7.0.2"
