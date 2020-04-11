@@ -35,7 +35,7 @@
     "emotion-reset": "2.0.7",
     "emotion-theming": "10.0.27",
     "formik": "2.1.4",
-    "gatsby": "2.20.17",
+    "gatsby": "2.20.18",
     "gatsby-image": "2.3.2",
     "gatsby-plugin-algolia": "0.7.0",
     "gatsby-plugin-alias-imports": "1.0.5",
@@ -123,7 +123,7 @@
     ]
   },
   "resolutions": {
-    "gatsby": "2.20.17",
+    "gatsby": "2.20.18",
     "graphql": "14.6.0"
   }
 }
