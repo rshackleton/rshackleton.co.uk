@@ -68,7 +68,7 @@
     "react-twitter-embed": "3.0.3",
     "react-typography": "0.16.19",
     "typography": "0.16.19",
-    "yup": "0.28.4"
+    "yup": "0.28.5"
   },
   "devDependencies": {
     "@types/body-scroll-lock": "2.6.1",
