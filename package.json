@@ -95,7 +95,7 @@
     "eslint-plugin-react": "7.20.0",
     "husky": "4.2.5",
     "jest": "25.5.4",
-    "lint-staged": "10.2.6",
+    "lint-staged": "10.2.7",
     "prettier": "1.19.1",
     "typescript": "3.9.3"
   },
