@@ -55,7 +55,7 @@
     "gatsby-plugin-typography": "2.5.2",
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-filesystem": "2.3.8",
-    "html-react-parser": "0.10.3",
+    "html-react-parser": "0.10.5",
     "instantsearch.css": "7.4.2",
     "lazysizes": "5.2.2",
     "polished": "3.6.3",
