@@ -97,7 +97,7 @@
     "jest": "25.5.4",
     "lint-staged": "10.2.9",
     "prettier": "1.19.1",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "browserslist": [
     "defaults"
