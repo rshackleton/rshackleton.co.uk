@@ -73,7 +73,7 @@
   "devDependencies": {
     "@types/body-scroll-lock": "2.6.1",
     "@types/lodash": "4.14.158",
-    "@types/node": "13.13.14",
+    "@types/node": "13.13.15",
     "@types/react": "16.9.43",
     "@types/react-dom": "16.9.8",
     "@types/react-helmet": "5.0.16",
