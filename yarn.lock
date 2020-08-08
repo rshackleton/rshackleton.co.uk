@@ -12017,10 +12017,10 @@ inquirer@^7.0.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-instantsearch.css@7.4.2:
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-7.4.2.tgz#2b02db07c865ce2c946ec20c1eb4556377cad90c"
-  integrity sha512-CaOdFWCpHOWGAkJRpwC4+8ROU3Upp3xrUuc0Mg92UucJ84MWMJWkVZDDyRwubgJe4HXQM2rV6b+bJaDeeZGunw==
+instantsearch.css@7.4.3:
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-7.4.3.tgz#527c52a1ce8a3418a8dbc5ad1319915b6646b4bb"
+  integrity sha512-Ywwf5QMKXpaoWsEPZbDHIcyka9ocyhxuSp8HgRK8v05DiyKz2kv0K3ysinshtAqAd1ut8HEh36dviWD/Z/+w2A==
 
 internal-ip@^4.3.0:
   version "4.3.0"
