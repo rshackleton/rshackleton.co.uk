@@ -34,9 +34,9 @@ const Index: FC<IIndexProps> = ({
   const imageDescription = data.elements.background_image.value[0].description;
 
   return (
-    <Layout>
+    <Layout contentItemId={data.system.id}>
       <SEO {...seo} />
-      <HomeBanner image={image} imageDescription={imageDescription} />
+      <HomeBanner image={image} imageDescription={imageDescription} data-kontent-element-codename="background_image" />
     </Layout>
   );
 };
@@ -73,6 +73,9 @@ export const query = graphql`
                 url
               }
             }
+          }
+          system {
+            id
           }
         }
       }

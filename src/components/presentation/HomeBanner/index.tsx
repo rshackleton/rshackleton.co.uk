@@ -4,8 +4,8 @@ import { Banner, Container, Content, Img, TagLine, Title } from './HomeBanner.st
 
 import { IHomeBannerProps } from './HomeBanner.types';
 
-const HomeBanner: FC<IHomeBannerProps> = ({ image, imageDescription }) => (
-  <Container>
+const HomeBanner: FC<IHomeBannerProps> = ({ image, imageDescription, ...otherProps }) => (
+  <Container {...otherProps}>
     <Banner>
       <Img alt={imageDescription} fluid={image} />
     </Banner>

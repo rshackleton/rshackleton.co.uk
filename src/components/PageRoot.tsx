@@ -14,6 +14,7 @@ import SearchModal, { SearchModalProvider } from '@components/search/SearchModal
 import globalStyles from '@utils/globalStyles';
 
 import { PageContext, PageContextProvider } from './PageContext';
+import Helmet from 'react-helmet';
 
 interface IPageRootProps {
   children: ReactNode;
@@ -43,17 +44,25 @@ const PageRoot: React.FC<IPageRootProps> = ({ children, pageContext }) => {
   });
 
   return (
-    <PageContextProvider value={pageContext}>
-      <ThemeWrapper>
-        <SearchModalProvider>
-          <SearchModal />
-          <Global styles={globalStyles} />
-          <Header siteTitle={data.site.siteMetadata.title} />
-          {children}
-          <Footer />
-        </SearchModalProvider>
-      </ThemeWrapper>
-    </PageContextProvider>
+    <>
+      <Helmet
+        bodyAttributes={{
+          'data-kontent-project-id': process.env.GATSBY_KC_PROJECT_ID,
+          'data-kontent-language-codename': process.env.GATSBY_KC_LANGUAGE_CODENAME,
+        }}
+      />
+      <PageContextProvider value={pageContext}>
+        <ThemeWrapper>
+          <SearchModalProvider>
+            <SearchModal />
+            <Global styles={globalStyles} />
+            <Header siteTitle={data.site.siteMetadata.title} />
+            {children}
+            <Footer />
+          </SearchModalProvider>
+        </ThemeWrapper>
+      </PageContextProvider>
+    </>
   );
 };
 
