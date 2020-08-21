@@ -113,6 +113,7 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {
+          '/*': ['Content-Security-Policy: frame-ancestors https://app.kontent.ai'],
           '/sw.js': ['Cache-Control: no-cache'],
         },
       },
@@ -155,16 +156,9 @@ module.exports = {
             settings: {
               attributesToSnippet: [`summary:20`],
               customRanking: ['desc(published_unix)'],
-              searchableAttributes: [
-                'title',
-                'content',
-                'summary',
-                '_tags',
-                'type',
-              ],
+              searchableAttributes: ['title', 'content', 'summary', '_tags', 'type'],
             },
-            transformer: ({ data }) =>
-              data.allSearchableItem.edges.map(({ node }) => node),
+            transformer: ({ data }) => data.allSearchableItem.edges.map(({ node }) => node),
           },
         ],
       },
@@ -190,16 +184,14 @@ module.exports = {
               return allKontentItemArticle.edges.map(edge => {
                 return Object.assign({}, edge.node, {
                   title: edge.node.elements.metadata__page_title.value,
-                  description:
-                    edge.node.elements.metadata__page_description.value,
+                  description: edge.node.elements.metadata__page_description.value,
                   date: edge.node.elements.date.value,
                   pubDate: edge.node.elements.date.value,
                   url: site.siteMetadata.siteUrl + edge.node.url,
                   guid: site.siteMetadata.siteUrl + edge.node.url,
                   custom_elements: [
                     {
-                      'content:encoded':
-                        edge.node.elements.body.resolvedData.html,
+                      'content:encoded': edge.node.elements.body.resolvedData.html,
                     },
                   ],
                 });

@@ -1,6 +1,8 @@
 import { Global } from '@emotion/core';
+import KontentSmartLink from '@kentico/kontent-smart-link';
+import '@kentico/kontent-smart-link/dist/kontent-smart-link.styles.css';
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { ReactNode } from 'react';
+import React, { useEffect, ReactNode } from 'react';
 
 import ThemeWrapper from '@components/connected/ThemeWrapper';
 
@@ -30,6 +32,15 @@ const PageRoot: React.FC<IPageRootProps> = ({ children, pageContext }) => {
       }
     `,
   );
+
+  useEffect(() => {
+    const kontentSmartLink = KontentSmartLink.initialize({
+      queryParam: 'preview-mode',
+    });
+    return () => {
+      kontentSmartLink.destroy();
+    };
+  });
 
   return (
     <PageContextProvider value={pageContext}>

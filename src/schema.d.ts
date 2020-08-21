@@ -230,9 +230,9 @@ export namespace Schema {
     metadata__open_graph_image: IKontentAssetElement;
   }
 
-  interface IHomePage extends IKontentItem<IHomePageElements> {}
+  interface IHomepage extends IKontentItem<IHomepageElements> {}
 
-  interface IHomePageElements {
+  interface IHomepageElements {
     background_image: IKontentAssetElement;
     metadata__open_graph_image: IKontentAssetElement;
     metadata__page_description: IKontentTextElement;

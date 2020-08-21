@@ -8,13 +8,13 @@ import SEO from '@components/connected/SEO';
 
 interface IIndexProps {
   data: {
-    allKontentItemHomePage: Schema.IConnection<Schema.IHomePage>;
+    allKontentItemHomepage: Schema.IConnection<Schema.IHomepage>;
   };
 }
 
 const Index: FC<IIndexProps> = ({
   data: {
-    allKontentItemHomePage: {
+    allKontentItemHomepage: {
       edges: [{ node: data }],
     },
   },
@@ -45,7 +45,7 @@ export default Index;
 
 export const query = graphql`
   query Home {
-    allKontentItemHomePage {
+    allKontentItemHomepage {
       edges {
         node {
           id

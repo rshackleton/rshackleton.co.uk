@@ -22,7 +22,7 @@ const InlineLink: FC<IInlineLinkProps> = ({ content, linkId, type, urlSlug }) =>
       break;
     }
 
-    case 'home_page': {
+    case 'homepage': {
       url = `/`;
       break;
     }

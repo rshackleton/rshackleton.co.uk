@@ -17,7 +17,7 @@ module.exports = function resolveUrl(type, slug) {
     case 'KontentItemContentPage':
       return `/${slug}`;
 
-    case 'KontentItemHomePage':
+    case 'KontentItemHomepage':
       return `/`;
 
     default:
