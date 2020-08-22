@@ -27,7 +27,7 @@
     "@fortawesome/fontawesome-svg-core": "1.2.30",
     "@fortawesome/free-solid-svg-icons": "5.14.0",
     "@fortawesome/react-fontawesome": "0.1.11",
-    "@kentico/kontent-smart-link": "^1.0.0",
+    "@kentico/kontent-smart-link": "1.0.0",
     "@rshackleton/gatsby-theme-kontent": "0.1.0",
     "algoliasearch": "3.35.1",
     "babel-plugin-emotion": "10.0.33",
