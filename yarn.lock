@@ -4044,7 +4044,7 @@
     parse5 "5.1.1"
     reflect-metadata "0.1.13"
 
-"@kentico/kontent-smart-link@^1.0.0":
+"@kentico/kontent-smart-link@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@kentico/kontent-smart-link/-/kontent-smart-link-1.0.0.tgz#12d761c9275ec9c3f30760c27cd1805aa4ef404b"
   integrity sha512-ptpTKRE+Q0moYAsG+cAjLei/h3xjTRe+gCxlnCh75+kv5+X1cGz8Tdphqk7mYTHxAasOpij3wS5MEzGBB4SMpQ==
