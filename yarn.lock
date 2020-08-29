@@ -12031,10 +12031,10 @@ inquirer@^7.0.0:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-instantsearch.css@7.4.3:
-  version "7.4.3"
-  resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-7.4.3.tgz#527c52a1ce8a3418a8dbc5ad1319915b6646b4bb"
-  integrity sha512-Ywwf5QMKXpaoWsEPZbDHIcyka9ocyhxuSp8HgRK8v05DiyKz2kv0K3ysinshtAqAd1ut8HEh36dviWD/Z/+w2A==
+instantsearch.css@7.4.4:
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/instantsearch.css/-/instantsearch.css-7.4.4.tgz#9f73149bf2dda45b26a24008e138b8e6e8d6f6ff"
+  integrity sha512-JmqgJD3HUxH5N2Cw5Utzz1G+W1Dsg1Fuf6UNfln7ptnRT3TguPRKBAIKuxnaGmdNdjAAsuWoohvgtgo66+MaoQ==
 
 internal-ip@^4.3.0:
   version "4.3.0"
