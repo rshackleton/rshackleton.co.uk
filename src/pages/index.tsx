@@ -70,6 +70,8 @@ const Home: React.FC<IHomeProps> = ({ homePage }) => {
   );
 };
 
+export default Home;
+
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const homePage = await getHomePage(preview);
   return {
@@ -78,5 +80,3 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     revalidate: 300,
   };
 };
-
-export default Home;

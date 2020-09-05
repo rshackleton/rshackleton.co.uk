@@ -5,7 +5,7 @@ interface IHeaderProps {}
 
 const Header: React.FC<IHeaderProps> = () => {
   return (
-    <header className="font-heading text-lg bg-white">
+    <header className="fixed top-0 left-0 w-full z-30 font-heading text-lg bg-white">
       <div className="site-wide flex flex-col justify-center sm:flex-row sm:items-center sm:justify-between">
         <Link href="/">
           <a className="py-4 hover:underline">Richard Shackleton</a>
@@ -19,13 +19,8 @@ const Header: React.FC<IHeaderProps> = () => {
               </Link>
             </li>
             <li className="mx-4">
-              <Link href="/about">
+              <Link href="/[slug]" as="/about">
                 <a className="hover:underline">About</a>
-              </Link>
-            </li>
-            <li className="mx-4">
-              <Link href="/contact">
-                <a className="hover:underline">Contact</a>
               </Link>
             </li>
           </ul>
