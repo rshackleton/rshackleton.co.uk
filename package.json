@@ -8,10 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@kentico/kontent-delivery": "^10.0.0",
     "framer-motion": "^2.6.6",
     "next": "9.5.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "rxjs": "^6.6.2",
     "tailwindcss": "^1.8.2"
   },
   "devDependencies": {

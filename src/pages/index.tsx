@@ -1,7 +1,12 @@
 import { motion } from 'framer-motion';
+import { GetStaticProps } from 'next';
 import React from 'react';
 
-interface IHomeProps {}
+import { getHomePage } from '@/lib/api';
+
+interface IHomeProps {
+  homePage: any;
+}
 
 const Wrapper: React.FC = ({ children }) => (
   <motion.div
@@ -14,13 +19,34 @@ const Wrapper: React.FC = ({ children }) => (
   </motion.div>
 );
 
-const BackgroundImage: React.FC = () => (
-  <img
-    className="absolute top-0 left-0 w-full h-full object-cover object-center z-0"
-    src="carbon.png"
-    alt=""
-  />
-);
+const BackgroundImage: React.FC<{ image: string }> = ({ image }) => {
+  const variants: [number, number][] = [
+    // width : aspect ratio
+    [400, 1],
+    [800, 1],
+    [1200, 1],
+    [1600, 1],
+    [2000, 1],
+  ];
+
+  const dv = variants[Math.floor(variants.length / 2)];
+
+  return (
+    <picture>
+      <source sizes="100vw" srcSet={variants.map((v) => `${getUrl(v)} ${v[0]}w`).join(', ')} />
+      <img
+        className="absolute top-0 left-0 w-full h-full object-cover object-center z-0"
+        sizes="100vw"
+        src={getUrl(dv)}
+        alt=""
+      />
+    </picture>
+  );
+
+  function getUrl([width, ratio]: [number, number]): string {
+    return `${image}?w=${width}&h=${width * ratio}&fit=crop&auto=format`;
+  }
+};
 
 const Content: React.FC = () => (
   <div className="relative site-wide mb-32 z-10">
@@ -35,13 +61,22 @@ const Content: React.FC = () => (
   </div>
 );
 
-const Home: React.FC<IHomeProps> = () => {
+const Home: React.FC<IHomeProps> = ({ homePage }) => {
   return (
     <Wrapper>
-      <BackgroundImage />
+      <BackgroundImage image={homePage.image} />
       <Content />
     </Wrapper>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+  const homePage = await getHomePage(preview);
+  return {
+    props: { homePage, preview },
+    // revalidate once per 5 minutes
+    revalidate: 300,
+  };
 };
 
 export default Home;
