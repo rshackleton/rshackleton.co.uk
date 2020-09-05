@@ -6,13 +6,13 @@ interface IHeaderProps {}
 const Header: React.FC<IHeaderProps> = () => {
   return (
     <header className="font-heading text-lg bg-white">
-      <div className="site-wide flex-row-center justify-between">
+      <div className="site-wide flex flex-col justify-center sm:flex-row sm:items-center sm:justify-between">
         <Link href="/">
-          <a className="py-4 hover:underline">rshackleton.co.uk</a>
+          <a className="py-4 hover:underline">Richard Shackleton</a>
         </Link>
 
-        <nav>
-          <ul className="flex-row-center justify-evenly">
+        <nav className="pb-4 sm:pb-0">
+          <ul className="flex flex-row items-center justify-between -mx-4 sm:mx-0">
             <li className="mx-4">
               <Link href="/articles">
                 <a className="hover:underline">Articles</a>

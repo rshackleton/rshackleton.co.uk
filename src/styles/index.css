@@ -9,9 +9,11 @@
 }
 
 .site-wide {
-  @apply max-w-screen-xxl mx-auto px-8;
+  @apply max-w-screen-xxl mx-auto px-4 w-full;
 }
 
-.flex-row-center {
-  @apply flex flex-row items-center;
+@screen sm {
+  .site-wide {
+    @apply px-8;
+  }
 }
