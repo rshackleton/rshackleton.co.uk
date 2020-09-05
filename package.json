@@ -64,7 +64,7 @@
     "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
     "react-instantsearch-dom": "6.7.0",
-    "react-syntax-highlighter": "12.2.1",
+    "react-syntax-highlighter": "13.5.3",
     "react-transition-group": "4.4.1",
     "react-twitter-embed": "3.0.3",
     "react-typography": "0.16.19",
