@@ -15,7 +15,7 @@
 
 .banner-image {
   @apply fixed left-0 w-full object-cover object-center z-0;
-  top: 59px;
+  top: 4rem;
   height: var(--banner-height);
 }
 
