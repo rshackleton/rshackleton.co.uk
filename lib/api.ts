@@ -1,101 +1,174 @@
-import { ContentItem, DeliveryClient, MultipleItemQuery } from '@kentico/kontent-delivery';
+import {
+  IContentItem,
+  DeliveryClient,
+  MultipleItemQuery,
+  TypeResolver,
+} from '@kentico/kontent-delivery';
+
+import { Article } from '@/models/article';
+import { ArticleListing } from '@/models/article_listing';
+import { CodeBlock } from '@/models/code_block';
+import { ContactPage } from '@/models/contact_page';
+import { ContentPage } from '@/models/content_page';
+import { Homepage } from '@/models/homepage';
+import { Page } from '@/models/page';
+import { Tweet } from '@/models/tweet';
+
+// prettier-ignore
+type MultipleItemQueryTransformFunction<T extends IContentItem> = (query: MultipleItemQuery<T>) => MultipleItemQuery<T>;
+
+// prettier-ignore
+type ParseFunction<T extends IContentItem> = (item?: T) => any;
 
 const client = new DeliveryClient({
-  projectId: process.env.KONTENT_PROJECT_ID ?? '',
   previewApiKey: process.env.KONTENT_PREVIEW_API_KEY,
+  projectId: process.env.KONTENT_PROJECT_ID ?? '',
+  typeResolvers: [
+    new TypeResolver('article', () => new Article()),
+    new TypeResolver('article_listing', () => new ArticleListing()),
+    new TypeResolver('code_block', () => new CodeBlock()),
+    new TypeResolver('contact_page', () => new ContactPage()),
+    new TypeResolver('content_page', () => new ContentPage()),
+    new TypeResolver('homepage', () => new Homepage()),
+    new TypeResolver('page', () => new Page()),
+    new TypeResolver('tweet', () => new Tweet()),
+  ],
 });
 
-function parseArticle(item: ContentItem) {
+/**
+ * Get the specified article by slug.
+ * @param slug
+ * @param preview
+ */
+export async function getArticle(slug: string, preview: boolean): Promise<any> {
+  return getItemBySlug('article', slug, preview, parseArticle);
+}
+
+/**
+ * Get the article listing page.
+ * @param preview
+ */
+export async function getArticleListing(preview: boolean): Promise<any> {
+  return getFirstItem('article_listing', preview, parseArticleListing);
+}
+
+/**
+ * Get all articles.
+ * @param preview
+ */
+export async function getArticles(preview: boolean): Promise<any> {
+  return getItems('article', preview, parseArticle, (query) =>
+    query.orderByDescending('elements.date'),
+  );
+}
+
+/**
+ * Get the specified content page by slug.
+ * @param slug
+ * @param preview
+ */
+export async function getContentPage(slug: string, preview: boolean): Promise<any> {
+  return getItemBySlug('content_page', slug, preview, parseContentPage);
+}
+
+/**
+ * Get all content pages.
+ * @param preview
+ */
+export async function getContentPages(preview: boolean): Promise<any> {
+  return getItems('content_page', preview, parseContentPage);
+}
+
+/**
+ * Get the home page.
+ * @param preview
+ */
+export async function getHomePage(preview: boolean): Promise<any> {
+  return getFirstItem<Homepage>('homepage', preview, parseHome);
+}
+
+function parseArticle(item?: Article) {
   return {
-    title: item.title.value,
-    slug: item.slug.value,
-    date: item.date.value.toISOString(),
-    summary: item.summary.value,
-    body: item.body.value,
-    image: item.banner.value[0].url,
+    body: item?.body.resolveHtml(),
+    date: item?.date.value?.toISOString(),
+    image: item?.banner.value[0].url,
+    slug: item?.slug.value,
+    summary: item?.summary.value,
+    title: item?.title.value,
   };
 }
 
-function parseArticleListing(item: ContentItem) {
+function parseArticleListing(item?: ArticleListing) {
   return {
-    title: item.title.value,
-    image: item.banner.value[0].url,
+    image: item?.banner.value[0].url,
+    title: item?.title.value,
   };
 }
 
-function parseContentPage(item: ContentItem) {
+function parseContentPage(item?: ContentPage) {
   return {
-    title: item.title.value,
-    slug: item.slug.value,
-    summary: item.summary.value,
-    body: item.body.value,
-    image: item.banner.value[0].url,
+    body: item?.body.resolveHtml(),
+    image: item?.banner.value[0].url,
+    slug: item?.slug.value,
+    summary: item?.summary.value,
+    title: item?.title.value,
   };
 }
 
-function parseHome(item: ContentItem) {
+function parseHome(item?: Homepage) {
   return {
-    title: item.title.value,
-    image: item.background_image.value[0].url,
+    image: item?.backgroundImage.value[0].url,
+    title: item?.title.value,
   };
 }
 
-async function getFirstItem(
+async function getFirstItem<T extends IContentItem>(
   type: string,
   preview: boolean,
-  parse: (item: ContentItem) => Object,
-  transformQuery?: (query: MultipleItemQuery<ContentItem>) => MultipleItemQuery<ContentItem>,
+  parse: ParseFunction<T>,
+  transformQuery?: MultipleItemQueryTransformFunction<T>,
 ) {
-  let query = client
-    .items()
-    .queryConfig({
-      usePreviewMode: !!preview,
+  return (
+    await getItems(type, preview, parse, (query) => {
+      query = query.limitParameter(1);
+
+      if (transformQuery) {
+        query = transformQuery(query);
+      }
+
+      return query;
     })
-    .type(type)
-    .limitParameter(1);
-
-  if (transformQuery) {
-    query = transformQuery(query);
-  }
-
-  const response = await query.toPromise();
-
-  return parse(response.items[0]);
+  )[0];
 }
 
-async function getItemBySlug(
+async function getItemBySlug<T extends IContentItem>(
   type: string,
   slug: string,
   preview: boolean,
-  parse: (item: ContentItem) => Object,
-  transformQuery?: (query: MultipleItemQuery<ContentItem>) => MultipleItemQuery<ContentItem>,
+  parse: ParseFunction<T>,
+  transformQuery?: MultipleItemQueryTransformFunction<T>,
 ) {
-  let query = await client
-    .items()
-    .queryConfig({
-      usePreviewMode: !!preview,
+  return (
+    await getItems<T>(type, preview, parse, (query) => {
+      query = query.equalsFilter('elements.slug', slug).limitParameter(1);
+
+      if (transformQuery) {
+        query = transformQuery(query);
+      }
+
+      return query;
     })
-    .type(type)
-    .equalsFilter('elements.slug', slug)
-    .limitParameter(1);
-
-  if (transformQuery) {
-    query = transformQuery(query);
-  }
-
-  const response = await query.toPromise();
-
-  return parse(response.items[0]);
+  )[0];
 }
 
-async function getItems(
+async function getItems<T extends IContentItem>(
   type: string,
   preview: boolean,
-  parse: (item: ContentItem) => Object,
-  transformQuery?: (query: MultipleItemQuery<ContentItem>) => MultipleItemQuery<ContentItem>,
+  parse: ParseFunction<T>,
+  transformQuery?: MultipleItemQueryTransformFunction<T>,
 ) {
   let query = client
-    .items()
+    .items<T>()
     .queryConfig({
       usePreviewMode: !!preview,
     })
@@ -107,31 +180,5 @@ async function getItems(
 
   const response = await query.toPromise();
 
-  return response.items.map(parse);
-}
-
-export async function getArticle(slug: string, preview: boolean): Promise<any> {
-  return getItemBySlug('article', slug, preview, parseArticle);
-}
-
-export async function getArticleListing(preview: boolean): Promise<any> {
-  return getFirstItem('article_listing', preview, parseArticleListing);
-}
-
-export async function getArticles(preview: boolean): Promise<any> {
-  return getItems('article', preview, parseArticle, (query) =>
-    query.orderByDescending('elements.date'),
-  );
-}
-
-export async function getContentPage(slug: string, preview: boolean): Promise<any> {
-  return getItemBySlug('content_page', slug, preview, parseContentPage);
-}
-
-export async function getContentPages(preview: boolean): Promise<any> {
-  return getItems('content_page', preview, parseContentPage);
-}
-
-export async function getHomePage(preview: boolean): Promise<any> {
-  return getFirstItem('homepage', preview, parseHome);
+  return response.items.map((item) => parse(item));
 }
