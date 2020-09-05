@@ -1,4 +1,4 @@
-import { DeliveryClient, ContentItem } from '@kentico/kontent-delivery';
+import { ContentItem, DeliveryClient, MultipleItemQuery } from '@kentico/kontent-delivery';
 
 const client = new DeliveryClient({
   projectId: process.env.KONTENT_PROJECT_ID ?? '',
@@ -40,46 +40,73 @@ function parseHome(item: ContentItem) {
   };
 }
 
+async function getFirstItem(
+  type: string,
+  preview: boolean,
+  parse: (item: ContentItem) => Object,
+  transformQuery?: (query: MultipleItemQuery<ContentItem>) => MultipleItemQuery<ContentItem>,
+) {
+  let query = client
+    .items()
+    .queryConfig({
+      usePreviewMode: !!preview,
+    })
+    .type(type)
+    .limitParameter(1);
+
+  if (transformQuery) {
+    query = transformQuery(query);
+  }
+
+  const response = await query.toPromise();
+
+  return parse(response.items[0]);
+}
+
 async function getItemBySlug(
   type: string,
   slug: string,
   preview: boolean,
   parse: (item: ContentItem) => Object,
+  transformQuery?: (query: MultipleItemQuery<ContentItem>) => MultipleItemQuery<ContentItem>,
 ) {
-  const response = await client
+  let query = await client
     .items()
     .queryConfig({
       usePreviewMode: !!preview,
     })
     .type(type)
     .equalsFilter('elements.slug', slug)
-    .limitParameter(1)
-    .toPromise();
+    .limitParameter(1);
+
+  if (transformQuery) {
+    query = transformQuery(query);
+  }
+
+  const response = await query.toPromise();
 
   return parse(response.items[0]);
 }
 
-async function getFirstItem(type: string, preview: boolean, parse: (item: ContentItem) => Object) {
-  const response = await client
+async function getItems(
+  type: string,
+  preview: boolean,
+  parse: (item: ContentItem) => Object,
+  transformQuery?: (query: MultipleItemQuery<ContentItem>) => MultipleItemQuery<ContentItem>,
+) {
+  let query = client
     .items()
     .queryConfig({
       usePreviewMode: !!preview,
     })
-    .type(type)
-    .limitParameter(1)
-    .toPromise();
+    .type(type);
 
-  return parse(response.items[0]);
-}
+  if (transformQuery) {
+    query = transformQuery(query);
+  }
 
-async function getItems(type: string, preview: boolean, parse: (item: ContentItem) => Object) {
-  const response = await client
-    .items()
-    .queryConfig({
-      usePreviewMode: !!preview,
-    })
-    .type(type)
-    .toPromise();
+  const response = await query.toPromise();
+
   return response.items.map(parse);
 }
 
@@ -92,7 +119,9 @@ export async function getArticleListing(preview: boolean): Promise<any> {
 }
 
 export async function getArticles(preview: boolean): Promise<any> {
-  return getItems('article', preview, parseArticle);
+  return getItems('article', preview, parseArticle, (query) =>
+    query.orderByDescending('elements.date'),
+  );
 }
 
 export async function getContentPage(slug: string, preview: boolean): Promise<any> {

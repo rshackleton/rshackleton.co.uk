@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "ts-check": "tsc --noEmit"
   },
   "dependencies": {
     "@kentico/kontent-delivery": "^10.0.0",
