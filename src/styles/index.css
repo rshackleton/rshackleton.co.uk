@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-container {
+  @apply grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.site-wide {
+  @apply max-w-screen-xxl mx-auto px-8;
+}
+
+.flex-row-center {
+  @apply flex flex-row items-center;
+}
