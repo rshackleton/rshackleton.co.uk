@@ -125,6 +125,6 @@
   },
   "resolutions": {
     "gatsby": "2.23.20",
-    "graphql": "14.7.0"
+    "graphql": "15.3.0"
   }
 }
