@@ -4,17 +4,19 @@ import { getArticle, getArticleListing, getContentPage, getHomePage } from '@/li
 
 export default async function preview(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   if (req.query.secret !== process.env.KONTENT_PREVIEW_SECRET) {
-    return res
-      .status(401)
-      .json({ message: 'Invalid token or slug or type parameter not specified' });
+    return res.status(401).json({ message: 'Invalid token.' });
+  }
+
+  if (!req.query.type || typeof req.query.type !== 'string') {
+    return res.status(401).json({ message: 'No type parameter.' });
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const slug = typeof req.query.slug === 'string' ? req.query.slug : req.query.slug[0];
-  const type = typeof req.query.type === 'string' ? req.query.type : req.query.type[0];
+  const type = req.query.type;
 
   switch (type) {
     case 'article': {
+      const slug = typeof req.query.slug === 'string' ? req.query.slug : req.query.slug[0];
       const itemResponse = await getArticle(slug, true);
 
       if (!itemResponse.firstItem) {
@@ -35,6 +37,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
     }
 
     case 'content_page': {
+      const slug = typeof req.query.slug === 'string' ? req.query.slug : req.query.slug[0];
       const itemResponse = await getContentPage(slug, true);
 
       if (!itemResponse.firstItem) {
