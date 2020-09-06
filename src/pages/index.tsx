@@ -3,9 +3,10 @@ import { GetStaticProps } from 'next';
 import React from 'react';
 
 import { getHomePage, parseHomepage } from '@/lib/api';
+import Seo from '@/components/Seo';
 
 interface IHomeProps {
-  homePage: any;
+  homePage: HomepageViewModel | null;
 }
 
 const Wrapper: React.FC = ({ children }) => (
@@ -62,8 +63,13 @@ const Content: React.FC = () => (
 );
 
 const Home: React.FC<IHomeProps> = ({ homePage }) => {
+  if (!homePage) {
+    return null;
+  }
+
   return (
     <Wrapper>
+      <Seo {...homePage.seo} />
       <BackgroundImage image={homePage.image} />
       <Content />
     </Wrapper>
@@ -72,12 +78,12 @@ const Home: React.FC<IHomeProps> = ({ homePage }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps<IHomeProps> = async ({ preview = false }) => {
   const homePageResponse = await getHomePage(preview);
   const homePage = parseHomepage(homePageResponse.firstItem);
 
   return {
-    props: { homePage: homePage, preview },
+    props: { homePage, preview },
     // revalidate once per 5 minutes
     revalidate: 300,
   };

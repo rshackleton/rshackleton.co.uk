@@ -26,7 +26,17 @@ interface RichTextLinkViewModel {
   urlSlug: string;
 }
 
+interface SeoViewModel {
+  canonicalUrl: string;
+  description: string;
+  image: string;
+  keywords: string;
+  title: string;
+  type: string;
+}
+
 interface ArticleViewModel extends ContentViewModel {
+  seo: SeoViewModel;
   body: RichTextViewModel | null;
   date: string;
   image: string;
@@ -36,6 +46,7 @@ interface ArticleViewModel extends ContentViewModel {
 }
 
 interface ArticleListingViewModel extends ContentViewModel {
+  seo: SeoViewModel;
   image: string;
   title: string;
 }
@@ -49,6 +60,7 @@ interface CodeBlockViewModel extends ContentViewModel {
 interface ContactPageViewModel extends ContentViewModel {}
 
 interface ContentPageViewModel extends ContentViewModel {
+  seo: SeoViewModel;
   body: string;
   image: string;
   slug: string;
@@ -57,6 +69,7 @@ interface ContentPageViewModel extends ContentViewModel {
 }
 
 interface HomepageViewModel extends ContentViewModel {
+  seo: SeoViewModel;
   image: string;
   title: string;
 }

@@ -144,6 +144,14 @@ export function parseArticle(
   }
 
   return {
+    seo: {
+      canonicalUrl: `/articles/${item.slug.value}`,
+      description: item.metadataPageDescription.value,
+      image: item.metadataOpenGraphImage.value[0]?.url ?? '',
+      keywords: item.metadataPageKeywords.value,
+      title: item.metadataPageTitle.value,
+      type: 'article',
+    },
     codename: item.system.codename ?? '',
     id: item.system.id ?? '',
     type: item.system.type ?? '',
@@ -162,6 +170,14 @@ export function parseArticleListing(item?: ArticleListing): ArticleListingViewMo
   }
 
   return {
+    seo: {
+      canonicalUrl: `/articles`,
+      description: item.metadataPageDescription.value,
+      image: item.metadataOpenGraphImage.value[0]?.url ?? '',
+      keywords: item.metadataPageKeywords.value,
+      title: item.metadataPageTitle.value,
+      type: 'website',
+    },
     codename: item.system.codename ?? '',
     id: item.system.id ?? '',
     type: item.system.type ?? '',
@@ -203,6 +219,14 @@ export function parseContentPage(item?: ContentPage): ContentPageViewModel | nul
   }
 
   return {
+    seo: {
+      canonicalUrl: `/${item.slug.value}`,
+      description: item.metadataPageDescription.value,
+      image: item.metadataOpenGraphImage.value[0]?.url ?? '',
+      keywords: item.metadataPageKeywords.value,
+      title: item.metadataPageTitle.value,
+      type: 'website',
+    },
     codename: item.system.codename ?? '',
     id: item.system.id ?? '',
     type: item.system.type ?? '',
@@ -220,6 +244,14 @@ export function parseHomepage(item?: Homepage): HomepageViewModel | null {
   }
 
   return {
+    seo: {
+      canonicalUrl: `/`,
+      description: item.metadataPageDescription.value,
+      image: item.metadataOpenGraphImage.value[0]?.url ?? '',
+      keywords: item.metadataPageKeywords.value,
+      title: item.metadataPageTitle.value,
+      type: 'website',
+    },
     codename: item.system.codename ?? '',
     id: item.system.id ?? '',
     type: item.system.type ?? '',

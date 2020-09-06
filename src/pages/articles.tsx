@@ -5,13 +5,18 @@ import Link from 'next/link';
 
 import { getArticleListing, getArticles, parseArticle, parseArticleListing } from '@/lib/api';
 import BannerImage from '@/components/BannerImage';
+import Seo from '@/components/Seo';
 
 interface IArticlesProps {
-  articles: any[];
-  articleListing: any;
+  articles: ArticleViewModel[];
+  articleListing: ArticleListingViewModel | null;
 }
 
 const Articles: React.FC<IArticlesProps> = ({ articles, articleListing }) => {
+  if (!articleListing) {
+    return null;
+  }
+
   return (
     <motion.div
       className="relative"
@@ -19,6 +24,7 @@ const Articles: React.FC<IArticlesProps> = ({ articles, articleListing }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <Seo {...articleListing.seo} />
       <BannerImage image={articleListing.image} />
       <div className="site-inset">
         <h1 className="font-heading font-bold text-4xl mb-8">{articleListing.title}</h1>
@@ -39,9 +45,17 @@ const Articles: React.FC<IArticlesProps> = ({ articles, articleListing }) => {
 
 export default Articles;
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps<IArticlesProps> = async ({ preview = false }) => {
   const articlesResponse = await getArticles(preview);
-  const articles = articlesResponse.items.map((item) => parseArticle(item));
+  const articles: ArticleViewModel[] = [];
+
+  articlesResponse.items.forEach((item) => {
+    const model = parseArticle(item);
+
+    if (model) {
+      articles.push(model);
+    }
+  });
 
   const articleListingResponse = await getArticleListing(preview);
   const articleListing = parseArticleListing(articleListingResponse.firstItem);

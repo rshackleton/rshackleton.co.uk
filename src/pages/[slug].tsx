@@ -5,9 +5,10 @@ import { useRouter } from 'next/router';
 
 import { getContentPage, getContentPages, parseContentPage } from '@/lib/api';
 import BannerImage from '@/components/BannerImage';
+import Seo from '@/components/Seo';
 
 interface IContentPageProps {
-  contentPage: any;
+  contentPage: ContentPageViewModel | null;
   preview: boolean;
 }
 
@@ -18,6 +19,10 @@ const ContentPage: React.FC<IContentPageProps> = ({ contentPage }) => {
     return <div>Loading...</div>;
   }
 
+  if (!contentPage) {
+    return null;
+  }
+
   return (
     <motion.div
       className="relative"
@@ -25,6 +30,7 @@ const ContentPage: React.FC<IContentPageProps> = ({ contentPage }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <Seo {...contentPage.seo} />
       <BannerImage image={contentPage.image} />
       <div className="site-inset">
         <h1 className="font-heading font-bold text-4xl mb-8">{contentPage.title}</h1>

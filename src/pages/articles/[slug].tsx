@@ -6,9 +6,10 @@ import { useRouter } from 'next/router';
 import { getArticle, getArticles, parseArticle } from '@/lib/api';
 import BannerImage from '@/components/BannerImage';
 import RichText from '@/components/RichText';
+import Seo from '@/components/Seo';
 
 interface IArticleProps {
-  article: any;
+  article: ArticleViewModel | null;
   preview: boolean;
 }
 
@@ -19,6 +20,10 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
     return <div>Loading...</div>;
   }
 
+  if (!article) {
+    return null;
+  }
+
   return (
     <motion.div
       className="relative"
@@ -26,17 +31,20 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <Seo {...article.seo} />
       <BannerImage image={article.image} />
       <div className="site-inset">
         <h1 className="font-heading font-bold text-3xl sm:text-4xl mb-8">{article.title}</h1>
-        <div className="prose sm:prose-lg max-w-none">
-          <RichText
-            content={article.body.html}
-            images={article.body.images}
-            linkedItems={article.body.linkedItems}
-            links={article.body.links}
-          />
-        </div>
+        {article.body && (
+          <div className="prose sm:prose-lg max-w-none">
+            <RichText
+              content={article.body.html}
+              images={article.body.images}
+              linkedItems={article.body.linkedItems}
+              links={article.body.links}
+            />
+          </div>
+        )}
       </div>
     </motion.div>
   );
