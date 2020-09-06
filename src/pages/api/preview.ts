@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { getArticle, getArticleListing, getContentPage, getHomePage } from '@/lib/api';
 
-export default async function preview(req: NextApiRequest, res: NextApiResponse) {
+export default async function preview(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   if (req.query.secret !== process.env.KONTENT_PREVIEW_SECRET) {
     return res
       .status(401)
@@ -21,8 +21,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
     }
 
     case 'article_listing': {
@@ -32,8 +31,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
     }
 
     case 'content_page': {
@@ -43,8 +41,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
     }
 
     case 'homepage': {
@@ -54,8 +51,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
     }
 
     // If a content item doesn't exist prevent preview mode from being enabled
