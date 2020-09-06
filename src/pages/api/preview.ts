@@ -3,21 +3,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getArticle, getArticleListing, getContentPage, getHomePage } from '@/lib/api';
 
 export default async function preview(req: NextApiRequest, res: NextApiResponse) {
-  // Check the secret and next parameters
-  // This secret should only be known to this API route and the CMS
-  if (
-    req.query.secret !== process.env.KONTENT_PREVIEW_SECRET ||
-    typeof req.query.slug !== 'string' ||
-    typeof req.query.type !== 'string'
-  ) {
+  if (req.query.secret !== process.env.KONTENT_PREVIEW_SECRET) {
     return res
       .status(401)
       .json({ message: 'Invalid token or slug or type parameter not specified' });
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const slug = req.query.slug;
-  const type = req.query.type;
+  const slug = typeof req.query.slug === 'string' ? req.query.slug : req.query.slug[0];
+  const type = typeof req.query.type === 'string' ? req.query.type : req.query.type[0];
 
   switch (type) {
     case 'article': {
