@@ -31,7 +31,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
+      return enablePreviewAndRedirectTo(`/articles`);
     }
 
     case 'content_page': {
@@ -41,7 +41,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
+      return enablePreviewAndRedirectTo(`/${itemResponse.firstItem.slug.value}`);
     }
 
     case 'homepage': {
@@ -51,7 +51,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
+      return enablePreviewAndRedirectTo(`/`);
     }
 
     // If a content item doesn't exist prevent preview mode from being enabled
