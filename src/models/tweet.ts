@@ -1,3 +1,4 @@
+
 import { ContentItem, Elements } from '@kentico/kontent-delivery';
 
 /**
@@ -5,15 +6,15 @@ import { ContentItem, Elements } from '@kentico/kontent-delivery';
  * Tip: You can replace 'ContentItem' with another generated class to fully leverage strong typing.
  */
 export class Tweet extends ContentItem {
-  public tweetUrl!: Elements.TextElement;
-  constructor() {
-    super({
-      propertyResolver: (elementName: string) => {
-        if (elementName === 'tweet_url') {
-          return 'tweetUrl';
-        }
-        return elementName;
-      },
-    });
-  }
+    public tweetUrl!: Elements.TextElement;
+    constructor() {
+        super({
+            propertyResolver: ((elementName: string) => {
+                if (elementName === 'tweet_url') {
+                    return 'tweetUrl';
+                }
+                return elementName;
+            })
+        });
+    }
 }

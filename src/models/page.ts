@@ -1,3 +1,4 @@
+
 import { ContentItem, Elements } from '@kentico/kontent-delivery';
 
 /**
@@ -5,19 +6,19 @@ import { ContentItem, Elements } from '@kentico/kontent-delivery';
  * Tip: You can replace 'ContentItem' with another generated class to fully leverage strong typing.
  */
 export class Page extends ContentItem {
-  public title!: Elements.TextElement;
-  public subpages!: Elements.LinkedItemsElement<ContentItem>;
-  public url!: Elements.UrlSlugElement;
-  public content!: Elements.LinkedItemsElement<ContentItem>;
-  public showInNavigation!: Elements.MultipleChoiceElement;
-  constructor() {
-    super({
-      propertyResolver: (elementName: string) => {
-        if (elementName === 'show_in_navigation') {
-          return 'showInNavigation';
-        }
-        return elementName;
-      },
-    });
-  }
+    public title!: Elements.TextElement;
+    public subpages!: Elements.LinkedItemsElement<ContentItem>;
+    public url!: Elements.UrlSlugElement;
+    public content!: Elements.LinkedItemsElement<ContentItem>;
+    public showInNavigation!: Elements.MultipleChoiceElement;
+    constructor() {
+        super({
+            propertyResolver: ((elementName: string) => {
+                if (elementName === 'show_in_navigation') {
+                    return 'showInNavigation';
+                }
+                return elementName;
+            })
+        });
+    }
 }

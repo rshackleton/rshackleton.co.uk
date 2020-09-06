@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { GetStaticProps } from 'next';
 import React from 'react';
 
-import { getHomePage } from '@/lib/api';
+import { getHomePage, parseHomepage } from '@/lib/api';
 
 interface IHomeProps {
   homePage: any;
@@ -73,9 +73,11 @@ const Home: React.FC<IHomeProps> = ({ homePage }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const homePage = await getHomePage(preview);
+  const homePageResponse = await getHomePage(preview);
+  const homePage = parseHomepage(homePageResponse.firstItem);
+
   return {
-    props: { homePage, preview },
+    props: { homePage: homePage, preview },
     // revalidate once per 5 minutes
     revalidate: 300,
   };

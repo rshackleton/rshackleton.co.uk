@@ -1,3 +1,4 @@
+
 import { ContentItem, Elements } from '@kentico/kontent-delivery';
 
 /**
@@ -5,32 +6,32 @@ import { ContentItem, Elements } from '@kentico/kontent-delivery';
  * Tip: You can replace 'ContentItem' with another generated class to fully leverage strong typing.
  */
 export class ContactPage extends ContentItem {
-  public title!: Elements.TextElement;
-  public banner!: Elements.AssetsElement;
-  public slug!: Elements.UrlSlugElement;
-  public body!: Elements.RichTextElement;
-  public metadataPageTitle!: Elements.TextElement;
-  public metadataOpenGraphImage!: Elements.AssetsElement;
-  public summary!: Elements.TextElement;
-  public metadataPageDescription!: Elements.TextElement;
-  public metadataPageKeywords!: Elements.TextElement;
-  constructor() {
-    super({
-      propertyResolver: (elementName: string) => {
-        if (elementName === 'metadata__page_title') {
-          return 'metadataPageTitle';
-        }
-        if (elementName === 'metadata__open_graph_image') {
-          return 'metadataOpenGraphImage';
-        }
-        if (elementName === 'metadata__page_description') {
-          return 'metadataPageDescription';
-        }
-        if (elementName === 'metadata__page_keywords') {
-          return 'metadataPageKeywords';
-        }
-        return elementName;
-      },
-    });
-  }
+    public title!: Elements.TextElement;
+    public banner!: Elements.AssetsElement;
+    public slug!: Elements.UrlSlugElement;
+    public body!: Elements.RichTextElement;
+    public metadataPageTitle!: Elements.TextElement;
+    public metadataOpenGraphImage!: Elements.AssetsElement;
+    public summary!: Elements.TextElement;
+    public metadataPageDescription!: Elements.TextElement;
+    public metadataPageKeywords!: Elements.TextElement;
+    constructor() {
+        super({
+            propertyResolver: ((elementName: string) => {
+                if (elementName === 'metadata__page_title') {
+                    return 'metadataPageTitle';
+                }
+                if (elementName === 'metadata__open_graph_image') {
+                    return 'metadataOpenGraphImage';
+                }
+                if (elementName === 'metadata__page_description') {
+                    return 'metadataPageDescription';
+                }
+                if (elementName === 'metadata__page_keywords') {
+                    return 'metadataPageKeywords';
+                }
+                return elementName;
+            })
+        });
+    }
 }

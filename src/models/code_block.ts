@@ -1,3 +1,4 @@
+
 import { ContentItem, Elements } from '@kentico/kontent-delivery';
 
 /**
@@ -5,17 +6,17 @@ import { ContentItem, Elements } from '@kentico/kontent-delivery';
  * Tip: You can replace 'ContentItem' with another generated class to fully leverage strong typing.
  */
 export class CodeBlock extends ContentItem {
-  public code!: Elements.TextElement;
-  public language!: Elements.TextElement;
-  public sourceUrl!: Elements.TextElement;
-  constructor() {
-    super({
-      propertyResolver: (elementName: string) => {
-        if (elementName === 'source_url') {
-          return 'sourceUrl';
-        }
-        return elementName;
-      },
-    });
-  }
+    public code!: Elements.TextElement;
+    public language!: Elements.TextElement;
+    public sourceUrl!: Elements.TextElement;
+    constructor() {
+        super({
+            propertyResolver: ((elementName: string) => {
+                if (elementName === 'source_url') {
+                    return 'sourceUrl';
+                }
+                return elementName;
+            })
+        });
+    }
 }

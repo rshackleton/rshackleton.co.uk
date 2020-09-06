@@ -3,8 +3,9 @@ import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
-import { getArticle, getArticles } from '@/lib/api';
+import { getArticle, getArticles, parseArticle } from '@/lib/api';
 import BannerImage from '@/components/BannerImage';
+import RichText from '@/components/RichText';
 
 interface IArticleProps {
   article: any;
@@ -28,10 +29,14 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
       <BannerImage image={article.image} />
       <div className="site-inset">
         <h1 className="font-heading font-bold text-3xl sm:text-4xl mb-8">{article.title}</h1>
-        <div
-          className="prose sm:prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: article.body }}
-        />
+        <div className="prose sm:prose-lg max-w-none">
+          <RichText
+            content={article.body.html}
+            images={article.body.images}
+            linkedItems={article.body.linkedItems}
+            links={article.body.links}
+          />
+        </div>
       </div>
     </motion.div>
   );
@@ -43,19 +48,24 @@ export const getStaticProps: GetStaticProps<IArticleProps, { slug: string }> = a
   params,
   preview = false,
 }) => {
-  const article = await getArticle(params?.slug ?? '', preview);
+  const articleResponse = await getArticle(params?.slug ?? '', preview);
+  const article = parseArticle(articleResponse.firstItem, articleResponse.linkedItems);
+
   return {
-    props: { article, preview },
+    props: {
+      article,
+      preview,
+    },
     // revalidate once per 5 minutes
     revalidate: 300,
   };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articles = await getArticles(false);
+  const articlesResponse = await getArticles(false);
 
   return {
-    paths: articles.map((article: any) => ({ params: { slug: article.slug } })),
+    paths: articlesResponse.items.map((article) => ({ params: { slug: article.slug.value } })),
     fallback: true,
   };
 };

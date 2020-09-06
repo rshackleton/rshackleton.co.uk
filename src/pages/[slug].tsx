@@ -3,7 +3,7 @@ import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
-import { getContentPage, getContentPages } from '@/lib/api';
+import { getContentPage, getContentPages, parseContentPage } from '@/lib/api';
 import BannerImage from '@/components/BannerImage';
 
 interface IContentPageProps {
@@ -43,7 +43,9 @@ export const getStaticProps: GetStaticProps<IContentPageProps, { slug: string }>
   params,
   preview = false,
 }) => {
-  const contentPage = await getContentPage(params?.slug ?? '', preview);
+  const contentPageResponse = await getContentPage(params?.slug ?? '', preview);
+  const contentPage = parseContentPage(contentPageResponse.firstItem);
+
   return {
     props: { contentPage, preview },
     // revalidate once per 5 minutes
@@ -52,10 +54,12 @@ export const getStaticProps: GetStaticProps<IContentPageProps, { slug: string }>
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const contentPages = await getContentPages(false);
+  const contentPagesResponse = await getContentPages(false);
 
   return {
-    paths: contentPages.map((contentPage: any) => ({ params: { slug: contentPage.slug } })),
+    paths: contentPagesResponse.items.map((contentPage) => ({
+      params: { slug: contentPage.slug.value },
+    })),
     fallback: true,
   };
 };
