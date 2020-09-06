@@ -2,33 +2,28 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { getArticle, getArticleListing, getContentPage, getHomePage } from '@/lib/api';
 
-export default async function preview(req: NextApiRequest, res: NextApiResponse) {
-  // Check the secret and next parameters
-  // This secret should only be known to this API route and the CMS
-  if (
-    req.query.secret !== process.env.KONTENT_PREVIEW_SECRET ||
-    typeof req.query.slug !== 'string' ||
-    typeof req.query.type !== 'string'
-  ) {
-    return res
-      .status(401)
-      .json({ message: 'Invalid token or slug or type parameter not specified' });
+export default async function preview(req: NextApiRequest, res: NextApiResponse): Promise<void> {
+  if (req.query.secret !== process.env.KONTENT_PREVIEW_SECRET) {
+    return res.status(401).json({ message: 'Invalid token.' });
+  }
+
+  if (!req.query.type || typeof req.query.type !== 'string') {
+    return res.status(401).json({ message: 'No type parameter.' });
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const slug = req.query.slug;
   const type = req.query.type;
 
   switch (type) {
     case 'article': {
+      const slug = typeof req.query.slug === 'string' ? req.query.slug : req.query.slug[0];
       const itemResponse = await getArticle(slug, true);
 
       if (!itemResponse.firstItem) {
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
     }
 
     case 'article_listing': {
@@ -38,19 +33,18 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/articles`);
     }
 
     case 'content_page': {
+      const slug = typeof req.query.slug === 'string' ? req.query.slug : req.query.slug[0];
       const itemResponse = await getContentPage(slug, true);
 
       if (!itemResponse.firstItem) {
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/${itemResponse.firstItem.slug.value}`);
     }
 
     case 'homepage': {
@@ -60,8 +54,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ message: 'Item not found' });
       }
 
-      enablePreviewAndRedirectTo(`/articles/${itemResponse.firstItem.slug.value}`);
-      break;
+      return enablePreviewAndRedirectTo(`/`);
     }
 
     // If a content item doesn't exist prevent preview mode from being enabled
