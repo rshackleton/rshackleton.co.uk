@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --banner-height: 60vh;
+  --banner-overlap: 180px;
+}
+
+.main-container {
+  @apply grid;
+  grid-template-rows: 1fr auto;
+  min-height: 100vh;
+}
+
+.banner-image {
+  @apply fixed left-0 w-full object-cover object-center z-0;
+  top: 4rem;
+  height: var(--banner-height);
+}
+
+.site-wide {
+  @apply max-w-screen-xxl mx-auto px-4 w-full;
+}
+
+@screen sm {
+  .site-wide {
+    @apply px-8;
+  }
+}
+
+.site-inset {
+  @apply relative max-w-4xl mx-auto p-8 w-full z-10 bg-white;
+  margin-top: calc(var(--banner-height) - var(--banner-overlap));
+}
+
+@screen sm {
+  .site-inset {
+    @apply p-16;
+  }
+}
