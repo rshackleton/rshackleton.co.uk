@@ -18,7 +18,7 @@ const Header: React.FC<IHeaderProps> = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full h-16 z-10 font-heading text-lg bg-white">
+      <header className="fixed top-0 left-0 w-full h-16 z-20 font-heading text-lg bg-white">
         <div className="site-wide flex flex-row h-full items-center justify-between">
           <Link href="/">
             <a className="hover:underline">Richard Shackleton</a>

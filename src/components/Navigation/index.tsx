@@ -51,7 +51,7 @@ const NavigationOverlay: React.FC<INavigationOverlayProps> = ({ onClick }) => {
 
   return createPortal(
     <motion.div
-      className="fixed top-0 left-0 w-full h-screen z-20 bg-gray-900 opacity-75"
+      className="fixed top-0 left-0 w-full h-screen z-30 bg-gray-900 opacity-75"
       initial="closed"
       animate="opened"
       exit="closed"
@@ -65,7 +65,7 @@ const NavigationOverlay: React.FC<INavigationOverlayProps> = ({ onClick }) => {
 const Navigation: React.FC<INavigationProps> = ({ onClose }) => {
   return (
     <motion.nav
-      className="fixed top-0 right-0 w-4/5 max-w-xs h-screen px-4 z-30 bg-white font-heading text-lg"
+      className="fixed top-0 right-0 w-4/5 max-w-xs h-screen px-4 z-40 bg-white font-heading text-lg"
       initial="closed"
       animate="opened"
       exit="closed"
