@@ -9,7 +9,11 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html className="font-body">
+      <Html
+        className="font-body"
+        data-kontent-language-codename="default"
+        data-kontent-project-id={process.env.NEXT_PUBLIC_PROJECT_ID}
+      >
         <Head>
           <link
             href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto:ital,wght@0,300;0,500;1,300&display=swap"

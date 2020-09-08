@@ -9,18 +9,19 @@ interface IHomeProps {
   homePage: HomepageViewModel | null;
 }
 
-const Wrapper: React.FC = ({ children }) => (
+const Wrapper: React.FC = ({ children, ...rest }) => (
   <motion.div
     className="relative flex items-center bg-black"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     exit={{ opacity: 0 }}
+    {...rest}
   >
     {children}
   </motion.div>
 );
 
-const BackgroundImage: React.FC<{ image: string }> = ({ image }) => {
+const BackgroundImage: React.FC<{ image: string }> = ({ image, ...rest }) => {
   const variants: [number, number][] = [
     // width : aspect ratio
     [400, 1],
@@ -40,6 +41,7 @@ const BackgroundImage: React.FC<{ image: string }> = ({ image }) => {
         sizes="100vw"
         src={getUrl(dv)}
         alt=""
+        {...rest}
       />
     </picture>
   );
@@ -68,9 +70,9 @@ const Home: React.FC<IHomeProps> = ({ homePage }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper data-kontent-item-id={homePage.id}>
       <Seo {...homePage.seo} />
-      <BackgroundImage image={homePage.image} />
+      <BackgroundImage image={homePage.image} data-kontent-element-codename="background_image" />
       <Content />
     </Wrapper>
   );

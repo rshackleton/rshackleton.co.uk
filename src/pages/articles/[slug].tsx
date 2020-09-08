@@ -30,13 +30,19 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      data-kontent-item-id={article.id}
     >
       <Seo {...article.seo} />
-      <BannerImage image={article.image} />
+      <BannerImage image={article.image} data-kontent-element-codename="banner" />
       <div className="site-inset">
-        <h1 className="font-heading font-bold text-3xl sm:text-4xl mb-8">{article.title}</h1>
+        <h1
+          className="font-heading font-bold text-3xl sm:text-4xl mb-8"
+          data-kontent-element-codename="title"
+        >
+          {article.title}
+        </h1>
         {article.body && (
-          <div className="prose sm:prose-lg max-w-none">
+          <div className="prose sm:prose-lg max-w-none" data-kontent-element-codename="body">
             <RichText
               content={article.body.html}
               images={article.body.images}

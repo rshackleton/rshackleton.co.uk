@@ -23,18 +23,27 @@ const Articles: React.FC<IArticlesProps> = ({ articles, articleListing }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      data-kontent-item-id={articleListing.id}
     >
       <Seo {...articleListing.seo} />
-      <BannerImage image={articleListing.image} />
+      <BannerImage image={articleListing.image} data-kontent-element-codename="banner" />
       <div className="site-inset">
-        <h1 className="font-heading font-bold text-4xl mb-8">{articleListing.title}</h1>
+        <h1 className="font-heading font-bold text-4xl mb-8" data-kontent-element-codename="title">
+          {articleListing.title}
+        </h1>
         {articles.map((article) => (
           <Link key={article.id} href="/articles/[slug]" as={`/articles/${article.slug}`}>
-            <a className="group flex flex-col justify-center mb-8">
-              <h2 className="font-heading font-bold text-2xl mb-4 group-hover:underline">
+            <a
+              className="group flex flex-col justify-center mb-8"
+              data-kontent-item-id={article.id}
+            >
+              <h2
+                className="font-heading font-bold text-2xl mb-4 group-hover:underline"
+                data-kontent-element-codename="title"
+              >
                 {article.title}
               </h2>
-              <p>{article.summary}</p>
+              <p data-kontent-element-codename="summary">{article.summary}</p>
             </a>
           </Link>
         ))}

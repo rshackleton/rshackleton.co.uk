@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { getContentPage, getContentPages, parseContentPage } from '@/lib/api';
 import BannerImage from '@/components/BannerImage';
 import Seo from '@/components/Seo';
+import RichText from '@/components/RichText';
 
 interface IContentPageProps {
   contentPage: ContentPageViewModel | null;
@@ -29,15 +30,24 @@ const ContentPage: React.FC<IContentPageProps> = ({ contentPage }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      data-kontent-item-id={contentPage.id}
     >
       <Seo {...contentPage.seo} />
-      <BannerImage image={contentPage.image} />
+      <BannerImage image={contentPage.image} data-kontent-element-codename="banner" />
       <div className="site-inset">
-        <h1 className="font-heading font-bold text-4xl mb-8">{contentPage.title}</h1>
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: contentPage.body }}
-        />
+        <h1 className="font-heading font-bold text-4xl mb-8" data-kontent-element-codename="title">
+          {contentPage.title}
+        </h1>
+        {contentPage.body && (
+          <div className="prose sm:prose-lg max-w-none" data-kontent-element-codename="body">
+            <RichText
+              content={contentPage.body.html}
+              images={contentPage.body.images}
+              linkedItems={contentPage.body.linkedItems}
+              links={contentPage.body.links}
+            />
+          </div>
+        )}
       </div>
     </motion.div>
   );

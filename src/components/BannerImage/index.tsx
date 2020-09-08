@@ -1,4 +1,4 @@
-const BannerImage: React.FC<{ image: string }> = ({ image }) => {
+const BannerImage: React.FC<{ image: string }> = ({ image, ...rest }) => {
   if (!image || typeof image !== 'string') {
     return null;
   }
@@ -17,7 +17,7 @@ const BannerImage: React.FC<{ image: string }> = ({ image }) => {
   return (
     <picture>
       <source sizes="100vw" srcSet={variants.map((v) => `${getUrl(v)} ${v[0]}w`).join(', ')} />
-      <img className="banner-image" sizes="100vw" src={getUrl(dv)} alt="" />
+      <img className="banner-image" sizes="100vw" src={getUrl(dv)} alt="" {...rest} />
     </picture>
   );
 

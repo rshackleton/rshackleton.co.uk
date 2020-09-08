@@ -65,7 +65,7 @@ export default async function preview(req: NextApiRequest, res: NextApiResponse)
 
   function enablePreviewAndRedirectTo(url: string) {
     res.setPreviewData({});
-    res.writeHead(307, { Location: url });
+    res.writeHead(307, { Location: `${url}?kontent-smart-link-enabled` });
     res.end();
   }
 }

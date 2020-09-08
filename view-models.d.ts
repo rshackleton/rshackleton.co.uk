@@ -61,7 +61,7 @@ interface ContactPageViewModel extends ContentViewModel {}
 
 interface ContentPageViewModel extends ContentViewModel {
   seo: SeoViewModel;
-  body: string;
+  body: RichTextViewModel | null;
   image: string;
   slug: string;
   summary: string;

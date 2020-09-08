@@ -213,7 +213,10 @@ export function parseContactPage(item?: ContactPage): ContentViewModel | null {
   };
 }
 
-export function parseContentPage(item?: ContentPage): ContentPageViewModel | null {
+export function parseContentPage(
+  item?: ContentPage,
+  linkedItems?: IContentItemsContainer<IContentItem>,
+): ContentPageViewModel | null {
   if (!item) {
     return null;
   }
@@ -230,7 +233,7 @@ export function parseContentPage(item?: ContentPage): ContentPageViewModel | nul
     codename: item.system.codename ?? '',
     id: item.system.id ?? '',
     type: item.system.type ?? '',
-    body: item.body.resolveHtml(),
+    body: parseRichText(item.body, linkedItems),
     image: item.banner.value[0].url,
     slug: item.slug.value,
     summary: item.summary.value,

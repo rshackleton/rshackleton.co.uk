@@ -1077,6 +1077,11 @@
     parse5 "6.0.1"
     reflect-metadata "0.1.13"
 
+"@kentico/kontent-smart-link@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-smart-link/-/kontent-smart-link-1.1.0.tgz#0286ddb5ca786d9a063f416ab37ba45826e00ed7"
+  integrity sha512-ZaHyJovDylW2qBhimbI+173u/Io3OyvGNDj7fB4jQExwkkXlcFLoxOCmaqwKtq/nif7rae3BKyVXV2qtH40jXg==
+
 "@next/react-dev-overlay@9.5.3":
   version "9.5.3"
   resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.5.3.tgz#3275301f08045ecc709e3273031973a1f5e81427"
