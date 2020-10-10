@@ -222,7 +222,7 @@ function getStructuredData(article: ArticleViewModel) {
     '@type': 'NewsArticle',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://${process.env.NEXT_PUBLIC_HOST}/${article.seo.canonicalUrl}`,
+      '@id': `https://${process.env.NEXT_PUBLIC_HOST}${article.seo.canonicalUrl}`,
     },
     headline: article.seo.title,
     image: `${article.seo.image}?w=1200&h=1200&fit=crop`,
