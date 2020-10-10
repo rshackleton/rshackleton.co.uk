@@ -20,6 +20,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "rxjs": "6.6.3",
+    "sitemap": "^6.3.2",
     "tailwindcss": "1.8.13"
   },
   "devDependencies": {
