@@ -13,7 +13,7 @@
     "@kentico/kontent-smart-link": "1.2.0",
     "@tailwindcss/typography": "0.2.0",
     "@types/lodash": "4.14.161",
-    "framer-motion": "2.7.7",
+    "framer-motion": "2.8.0",
     "html-react-parser": "0.14.0",
     "next": "9.5.4",
     "react": "16.13.1",
