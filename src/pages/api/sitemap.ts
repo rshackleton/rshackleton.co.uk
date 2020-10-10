@@ -1,3 +1,4 @@
+import orderBy from 'lodash/orderBy';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { SitemapStream, streamToPromise } from 'sitemap';
 
@@ -12,16 +13,32 @@ import {
   parseHomepage,
 } from '@/lib/api';
 
+type SitemapItem = {
+  lastmod: Date;
+  url: string;
+};
+
 export default async (_: NextApiRequest, res: NextApiResponse) => {
+  let items: SitemapItem[] = [];
+
+  await addArticleListing(items);
+  await addArticles(items);
+  await addContentPages(items);
+  await addHomePage(items);
+
   const smStream = new SitemapStream({
     hostname: `https://${process.env.NEXT_PUBLIC_HOST}`,
     lastmodDateOnly: true,
   });
 
-  await addArticleListing(smStream);
-  await addArticles(smStream);
-  await addContentPages(smStream);
-  await addHomePage(smStream);
+  items = orderBy(items, ['url']);
+
+  items.forEach((item) => {
+    smStream.write({
+      lastmod: item.lastmod,
+      url: item.url,
+    });
+  });
 
   smStream.end();
 
@@ -34,25 +51,7 @@ export default async (_: NextApiRequest, res: NextApiResponse) => {
   res.end();
 };
 
-async function addArticles(sitemap: SitemapStream): Promise<void> {
-  const response = await getArticles(false);
-
-  response.items.forEach((item) => {
-    const model = parseArticle(item);
-    const url = model?.seo.canonicalUrl;
-
-    if (!url) {
-      return;
-    }
-
-    sitemap.write({
-      lastmod: item.system.lastModified,
-      url,
-    });
-  });
-}
-
-async function addArticleListing(sitemap: SitemapStream): Promise<void> {
+async function addArticleListing(items: SitemapItem[]): Promise<void> {
   const response = await getArticleListing(false);
 
   response.items.forEach((item) => {
@@ -63,14 +62,32 @@ async function addArticleListing(sitemap: SitemapStream): Promise<void> {
       return;
     }
 
-    sitemap.write({
+    items.push({
       lastmod: item.system.lastModified,
       url,
     });
   });
 }
 
-async function addContentPages(sitemap: SitemapStream): Promise<void> {
+async function addArticles(items: SitemapItem[]): Promise<void> {
+  const response = await getArticles(false);
+
+  response.items.forEach((item) => {
+    const model = parseArticle(item);
+    const url = model?.seo.canonicalUrl;
+
+    if (!url) {
+      return;
+    }
+
+    items.push({
+      lastmod: item.system.lastModified,
+      url,
+    });
+  });
+}
+
+async function addContentPages(items: SitemapItem[]): Promise<void> {
   const response = await getContentPages(false);
 
   response.items.forEach((item) => {
@@ -81,14 +98,14 @@ async function addContentPages(sitemap: SitemapStream): Promise<void> {
       return;
     }
 
-    sitemap.write({
+    items.push({
       lastmod: item.system.lastModified,
       url,
     });
   });
 }
 
-async function addHomePage(sitemap: SitemapStream): Promise<void> {
+async function addHomePage(items: SitemapItem[]): Promise<void> {
   const response = await getHomePage(false);
 
   response.items.forEach((item) => {
@@ -99,7 +116,7 @@ async function addHomePage(sitemap: SitemapStream): Promise<void> {
       return;
     }
 
-    sitemap.write({
+    items.push({
       lastmod: item.system.lastModified,
       url,
     });
