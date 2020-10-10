@@ -40,6 +40,8 @@ interface ArticleViewModel extends ContentViewModel {
   body: RichTextViewModel | null;
   date: string;
   image: string;
+  isGated: boolean;
+  leadContent: RichTextViewModel | null;
   slug: string;
   summary: string;
   title: string;

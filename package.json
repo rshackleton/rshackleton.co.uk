@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "ts-check": "tsc --noEmit"
+    "ts-check": "tsc --noEmit",
+    "models": "node ./generate-models"
   },
   "dependencies": {
     "@kentico/kontent-delivery": "10.0.0",
@@ -25,6 +26,7 @@
     "@types/node": "14.11.8",
     "@types/react": "16.9.51",
     "@types/react-dom": "16.9.8",
+    "dotenv": "^8.2.0",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "6.7.0",
     "react-svg-loader": "3.0.3",

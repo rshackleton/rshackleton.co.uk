@@ -158,6 +158,8 @@ export function parseArticle(
     body: parseRichText(item.body, linkedItems),
     date: item.date.value?.toISOString() ?? '',
     image: item.banner.value[0].url,
+    isGated: item.isGated.value?.[0]?.codename === 'yes',
+    leadContent: parseRichText(item.leadContent, linkedItems),
     slug: item.slug.value,
     summary: item.summary.value,
     title: item.title.value,
