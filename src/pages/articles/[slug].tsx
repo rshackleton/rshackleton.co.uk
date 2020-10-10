@@ -22,6 +22,7 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
 
   const [body, setBody] = useState(article?.body);
   const [accessControl, setAccessControl] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     doAsync();
@@ -44,11 +45,14 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
       debug(`googlebot: ${isGoogle}`);
 
       if (isGoogle) {
+        setLoading(true);
+
         const content = await fetchContent({
           slug: article.slug,
         });
 
         setBody(content);
+        setLoading(false);
       }
     }
   }, []);
@@ -84,7 +88,7 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
         >
           {article.title}
         </h1>
-        {article.isGated && article.leadContent && !body && (
+        {!loading && article.isGated && article.leadContent && !body && (
           <div
             className="no-paywall prose sm:prose-lg max-w-none"
             data-kontent-element-codename="lead_content"
@@ -97,7 +101,8 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
             />
           </div>
         )}
-        {article.isGated && !body && (
+        {loading && <p>We are loading your content! 👀</p>}
+        {!loading && article.isGated && !body && (
           <form
             className="no-paywall block bg-gray-200 p-8 my-12"
             onSubmit={async (event) => {
@@ -132,7 +137,7 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
             </button>
           </form>
         )}
-        {body && (
+        {!loading && body && (
           <div
             className="paywall prose sm:prose-lg max-w-none"
             data-kontent-element-codename="body"
