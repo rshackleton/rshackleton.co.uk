@@ -13,6 +13,11 @@
   min-height: 100vh;
 }
 
+.main-container > * {
+  min-width: 0;
+  overflow: hidden;
+}
+
 .banner-image {
   @apply fixed left-0 w-full object-cover object-center z-0;
   top: 4rem;
