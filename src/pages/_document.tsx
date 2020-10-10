@@ -11,6 +11,7 @@ class MyDocument extends Document {
     return (
       <Html
         className="font-body"
+        lang="en"
         data-kontent-language-codename="default"
         data-kontent-project-id={process.env.NEXT_PUBLIC_PROJECT_ID}
       >
