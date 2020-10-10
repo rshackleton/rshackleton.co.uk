@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import BannerImage from '@/components/BannerImage';
@@ -69,6 +70,11 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
       data-kontent-item-id={article.id}
     >
       <Seo {...article.seo} />
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(getStructuredData(article), null, 2)}
+        </script>
+      </Head>
       <BannerImage image={article.image} data-kontent-element-codename="banner" />
       <div className="site-inset">
         <h1
@@ -203,3 +209,34 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: true,
   };
 };
+
+function getStructuredData(article: ArticleViewModel) {
+  const data: any = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://${process.env.NEXT_PUBLIC_HOST}/${article.seo.canonicalUrl}`,
+    },
+    headline: article.seo.title,
+    image: `${article.seo.image}?w=1200&h=1200&fit=crop`,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: {
+      '@type': 'Person',
+      name: 'Richard Shackleton',
+    },
+    description: article.seo.description,
+  };
+
+  if (article.isGated) {
+    data.isAccessibleForFree = 'False';
+    data.hasPart = {
+      '@type': 'WebPageElement',
+      isAccessibleForFree: 'False',
+      cssSelector: '.paywall',
+    };
+  }
+
+  return data;
+}
