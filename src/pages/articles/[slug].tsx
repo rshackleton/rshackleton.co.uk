@@ -71,9 +71,10 @@ const Article: React.FC<IArticleProps> = ({ article }) => {
     >
       <Seo {...article.seo} />
       <Head>
-        <script type="application/ld+json">
-          {JSON.stringify(getStructuredData(article), null, 2)}
-        </script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getStructuredData(article), null, 2) }}
+        />
       </Head>
       <BannerImage image={article.image} data-kontent-element-codename="banner" />
       <div className="site-inset">
