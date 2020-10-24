@@ -21,7 +21,7 @@
     "react-dom": "16.14.0",
     "rxjs": "6.6.3",
     "sitemap": "6.3.2",
-    "tailwindcss": "1.9.4"
+    "tailwindcss": "1.9.6"
   },
   "devDependencies": {
     "@types/node": "14.14.2",
