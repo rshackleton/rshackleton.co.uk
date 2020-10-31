@@ -1097,10 +1097,10 @@
     parse5 "6.0.1"
     reflect-metadata "0.1.13"
 
-"@kentico/kontent-smart-link@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-smart-link/-/kontent-smart-link-1.2.0.tgz#1242dee505b50be3ce03e862c55974e5347fed86"
-  integrity sha512-8guYnULVtnuTWJQaJ+/+lXKzPjOWpR2Ezs4oEcPcx4632UhxVkgJdZrhZbwmYjAbVHXEz+m+rYw1eRJdlMr4ZA==
+"@kentico/kontent-smart-link@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-smart-link/-/kontent-smart-link-1.2.1.tgz#2c3ef454aa7c13af1403191d6b5103e829d995d4"
+  integrity sha512-FA+wCzuW925A8rx8fhed7Tp3xlTIS3J2pWcmdlKocmgMqxIJOLro0pEYPVFCXh9u19I0hgYuW9Vv0wj2i+laqw==
 
 "@next/env@9.5.5":
   version "9.5.5"
