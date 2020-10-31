@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@kentico/kontent-delivery": "10.0.0",
-    "@kentico/kontent-smart-link": "1.2.0",
+    "@kentico/kontent-smart-link": "1.2.1",
     "@tailwindcss/typography": "0.2.0",
     "@types/lodash": "4.14.162",
     "framer-motion": "2.9.4",
