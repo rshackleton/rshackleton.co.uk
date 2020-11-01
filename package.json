@@ -20,7 +20,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "rxjs": "6.6.3",
-    "sitemap": "6.3.2",
+    "sitemap": "6.3.3",
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
