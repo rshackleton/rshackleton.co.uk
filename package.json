@@ -15,7 +15,7 @@
     "@tailwindcss/typography": "0.2.0",
     "@types/lodash": "4.14.165",
     "framer-motion": "2.9.4",
-    "html-react-parser": "0.14.0",
+    "html-react-parser": "0.14.1",
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
