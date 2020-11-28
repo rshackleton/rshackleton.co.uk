@@ -10,7 +10,7 @@
     "models": "node ./generate-models"
   },
   "dependencies": {
-    "@kentico/kontent-delivery": "10.0.0",
+    "@kentico/kontent-delivery": "10.1.0",
     "@kentico/kontent-smart-link": "1.2.1",
     "@tailwindcss/typography": "0.3.1",
     "@types/lodash": "4.14.165",
