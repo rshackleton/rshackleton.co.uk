@@ -12,7 +12,7 @@
   "dependencies": {
     "@kentico/kontent-delivery": "10.1.0",
     "@kentico/kontent-smart-link": "1.2.1",
-    "@tailwindcss/typography": "0.3.1",
+    "@tailwindcss/typography": "0.4.0",
     "@types/lodash": "4.14.167",
     "framer-motion": "2.9.5",
     "html-react-parser": "0.14.3",
