@@ -394,19 +394,19 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@kentico/kontent-core@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-8.0.0.tgz#d8eb8b04671485e7776499d5ff20f97e0f78c2c4"
-  integrity sha512-UARJaD4P0aac81LdA3aNJEHRS4ExHY1ApZkXt8pXDfy8PIDz909/KfXaMurGQgTOh6z6bDdQdwGcH1ewj+OMRQ==
+"@kentico/kontent-core@8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-8.1.0.tgz#4912c1b36cf046316cdd4581b19c6c8e8a42c900"
+  integrity sha512-hfRr0z6sJ24HUaWAuR7kmKbYOIxobbFGSdRVuDjENAZiTIKuiGE6Jv82sNuV3LPnwR0Hg2f8ncBliVI04CkP7w==
   dependencies:
-    axios "0.21.0"
+    axios "0.21.1"
 
-"@kentico/kontent-delivery@10.1.0":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-10.1.0.tgz#1ad9a452150e09cc8981b5b7171b004e5f101077"
-  integrity sha512-9lAR0hVaB2kwX+Nnh4W8mnJBoRh5hs7TdjAk4F2QFvvQAzf5U4FTHjvFWXNrQPT6HZIsRd5F7Di4eyLjhHkNlg==
+"@kentico/kontent-delivery@10.3.0":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-10.3.0.tgz#2221aae0915d8a1a40a0600504159620c9969d09"
+  integrity sha512-laprs4keN/4HGqRpopksJbezWuzcBhsvysQgYEU0NQ+7nnbHTQL8E7j+9Eviu8Lfbxn+v+dpYnXGc58Z1Mghhg==
   dependencies:
-    "@kentico/kontent-core" "8.0.0"
+    "@kentico/kontent-core" "8.1.0"
     parse5 "6.0.1"
     reflect-metadata "0.1.13"
 
@@ -696,10 +696,10 @@ autoprefixer@^9.4.5, autoprefixer@^9.6.1:
     postcss "^7.0.32"
     postcss-value-parser "^4.1.0"
 
-axios@0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
-  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+axios@0.21.1:
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   dependencies:
     follow-redirects "^1.10.0"
 
