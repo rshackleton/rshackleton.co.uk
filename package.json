@@ -16,7 +16,7 @@
     "@types/lodash": "4.14.168",
     "framer-motion": "2.9.5",
     "html-react-parser": "0.14.3",
-    "next": "10.0.6",
+    "next": "10.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "rxjs": "6.6.3",
