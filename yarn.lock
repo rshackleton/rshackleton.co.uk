@@ -1364,10 +1364,10 @@ follow-redirects@^1.10.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
 
-framer-motion@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-4.0.2.tgz#1d62c8c2138fdc97f1c93d0313d93609760fd681"
-  integrity sha512-zA/WTEyrJkymmP78/vXf2wCXxofe93CmvaNVG4cA53HNMISW1vbt9lZ9OBiE7KyJR1CWc8agokjr8jmer8JNgQ==
+framer-motion@4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-4.0.3.tgz#e20a32c6825dc08c98e130640cb6441ec2920b7d"
+  integrity sha512-5p9VPpgPctMJuNW8CqHSk9k/v3xAUpReWzlgKl1a1fsvqzcFgNGENZPfBwHuukanvMmh3trzO5jZNX0Kc8/pAA==
   dependencies:
     framesync "5.2.3"
     hey-listen "^1.0.8"
