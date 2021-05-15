@@ -27,7 +27,7 @@
     "@types/node": "14.14.45",
     "@types/react": "17.0.5",
     "@types/react-dom": "16.9.13",
-    "dotenv": "8.6.0",
+    "dotenv": "9.0.2",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "6.7.0",
     "react-svg-loader": "3.0.3",
