@@ -359,10 +359,10 @@
     parse5 "6.0.1"
     reflect-metadata "0.1.13"
 
-"@kentico/kontent-smart-link@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-smart-link/-/kontent-smart-link-1.3.0.tgz#033c939dff1d42612260b7e9e97533224f8acc44"
-  integrity sha512-g8tO1rh6EqO0BCc6N2LKmASfcvrRoD+NzbqYYbzxGWZBCq2mp+vS9aKRQcNU7JAjZc248FjDz2RsrM5OV05MAg==
+"@kentico/kontent-smart-link@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-smart-link/-/kontent-smart-link-2.1.0.tgz#0f2aa901a531b0d9869913cceb0888a8d6c9402d"
+  integrity sha512-UPVrngpISGKEgvjKaP5KTKvm/piOhI4rV9A4soVtdjrF7nr4NPePTC94bSD0NE+Po8u9WNDyYKgeVgMASZLk+A==
 
 "@next/env@10.2.3":
   version "10.2.3"
